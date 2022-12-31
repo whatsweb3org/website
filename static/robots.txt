@@ -1,0 +1,4 @@
+# deliberately empty
+Sitemap: https://whatsweb3.org/sitemap.xml
+User-agent: *
+Disallow:

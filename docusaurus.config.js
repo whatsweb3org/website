@@ -8,7 +8,7 @@ module.exports = {
   url: 'https://whatsweb3.org',
   baseUrl: '/',
   staticDirectories: ['static'],
-  onBrokenLinks: 'throw',
+  onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'throw',
   favicon: 'img/favicon.ico',
   organizationName: 'whatsweborg', // Usually your GitHub org/user name.

@@ -33,9 +33,9 @@ uint8 b = a;
 
 Solidity一共只有三种引用类型分别为：
 
-- **数组**
-- **结构体**
-- **映射类型** （跟Python的dict，Go的map类似）
+- **数组** 一堆类型相同的变量聚集
+- **结构体** 一堆不同类型的变量聚集
+- **映射类型** 一堆键值对的聚集
 
 ![Untitled](assets/data-types/Untitled2.png)
 
@@ -52,20 +52,16 @@ Solidity一共只有三种引用类型分别为：
 对于`storage`和`memory`这两个概念我们应该不难理解，可以想象成`storage`=磁盘，`memory`=RAM。但是对于`calldata`也许你会觉得陌生，到底其与`memory`有什么区别，为什么非要分出来这样的一种数据位置。由于这个是入门教程，我们暂时不引入过多的复杂性，使得读者觉得概念太多太复杂，学习路线太陡峭，所以我们会在「Solidity进阶教程」再深入讨论它们的区别。目前你只需要知道`calldata`相对于`memory`有这下面几个区别即可：
 
 - 只能在引用类型的函数参数使用
-- 数据不可更改（*immutable*)
-- 易失的（n*on-persistent*)
-- 消耗更少的Gas（g*as efficient*)
+- 数据不可更改（_immutable_)
+- 易失的（_non-persistent_)
+- 消耗更少的gas（_gas efficient_)
 
 所以如果你的引用类型函数参数不需要修改，你应该尽可能使用`calldata`而不是`memory`。
 
 # 参考资料
 
-[https://eips.ethereum.org/EIPS/eip-4488](https://eips.ethereum.org/EIPS/eip-4488)
-
-[https://eips.ethereum.org/EIPS/eip-2028](https://eips.ethereum.org/EIPS/eip-2028)
-
-[https://stackoverflow.com/questions/33839154/in-ethereum-solidity-what-is-the-purpose-of-the-memory-keyword](https://stackoverflow.com/questions/33839154/in-ethereum-solidity-what-is-the-purpose-of-the-memory-keyword)
-
-[https://betterprogramming.pub/solidity-tutorial-all-about-calldata-aebbe998a5fc?gi=e169bf2e1867](https://betterprogramming.pub/solidity-tutorial-all-about-calldata-aebbe998a5fc?gi=e169bf2e1867)
-
-[https://ethereum.stackexchange.com/questions/74442/when-should-i-use-calldata-and-when-should-i-use-memory/74443#74443](https://ethereum.stackexchange.com/questions/74442/when-should-i-use-calldata-and-when-should-i-use-memory/74443#74443)
+https://eips.ethereum.org/EIPS/eip-4488
+https://eips.ethereum.org/EIPS/eip-2028
+https://stackoverflow.com/questions/33839154/in-ethereum-solidity-what-is-the-purpose-of-the-memory-keyword
+https://betterprogramming.pub/solidity-tutorial-all-about-calldata-aebbe998a5fc?gi=e169bf2e1867
+https://ethereum.stackexchange.com/questions/74442/when-should-i-use-calldata-and-when-should-i-use-memory/74443#74443

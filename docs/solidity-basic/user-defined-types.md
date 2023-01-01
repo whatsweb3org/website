@@ -80,8 +80,6 @@ function add(Weight lhs, Weight rhs) public pure returns(Weight) {
 
 # 参考资料
 
-[https://blog.soliditylang.org/2021/09/27/user-defined-value-types/](https://blog.soliditylang.org/2021/09/27/user-defined-value-types/)
-
-[https://forum.soliditylang.org/t/user-defined-value-types/314/20](https://forum.soliditylang.org/t/user-defined-value-types/314/20)
-
-[https://forum.soliditylang.org/t/user-defined-types-and-operators/456](https://forum.soliditylang.org/t/user-defined-types-and-operators/456)
+https://blog.soliditylang.org/2021/09/27/user-defined-value-types
+https://forum.soliditylang.org/t/user-defined-value-types/314/20
+https://forum.soliditylang.org/t/user-defined-types-and-operators/456

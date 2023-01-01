@@ -67,6 +67,5 @@ bytes1 ch = s[1]; // ch的值为0x62，也就是'b'的ascii值
 
 # 参考资料
 
-[https://docs.soliditylang.org/en/v0.8.17/types.html#fixed-size-byte-arrays](https://docs.soliditylang.org/en/v0.8.17/types.html#fixed-size-byte-arrays)
-
-[https://jeancvllr.medium.com/solidity-tutorial-all-about-bytes-9d88fdb22676](https://jeancvllr.medium.com/solidity-tutorial-all-about-bytes-9d88fdb22676)
+https://docs.soliditylang.org/en/v0.8.17/types.html#fixed-size-byte-arrays
+https://jeancvllr.medium.com/solidity-tutorial-all-about-bytes-9d88fdb22676

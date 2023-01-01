@@ -113,12 +113,12 @@ send(uint256 amount) returns (bool)
 
 但是目前来看(*2023年1月*)，这两个函数都不安全，都不推荐继续使用。更安全的方法是使用`call`函数来转账。如果你想要了解具体的原因，可以参看下面的这些讨论：
 
-| 讨论内容 | 链接 |
-| --- | --- |
+| 讨论内容 | 链接                                                                                                      |
+| --- |---------------------------------------------------------------------------------------------------------|
 | 讨论transfer与send的区别 | https://ethereum.stackexchange.com/questions/19341/address-send-vs-address-transfer-best-practice-usage |
-| 讨论增加transfer来取代send |  |
-| stackexchange讨论transfer是否安全 | https://ethereum.stackexchange.com/questions/78124/is-transfer-still-safe-after-the-istanbul-update |
-| consensys建议停止使用transfer | https://consensys.net/diligence/blog/2019/09/stop-using-soliditys-transfer-now/ |
+| 讨论增加transfer来取代send | https://github.com/ethereum/solidity/issues/610 |
+| stackexchange讨论transfer是否安全 | https://ethereum.stackexchange.com/questions/78124/is-transfer-still-safe-after-the-istanbul-update     |
+| consensys建议停止使用transfer | https://consensys.net/diligence/blog/2019/09/stop-using-soliditys-transfer-now/                         |
 
 ## call
 
@@ -152,12 +152,8 @@ delegatecall(bytes memory) returns (bool, bytes memory)
 
 # 参考资料
 
-[https://docs.soliditylang.org/en/v0.8.17/types.html#address](https://docs.soliditylang.org/en/v0.8.17/types.html#address)
-
-[https://docs.soliditylang.org/en/v0.8.17/units-and-global-variables.html#address-related](https://docs.soliditylang.org/en/v0.8.17/units-and-global-variables.html#address-related)
-
-[https://docs.openzeppelin.com/upgrades-plugins/1.x/proxies](https://docs.openzeppelin.com/upgrades-plugins/1.x/proxies)
-
-[https://eips.ethereum.org/EIPS/eip-214](https://eips.ethereum.org/EIPS/eip-214)
-
-[https://cryptoguide.dev/post/guide-to-solidity's-staticcall-and-how-to-use-it/](https://cryptoguide.dev/post/guide-to-solidity's-staticcall-and-how-to-use-it/)
+https://docs.soliditylang.org/en/v0.8.17/types.html#address
+https://docs.soliditylang.org/en/v0.8.17/units-and-global-variables.html#address-related]
+https://docs.openzeppelin.com/upgrades-plugins/1.x/proxies
+https://eips.ethereum.org/EIPS/eip-214
+https://cryptoguide.dev/post/guide-to-solidity's-staticcall-and-how-to-use-it

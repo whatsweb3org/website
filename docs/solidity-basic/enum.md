@@ -106,6 +106,6 @@ contract Enum {
 
 # 参考资料
 
-[https://docs.soliditylang.org/en/v0.8.17/types.html#enums](https://docs.soliditylang.org/en/v0.8.17/types.html#enums)
+https://docs.soliditylang.org/en/v0.8.17/types.html#enums
 
-[https://docs.soliditylang.org/en/v0.8.17/abi-spec.html#mapping-solidity-to-abi-types](https://docs.soliditylang.org/en/v0.8.17/abi-spec.html#mapping-solidity-to-abi-types)
+https://docs.soliditylang.org/en/v0.8.17/abi-spec.html#mapping-solidity-to-abi-types

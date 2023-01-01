@@ -28,42 +28,46 @@ while (test_statement) {
 }
 ```
 
-我们可以看到while循环里面有两样东西：
+我们可以看到while循环里面有两个表达式：
 
 - **test_statement**
 - **循环体**
 
-`while`循环在每次循环开始前，首先判断`test_statement`是否为`true`。如果是则把循环体内的语句执行一遍，如果`test_statement`为`false`，那么就退出循环并继续执行余下的代码。通常情况下你都需要在循环体里面修改循环控制变量，使得`test_statement`在适当的时候执行结果为`false`而终止循环。
+`while`循环在每次循环开始前，首先判断`test_statement`是否为`true`。如果是则把循环体执行一遍，如果`test_statement`为`false`，那么就退出循环并继续执行余下的代码。通常情况下你都需要在循环体里面修改循环控制变量，使得`test_statement`在适当的时候执行结果为`false`而终止循环。
 
 # for循环与while循环的比较
 
-如果你有先学习了我们的`for`循环教程，你应该会留意到其中有一个示例展示了`for`循环的控制语句里面只剩下`i<=n`，如下面所示：
+如果你有先学习了我们的`for`循环教程，你应该会留意到其中有一个示例展示了`for`循环的控制语句里面只剩下`test_statement`，如下面所示：
 
+:::tip `for`循环，从1加到n
 ```solidity
-function sum(uint16 n) public pure returns(uint16) {
+function sumToN(uint16 n) public pure returns(uint16) {
     uint16 sum = 0;
     uint16 i = 1; 
-    for(; i <= n; ) { 
+    for(; i <= n; ) { // 循环控制语句只剩下test_statement: i <= n
         sum += i;
         i++; 
     }
     return sum;
 }
 ```
+:::
 
 其实这种形式就类似于`while`循环，我们可以稍作修改就变成`while`循环：
 
+:::tip `while`循环，从1加到n
 ```solidity
-function sum(uint16 n) public pure returns(uint16) {
+function sumToN(uint16 n) public pure returns(uint16) {
     uint16 sum = 0;
     uint16 i = 1; 
     while(i <= n) { //只改了这一行
         sum += i;
-        i++; 
+        i++; // 修改循环变量的值
     }
     return sum;
 }
 ```
+:::
 
 至于什么时候应该使用`for`循环，什么时候使用`while`循环，其实没有硬性规定。更多的是取决于你觉得哪种循环会让代码看起来更整洁。不同的场景可能有不同的选择。
 

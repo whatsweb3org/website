@@ -24,7 +24,7 @@ const JoinCommunitySection = () => {
           Follow on Twitter
         </Link>
         <Link
-          href="https://github.com/whatsweb3org?tab=repositories"
+          href="https://github.com/whatsweb3org/website"
           className="button button--primary button--outline"
         >
           Star on GitHub

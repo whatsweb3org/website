@@ -26,7 +26,7 @@ const DSync = () => {
           },
           {
             title: '开始贡献',
-            href: '',
+            href: 'https://github.com/whatsweb3org/website',
             className: 'button--primary button--outline',
           },
         ]}

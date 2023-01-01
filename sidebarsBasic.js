@@ -4,7 +4,6 @@ module.exports = {
       type: 'category',
       label: 'Solidity入门教程',
       collapsible: true,
-      link: { type: 'doc', id: 'intro' },
       items: [
         'intro',
         'install-remix',

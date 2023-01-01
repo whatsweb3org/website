@@ -24,7 +24,7 @@ Solidity的`while`循环的语法与C语言基本相同，其语法如下：
 
 ```solidity
 while (test_statement) {
-  // 循环体
+    // 循环体
 }
 ```
 
@@ -42,10 +42,10 @@ while (test_statement) {
 ```solidity
 function sum(uint16 n) public pure returns(uint16) {
     uint16 sum = 0;
-    uint16 i = 1; // init_statement被移动到这里了
-    for(; i <= n; ) { //你可以不写init_statement， 也不写iteration_statement
+    uint16 i = 1; 
+    for(; i <= n; ) { 
         sum += i;
-        i++; // iteration_statement的i++被移到这里了
+        i++; 
     }
     return sum;
 }
@@ -83,7 +83,7 @@ for(uint16 i = 1; i <= n; i++) {
 :::tip 条件判断较复杂，使用`while`循环
 ```solidity
 while(isEven(x) && !isZero(x)) {
-		// 代码块
+    // 代码块
 }
 ```
 :::

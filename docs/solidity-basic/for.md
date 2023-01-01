@@ -24,7 +24,7 @@ Solidity的`for`循环的语法与C语言基本相同，其语法如下：
 
 ```solidity
 for (init_statement; test_statement; iteration_statement) {
-		// 要执行的代码块
+    // 要执行的代码块
 }
 ```
 
@@ -38,7 +38,7 @@ for循环有三个控制语句：
 
 ```solidity
 for(uint16 i = 1; i <= 10; i++) {
-	  // init_statement是 i=1 ; test_statement是 i<=n ; iteration_statement是 i++
+    // init_statement是 i=1 ; test_statement是 i<=n ; iteration_statement是 i++
     sum += i;
 }
 ```
@@ -57,7 +57,7 @@ function sum1(uint16 n) public pure returns(uint16) {
     uint16 sum = 0;
     uint16 i;
     for(i = 1; i <= n; i++) {
-			  // init_statement是 i=1 ; test_statement是 i<=n ; iteration_statement是 i++
+        // init_statement是 i=1 ; test_statement是 i<=n ; iteration_statement是 i++
         sum += i;
     }
     return sum;
@@ -77,7 +77,7 @@ function sum2(uint16 n) public pure returns(uint16) {
 ```
 :::
 
-:::tip `init_statement`**可以移动到for循环之前
+:::tip `init_statement`可以移动到for循环之前
 ```solidity
 function sum3(uint16 n) public pure returns(uint16) {
     uint16 sum = 0;

@@ -15,7 +15,7 @@ Solidity的枚举类型跟C语言的类似，都是一种特殊的整型。它�
 :::tip 定义枚举值类型 
 ```solidity
 enum ActionChoices { 
-	  GoLeft,     // 0
+    GoLeft,     // 0
     GoRight,    // 1
     GoUp,       // 2
     GoDown      // 3
@@ -27,14 +27,13 @@ enum ActionChoices {
 
 使用枚举类型可以提高代码的类型安全性和可读性。因为它的变量可能取值只有四个，一旦你赋予了其他值，合约在编译期就会报错。例如，如果你用`uint8`类型来代表上下左右的动作，那么有可能你误传了999进去，合约可能会出现无法预料的后果。编译期是无法发现这样的Bug的。
 
-提高代码可读性是显然易见的，ActionChoices肯定会`uint8`更容易理解其变量所保存内容的含义。
+提高代码可读性是显然易见的，`ActionChoices`肯定比`uint8`更容易理解其变量所保存内容的含义。
 
-# 使用枚举值
+# 获取枚举值
 
-你可以通过`.`操作符来使用枚举类型下面的某个枚举值。例如：
+你可以通过`.`操作符来获取枚举类型的某个枚举值。例如：
 
-:::tip 使用枚举值 
-
+:::tip 使用枚举值
 ```solidity
 ActionChoices choice = ActionChoices.GoLeft;
 ```
@@ -88,15 +87,15 @@ pragma solidity ^0.8.9;
 
 contract Enum {
     enum ActionChoices { 
-			  GoLeft,     // 0
-		    GoRight,    // 1
-		    GoUp,       // 2
-		    GoDown      // 3
-		}
+        GoLeft,     // 0
+        GoRight,    // 1
+        GoUp,       // 2
+        GoDown      // 3
+    }
 
     ActionChoices choice;
 
-	  // 因为ABI中没有枚举类型，所以这里的"getChoice() returns(ActionChoices)"函数签名
+    // 因为ABI中没有枚举类型，所以这里的"getChoice() returns(ActionChoices)"函数签名
     // 会被自动转换成"getChoice() returns(uint8)"
     function getChoice() public view returns (ActionChoices) {
         return choice;

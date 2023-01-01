@@ -127,7 +127,7 @@ module.exports = {
     [
       require.resolve('docusaurus-gtm-plugin'),
       {
-        id: 'GTM-N9999D3', // GTM Container ID
+        id: 'G-WRCFLRDWJ5', // GTM Container ID
       },
     ],
     ['@cmfcmf/docusaurus-search-local', {}],

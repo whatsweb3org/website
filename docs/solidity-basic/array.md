@@ -63,4 +63,7 @@ uint256[] storage nftStorage;
 ```
 :::
 
+# 数组的初始化
+
+
 

@@ -19,6 +19,8 @@ module.exports = {
         'literal',
         'enum',
         'user-defined-types',
+        'data-location',
+        'array',
         'if-else',
         'for',
         'while',

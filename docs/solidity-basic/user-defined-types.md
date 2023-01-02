@@ -4,7 +4,7 @@ title: 自定义值类型
 
 # 自定义值类型
 
-自定义「值类型」（*User Defined Value Types*****），****是用户自定义的「值类型」。注意这里定义的是「值类型」，还有一种自定义的类型是结构体（*struct*），但是它是一种引用类型，之后我们会介绍。自定义值类型类似于别名（*alias*），但是不等同于别名。别名和原类型是一模一样的，只不过是名字不同而已。而自定义值类型缺少原类型的操作符（也就是`+ - * /`等操作符不能再使用）。它的主要存在价值是提高类型安全性和代码可读性。
+自定义「值类型」（*User Defined Value Types*），是用户自定义的「值类型」。注意这里定义的是「值类型」，还有一种自定义的类型是结构体（*struct*），但是它是一种引用类型，之后我们会介绍。自定义值类型类似于别名（*alias*），但是不等同于别名。别名和原类型是一模一样的，只不过是名字不同而已。而自定义值类型缺少原类型的操作符（也就是`+ - * /`等操作符不能再使用）。它的主要存在价值是提高类型安全性和代码可读性。
 
 :::note
 自定义值类型这个词比较拗口，我们直接使用英文User-Defined Value Type代替，以进行接下来的介绍。
@@ -25,7 +25,7 @@ type Price  is uint128;
 
 ## 提高类型安全性
 
-使用User-Defined Value Type可以提高代码的类型安全性。例如下面的代码中，会产生编译错误`*TypeError: Operator + not compatible with types UserDefinedValueType.Weight and UserDefinedValueType.Price.*` 因为`Weight`和`Price`是不同的类型，不能进行算术运算。这提高了类型安全性，避免直接使用`uint128`类型时误用的情况发生。
+使用User-Defined Value Type可以提高代码的类型安全性。例如下面的代码中，会产生编译错误_`TypeError: Operator + not compatible with types UserDefinedValueType.Weight and UserDefinedValueType.Price.`_ 因为`Weight`和`Price`是不同的类型，不能进行算术运算。这提高了类型安全性，避免直接使用`uint128`类型时误用的情况发生。
 
 :::tip 提高类型安全性
 ```solidity

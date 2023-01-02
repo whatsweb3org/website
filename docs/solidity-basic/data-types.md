@@ -27,7 +27,7 @@ uint8 b = a;
 
 # 引用类型
 
-「引用类型」的变量保存的是**数据存储的地址**，而不是数据本身。按理来说引用类型在赋值或者传参时应该传递的是引用地址（*数据存储地址*）才对。然而事实上，也不完全如此，其行为到底是拷贝还是传引用地址还取决一个参数就是「数据位置」（*data location*）。我们先看看都有哪些引用类型，再讨论数据位置。
+「引用类型」的变量保存的是**数据存储的地址**，而不是数据本身。这样一来，在赋值或是传参时所传递的是数据的地址（_pass by reference_）。
 
 ## 引用类型列表
 
@@ -41,27 +41,30 @@ Solidity一共只有三种引用类型分别为：
 
 这三种引用类型我们都有单独的章节进行讨论，可以参看这些章节了解详细内容。
 
-## 数据位置(*data location*)
+## 引用传递（_pass by reference_）
 
-定义引用类型的时候是**必须**要加上数据位置的，例如`uint[] storage`。Solidity可以指定的数据位置有三种：
+:::note
+我们一般将赋值或是传参时所传递的是数据地址称之为「引用传递」（_pass by reference_）
+:::
 
-- `storage` （数据会被存储在链上，是永久记录的，其生命周期与合约生命周期一致）
-- `memory` （数据存储在内存，是易失的，其生命周期与函数调用生命周期一致，函数调用结束数据就消失了）
-- `calldata` （与`memory`类似，数据会被存在一个专门存放函数参数的地方，与`memory`不同的是`calldata`数据是不可更改的。另外相比于`memory`，它消耗更少的Gas）
+下面的示例中我们定义了两个字节数组`bts1`和`bts2`。在第2行中`bts2 = bts1`，这时`bts2`和`bts1`指向了同一个数据地址。当修改它们中任何一个时，另一个的值也会跟着发生变化。
 
-对于`storage`和`memory`这两个概念我们应该不难理解，可以想象成`storage`=磁盘，`memory`=RAM。但是对于`calldata`也许你会觉得陌生，到底其与`memory`有什么区别，为什么非要分出来这样的一种数据位置。由于这个是入门教程，我们暂时不引入过多的复杂性，使得读者觉得概念太多太复杂，学习路线太陡峭，所以我们会在「Solidity进阶教程」再深入讨论它们的区别。目前你只需要知道`calldata`相对于`memory`有这下面几个区别即可：
+:::tip 引用类型赋值时传的是地址（引用传递）
+```solidity
+bytes memory bts1 = "btc";
+bytes memory bts2 = bts1;
 
-- 只能在引用类型的函数参数使用
-- 数据不可更改（_immutable_)
-- 易失的（_non-persistent_)
-- 消耗更少的gas（_gas efficient_)
+console.log("bts1: %s", string(bts1)); // bts1: btc
+console.log("bts2: %s", string(bts2)); // bts2: btc
 
-所以如果你的引用类型函数参数不需要修改，你应该尽可能使用`calldata`而不是`memory`。
+bts2[0] = 'e'; //这里只改了bts2[0]的值，但是你会发现bts1[0]的值也会跟着变动
 
-# 参考资料
+console.log("bts1: %s", string(bts1)); // bts1: etc
+console.log("bts2: %s", string(bts2)); // bts2: etc
+```
+:::
 
-https://eips.ethereum.org/EIPS/eip-4488
-https://eips.ethereum.org/EIPS/eip-2028
-https://stackoverflow.com/questions/33839154/in-ethereum-solidity-what-is-the-purpose-of-the-memory-keyword
-https://betterprogramming.pub/solidity-tutorial-all-about-calldata-aebbe998a5fc?gi=e169bf2e1867
-https://ethereum.stackexchange.com/questions/74442/when-should-i-use-calldata-and-when-should-i-use-memory/74443#74443
+下面的图示更具体展示了出现这种效果的原因：
+![](./assets/data-types/f83c0d5e07134898abefe8f901776d57.png)
+
+现在我们明白什么是引用类型，什么是引用传递。那么所有的引用类型都是使用引用传递吗？答案揭晓：**不是**！引用类型到底是「值传递」还是「引用传递」还得看一个修饰符：「数据位置」(_data location_)修饰符。我们在「数据位置」的单独章节会解释一共有哪几种数据位置，并且引用类型在何种情况是「值传递」何种情况是「引用传递」。

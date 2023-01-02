@@ -54,6 +54,8 @@ function sumToN(uint16 n) public pure returns(uint16) {
 # for, while, do while应该选哪个
 我们在`while`循环章节已经讨论过`for`循环和`while`循环并没有太大的区别，更多的是不同的场景下其中一个比另外一个看起来更加简洁而已。 
 
+![](assets/do-while/09eca3eb.png)
+
 但是`do while`与其他两个有明显的区别。这就是`do while`循环**至少会执行一次循环体**；而`for`和`while`循环可能一次都不执行。所以，当你确定循环体至少会被执行一次的时候，可以使用`do while`循环。这并不是说非用它不可，而是用了它，代码控制逻辑会看起来更加自然，代码也会更加简洁。
 
 综上所述，`for`, `while`, `do while`三种循环本质上能做的事情都差不多，`for`和`while`比较类似，可以互换使用，取决于你觉得哪种可以让代码看起来更简洁。而`do while`一般是在循环体至少执行一次的时候使用。

@@ -8,7 +8,7 @@ const products = [
     title: 'Solidity入门教程',
     description:
       '这个教程里你将学会如何用Solidity编写EVM智能合约。你会学会基本的Solidity语法，合约组成结构，数据结构，控制结构等等',
-    url: '/docs',
+    url: '/docs/solidity-basic/intro',
     btnText: '进入教程',
     icon: '/img/tutorial-logo/solidity-basic.drawio.svg',
   },

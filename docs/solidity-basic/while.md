@@ -18,7 +18,7 @@ uint256 sum = 1+2+3;
 
 本节我们将会介绍`while`循环。
 
-# while循环语法
+## while循环语法
 
 Solidity的`while`循环的语法与C语言基本相同，其语法如下：
 
@@ -35,7 +35,7 @@ while (test_statement) {
 
 `while`循环在每次循环开始前，首先判断`test_statement`是否为`true`。如果是则把循环体执行一遍，如果`test_statement`为`false`，那么就退出循环并继续执行余下的代码。通常情况下你都需要在循环体里面修改循环控制变量，使得`test_statement`在适当的时候执行结果为`false`而终止循环。
 
-# for循环与while循环的比较
+## for循环与while循环的比较
 
 如果你有先学习了我们的`for`循环教程，你应该会留意到其中有一个示例展示了`for`循环的控制语句里面只剩下`test_statement`，如下面所示：
 

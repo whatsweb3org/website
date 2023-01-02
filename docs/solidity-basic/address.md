@@ -13,7 +13,7 @@ Solidity的地址类型用关键字`address`表示，它占据20bytes (*160bits*
 
 它们大部分的应用场景是相同的，主要的区别就是`address payable`能接受转账，但是`address`不行。之所以要进行这样的区分是因为有一些合约就是被设计了不接受转账的，所以这种状况下你应该使用`address`来指向合约地址。
 
-# 定义地址类型变量
+## 定义地址类型变量
 
 我们可以按照如下所示定义地址类型变量：
 
@@ -26,7 +26,7 @@ address payable addr_pay = payable(0x8306300ffd616049FD7e4b0354a64Da835c1A81C);
 
 在Solidity中使用地址字面值（address literal）定义地址类型变量的时候不需要加`””`或者`’’`，只需要直接将地址字面值赋值给地址类型变量即可。注意到在定义`addr_pay`的时候我们使用了一个`payable()`的函数，这是用来将地址字面值显式转换成`address payable`类型的。下面我们讨论一下地址类型转换。
 
-# 类型转换
+## 类型转换
 
 `address`和`address payable` 之间的类型转换主要有两条规则。
 
@@ -49,7 +49,7 @@ address payable addr_pay = payable(addr); // **显式类型转换**
 ```
 :::
 
-# 成员变量
+## 成员变量
 
 地址类型有三个成员变量，分别为：
 
@@ -75,7 +75,7 @@ function get_codehash() public view returns(bytes32) {
 ```
 :::
 
-# 成员函数
+## 成员函数
 
 - `transfer(uint256 amount)` （仅address payable可以使用）
 - `send(uint256 amount) returns (bool)`（仅address payable可以使用）
@@ -83,7 +83,7 @@ function get_codehash() public view returns(bytes32) {
 - `delegatecall(bytes memory) returns (bool, bytes memory)`
 - `staticcall(bytes memory) returns (bool, bytes memory)`
 
-## transfer
+### transfer
 
 **函数签名**
 
@@ -95,7 +95,7 @@ transfer(uint256 amount)
 
 ![Untitled](assets/address/Untitled1.png)
 
-## send
+### send
 
 **函数签名**
 
@@ -107,7 +107,7 @@ send(uint256 amount) returns (bool)
 
 ![Untitled](assets/address/Untitled2.png)
 
-### transfer和send应该使用哪一个
+#### transfer和send应该使用哪一个
 
 `transfer`和`send`都可以用来向另一个地址转账，那么我们应该选择用哪一个呢？答案是没有非常必要的理由，一律选`transfer`。因为`transfer`是`send`的改进版，目的是在转账不成功的时候直接revert transaction。而使用`send`时，你需要检查返回值看是否成功再决定做后续处理。有人可能忘记检查是否成功就进行下一步处理，导致合约有被攻击的风险。
 
@@ -120,7 +120,7 @@ send(uint256 amount) returns (bool)
 | stackexchange讨论transfer是否安全 | https://ethereum.stackexchange.com/questions/78124/is-transfer-still-safe-after-the-istanbul-update     |
 | consensys建议停止使用transfer | https://consensys.net/diligence/blog/2019/09/stop-using-soliditys-transfer-now/                         |
 
-## call
+### call
 
 **函数签名**
 
@@ -132,7 +132,7 @@ call(bytes memory) returns (bool, bytes memory)
 
 ![Untitled](assets/address/Untitled3.png)
 
-## delegatecall
+### delegatecall
 
 **函数签名**
 
@@ -144,7 +144,7 @@ delegatecall(bytes memory) returns (bool, bytes memory)
 
 ![Untitled](assets/address/Untitled4.png)
 
-## [staticcall](https://eips.ethereum.org/EIPS/eip-214)
+### [staticcall](https://eips.ethereum.org/EIPS/eip-214)
 
 `staticcall`与`call`非常类似。它们的唯一区别就是`staticcall`不会改变合约的状态（包括当前合约和外部合约），一旦在调用的过程中改变了合约的状态（包括状态变量变更，账户余额改变等），那么会直接revert。引入`staticcall`提高了合约的安全性，因为只要你使用了staticcall，你就可以肯定调用任何外部合约的函数不会对状态产生任何影响。而在引入`stacticall`之前，这是要通过阅读外部合约的代码来确保的。
 

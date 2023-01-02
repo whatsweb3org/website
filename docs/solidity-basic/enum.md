@@ -8,7 +8,7 @@ title: 枚举类型
 
 Solidity的枚举类型跟C语言的类似，都是一种特殊的整型。它们内部都表示为从0开始的正整数。
 
-# 定义枚举类型
+## 定义枚举类型
 
 枚举类型的定义如下所示：
 
@@ -23,13 +23,13 @@ enum ActionChoices {
 ```
 :::
 
-# 为什么使用枚举类型
+## 为什么使用枚举类型
 
 使用枚举类型可以提高代码的类型安全性和可读性。因为它的变量可能取值只有四个，一旦你赋予了其他值，合约在编译期就会报错。例如，如果你用`uint8`类型来代表上下左右的动作，那么有可能你误传了999进去，合约可能会出现无法预料的后果。编译期是无法发现这样的Bug的。
 
 提高代码可读性是显然易见的，`ActionChoices`肯定比`uint8`更容易理解其变量所保存内容的含义。
 
-# 获取枚举值
+## 获取枚举值
 
 你可以通过`.`操作符来获取枚举类型的某个枚举值。例如：
 
@@ -39,7 +39,7 @@ ActionChoices choice = ActionChoices.GoLeft;
 ```
 :::
 
-# 枚举类型的最大最小值
+## 枚举类型的最大最小值
 
 枚举类型是一种特殊的整型，所以你可以获取枚举类型的最大最小值：
 
@@ -53,7 +53,7 @@ type(ActionChoices).min // ActionChoices.GoLeft ， 也就是0
 ```
 :::
 
-# 枚举类型与整型的互相转换
+## 枚举类型与整型的互相转换
 
 枚举类型可以和任何整型进行互相转换：
 
@@ -74,7 +74,7 @@ function uintToEnum(uint i) public pure returns(ActionChoices) {
 ```
 :::
 
-# 枚举类型作为函数参数或返回值
+## 枚举类型作为函数参数或返回值
 
 如果枚举类型仅在当前合约定义，那么外部合约在调用当前合约的时候它获取得到的枚举类型返回值应该是怎么样的？答案是枚举类型会被编译器自动转换成`uint8`类型。所以外部合约看到的枚举类型是`uint8`类型。这是因为ABI中没有枚举类型，只有整型，所以[编译器会自动执行这样的转换](https://docs.soliditylang.org/en/v0.8.17/abi-spec.html#mapping-solidity-to-abi-types)。
 
@@ -104,7 +104,7 @@ contract Enum {
 ```
 :::
 
-# 参考资料
+## 参考资料
 
 https://docs.soliditylang.org/en/v0.8.17/types.html#enums
 https://docs.soliditylang.org/en/v0.8.17/abi-spec.html#mapping-solidity-to-abi-types

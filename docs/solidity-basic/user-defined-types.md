@@ -10,7 +10,7 @@ title: 自定义值类型
 自定义值类型这个词比较拗口，我们直接使用英文User-Defined Value Type代替，以进行接下来的介绍。
 :::
 
-# 定义User-Defined Value Type
+## 定义User-Defined Value Type
 
 我们可以通过`type C is V`来定义新的User-Defined Value Type。其中`C`是新定义的类型，而`V`则必须是Solidity的原生类型。例如，下面的例子中定义了两种新类型：
 
@@ -21,9 +21,9 @@ type Price  is uint128;
 ```
 :::
 
-# User-Defined Value Type有什么好处
+## User-Defined Value Type有什么好处
 
-## 提高类型安全性
+### 提高类型安全性
 
 使用User-Defined Value Type可以提高代码的类型安全性。例如下面的代码中，会产生编译错误_`TypeError: Operator + not compatible with types UserDefinedValueType.Weight and UserDefinedValueType.Price.`_ 因为`Weight`和`Price`是不同的类型，不能进行算术运算。这提高了类型安全性，避免直接使用`uint128`类型时误用的情况发生。
 
@@ -36,11 +36,11 @@ Price  pw = p+w; //编译错误
 ```
 :::
 
-## 提高代码可读性
+### 提高代码可读性
 
 提高代码可读性就显而易见了，例如前一个例子中你知道`w`是`Weight`类型，你就知道`w`的含义是重量。同理`p`的类型为`Price`，代表的是价格。
 
-# 类型转换
+## 类型转换
 
 User-Defined Value Type和原生类型之间是没有隐式类型转换的，那么我们应该如何进行类型转换？我们可以通过显式调用下面两个转换函数：
 
@@ -56,7 +56,7 @@ uint128 u = Weight.unwrap(w);
 ```
 :::
 
-# User-Defined Value Type不继承操作符
+## User-Defined Value Type不继承操作符
 
 要注意到User-Defined Value Type是不继承原生类型的操作符的，包括`+ - * /` 等等。例如下面的例子中编译器是会报错`*TypeError: Operator + not compatible with types UserDefinedValueType.Weight and UserDefinedValueType.Weight.*`：
 
@@ -78,7 +78,7 @@ function add(Weight lhs, Weight rhs) public pure returns(Weight) {
 ```
 :::
 
-# 参考资料
+## 参考资料
 
 https://blog.soliditylang.org/2021/09/27/user-defined-value-types
 https://forum.soliditylang.org/t/user-defined-value-types/314/20

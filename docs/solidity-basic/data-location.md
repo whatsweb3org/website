@@ -19,7 +19,7 @@ title: 数据位置
 
 所以如果你的引用类型函数参数不需要修改，你应该尽可能使用`calldata`而不是`memory`。
 
-# 参考资料
+## 参考资料
 
 https://eips.ethereum.org/EIPS/eip-4488
 https://eips.ethereum.org/EIPS/eip-2028

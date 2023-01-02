@@ -8,9 +8,9 @@ title: 静态字节数组
 
 Solidity一共有32种静态字节数组：`bytes1`, `bytes2`, `bytes3`, …, `bytes32`
 
-# 运算符
+## 运算符
 
-## 比较运算符
+### 比较运算符
 
 通过比较运算符，我们可以比较两个变量的数量大小关系，以及变量是否相等。比较运算符得到的结果是布尔值。
 
@@ -34,7 +34,7 @@ a>b  : false
 ```
 :::
 
-## 位运算符
+### 位运算符
 
 位运算符用来对二进制位进行操作，其执行结果是静态字节数组。
 
@@ -54,7 +54,7 @@ a^b : 0x03
 ```
 :::
 
-## 下标访问
+### 下标访问
 
 你可以像C语言一样使用`[]`运算符来通过下标访问静态字节数组的某个元素。不过要注意不要越界访问。
 
@@ -65,7 +65,7 @@ bytes1 ch = s[1]; // ch的值为0x62，也就是'b'的ascii值
 ```
 :::
 
-# 参考资料
+## 参考资料
 
 https://docs.soliditylang.org/en/v0.8.17/types.html#fixed-size-byte-arrays
 https://jeancvllr.medium.com/solidity-tutorial-all-about-bytes-9d88fdb22676

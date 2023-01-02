@@ -18,7 +18,7 @@ uint256 sum = 1+2+3;
 
 本节我们将会介绍`do while`循环。
 
-# do while循环语法
+## do while循环语法
 
 Solidity的`do while`循环语法规则也与C语言基本相同，其语法如下：
 
@@ -51,7 +51,7 @@ function sumToN(uint16 n) public pure returns(uint16) {
 ```
 :::
 
-# for, while, do while应该选哪个
+## for, while, do while应该选哪个
 我们在`while`循环章节已经讨论过`for`循环和`while`循环并没有太大的区别，更多的是不同的场景下其中一个比另外一个看起来更加简洁而已。 
 
 ![](assets/do-while/09eca3eb.png)

@@ -15,7 +15,7 @@ title: 安装使用Remix IDE
 
 你可以[跳转](https://remix-project.org/)到Remix官网下载或者使用上述的IDE工具。
 
-# Remix界面
+## Remix界面
 
 Remix IDE的界面如下图所示：
 
@@ -28,7 +28,7 @@ Remix一共划分了4个面板，分别为:
 3. Main Panel: 主要显示和编辑代码
 4. Terminal Panel: 这里显示合约部署和执行transaction的细节信息，也可以执行Javascript脚本，例如web3js, ethers.js等
 
-## Icon Panel & Side Panel交互
+### Icon Panel & Side Panel交互
 
 接下来介绍一下Icon Panel和Side Panel的主要交互操作。
 
@@ -46,6 +46,6 @@ Remix一共划分了4个面板，分别为:
 
 其他几个面板我们暂时不需要用到，可以暂时不理会，包括单元测试，搜索，和插件管理等面板你可以自己尝试使用，我们在这里再不展开介绍。
 
-# 小结
+## 小结
 
 在本节，我们学习了Remix IDE的基本界面和简单的交互操作。学会了如何放置合约，Javascript脚本，以及测试脚本到正确的目录。学习了如何编译，部署，与合约交互。接下来我们会正式学习Solidity的内容。

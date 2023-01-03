@@ -24,7 +24,7 @@ const IndexPage = () => {
         icon={"/img/logo.svg"}
         buttons={[
           {
-            title: 'Solidity入门教程',
+            title: 'Solidity入门指南',
             href: 'docs/solidity-basic/intro',
             className: 'button--primary',
           },

@@ -55,8 +55,8 @@ module.exports = {
           label: '课程列表',
           type: 'dropdown',
           items: [
-            { to: '/docs/solidity-basic/intro', label: 'Solidity入门教程' },
-            // { to: '/docs/solidity-advance/xxx', label: 'Solidity进阶教程' },
+            { to: '/docs/solidity-basic/intro', label: 'Solidity入门指南' },
+            // { to: '/docs/solidity-advance/xxx', label: 'Solidity进阶指南' },
           ],
         },
         // { to: '/blog', label: 'Blog' },

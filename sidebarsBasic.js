@@ -2,7 +2,7 @@ module.exports = {
   DocsSidebar: [
     {
       type: 'category',
-      label: 'Solidity入门教程',
+      label: 'Solidity入门指南',
       collapsible: true,
       items: [
         'intro',
@@ -21,6 +21,8 @@ module.exports = {
         'user-defined-types',
         'data-location',
         'array',
+        'array-slice',
+        'array-members',
         'if-else',
         'for',
         'while',

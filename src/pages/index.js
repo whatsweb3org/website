@@ -12,7 +12,7 @@ const Icon3 = require('../../static/img/home-buildingblocks.svg').default;
 
 const title = 'Whats Web3';
 const description =
-  'What\'s Web3是Web3技术初学者以及Web2开发者转型Web3的最佳学习社区。在这里我们提供众多Web3技术学习资源，包括且不限于Solidity，Web3js，Hardhat，Truffle以及合约安全等Web3开发主流技术栈教程，帮助你顺利进入Web3开发领域';
+  'WhatsWeb3 org (WW3) 是由Web3极客共建的开源学习社区。是初学者以及Web2开发者转型Web3的桥梁。我们专注Web3技术普及，包括且不限于Solidity基础，Solidity进阶，Openzeppelin标准合约，以及合约安全等主题。WW3与你携手一起探索这未知的Web3领域';
 
 const IndexPage = () => {
   return (

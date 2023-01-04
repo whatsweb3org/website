@@ -23,6 +23,7 @@ module.exports = {
         'array',
         'array-slice',
         'array-members',
+        'array-multi-dimension',
         'if-else',
         'for',
         'while',

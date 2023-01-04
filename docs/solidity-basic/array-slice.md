@@ -49,7 +49,11 @@ function extracFourBytes(string calldata payload) public view {
 
 :::tip 编译错误：数组切片不能用在`memory`或者`storage`
 ```solidity
-uint[5] memory arr = [uint(0), 1, 2, 3, 4];
-uint[3] memory arrSlice = arr[1:4]; // 编译错误
+uint[5] memory arr1 = [uint(0), 1, 2, 3, 4];
+uint[3] memory arrSlice1 = arr[1:4]; // 编译错误
+
+uint[5] storage arr2 = [uint(0), 1, 2, 3, 4];
+uint[3] storage arrSlice2 = arr[1:4]; // 编译错误
 ```
 :::
+

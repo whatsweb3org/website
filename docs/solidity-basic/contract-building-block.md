@@ -90,6 +90,7 @@ contract Owner {
 这个Solidity合约实现了一个简单的 `owner` 管理功能，可以用来设置、管理和删除合约的 `owner`。它定义了一些结构体、枚举、事件、函数修饰器、状态变量和函数。我们逐个拆解来看看每一个组成结构。
 
 ### 结构体
+
 ```solidity
 struct Identity {
     address addr;
@@ -99,38 +100,42 @@ struct Identity {
 `Identity`：它是一个结构体，包含了`owner`的地址和姓名两个字段。
 
 ### 枚举
-`State`：它是一个枚举，定义了两个状态 `HasOwner` 和 `NoOwner`。
+
 ```solidity
 enum State {
     HasOwner,
     NoOwner
 }
 ```
+`State`：它是一个枚举，定义了两个状态 `HasOwner` 和 `NoOwner`。
 
 ### 事件
-`OwnerSet`：当 `owner` 被设置成新owner时触发
-`OwnerRemoved`：当 `owner` 被删除时触发
+
 ```solidity
 event OwnerSet(address indexed oldOwnerAddr, address indexed newOwnerAddr);
 event OwnerRemoved(address indexed oldOwnerAddr);
 ```
+* `OwnerSet`：当 `owner` 被设置成新owner时触发
+* `OwnerRemoved`：当 `owner` 被删除时触发
 
 ### 函数修饰器
-`isOwner`：它是一个函数修饰器，只允许合约的 `owner` 调用修饰器修饰的函数。
+
 ```solidity
 modifier isOwner() {
     require(msg.sender == owner.addr, "Caller is not owner");
     _;
 }
 ```
+`isOwner`：它是一个函数修饰器，只允许合约的 `owner` 调用修饰器修饰的函数。
 
 ### 状态变量
-`owner`：它是一个 `Identity` 类型的变量，表示合约的 owner
-`state`：它是一个 `State` 类型的变量，表示合约的当前状态
+
 ```solidity
 Identity private owner;
 State private state;
 ```
+* `owner`：它是一个 `Identity` 类型的变量，表示合约的 owner
+* `state`：它是一个 `State` 类型的变量，表示合约的当前状态
 
 ### 函数
 

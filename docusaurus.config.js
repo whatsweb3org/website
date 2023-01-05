@@ -51,14 +51,14 @@ module.exports = {
         srcDark: 'img/logo.svg',
       },
       items: [
-        {
-          label: '课程列表',
-          type: 'dropdown',
-          items: [
-            { to: '/docs/solidity-basic/intro', label: 'Solidity入门指南' },
-            // { to: '/docs/solidity-advance/xxx', label: 'Solidity进阶指南' },
-          ],
-        },
+        // {
+        //   label: '课程列表',
+        //   type: 'dropdown',
+        //   items: [
+        //     { to: '/docs/solidity-advance/xxx', label: 'Solidity进阶指南' },
+        //   ],
+        // },
+        { to: '/docs/solidity-basic/intro', label: 'Solidity入门指南' },
         // { to: '/blog', label: 'Blog' },
         {
           href: 'https://github.com/whatsweb3org/website',

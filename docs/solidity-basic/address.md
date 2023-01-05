@@ -77,11 +77,11 @@ function get_codehash() public view returns(bytes32) {
 
 ## 成员函数
 
-- `transfer(uint256 amount)` （仅address payable可以使用）
-- `send(uint256 amount) returns (bool)`（仅address payable可以使用）
-- `call(bytes memory) returns (bool, bytes memory)`
-- `delegatecall(bytes memory) returns (bool, bytes memory)`
-- `staticcall(bytes memory) returns (bool, bytes memory)`
+- `transfer(uint256 amount)`: 将给定数量的 wei 从当前合约转移到地址，不成功就抛出异常（仅address payable可以使用）
+- `send(uint256 amount)`: 与 transfer 函数类似，但是不会抛出异常，而是返回布尔值 （仅address payable可以使用）
+- `call(...)`: 调用地址上的合约，并传入参数
+- `delegatecall(...)`: 与 call 类似，但是使用的是调用者的数据存储
+- `staticcall(...)`: 于call类似，但是不会改变链上状态
 
 ### transfer
 

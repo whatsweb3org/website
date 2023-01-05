@@ -4,7 +4,7 @@ title: 合约组成结构
 
 # 合约组成结构
 
-你可能会有个疑问就是合约它都由什么基本结构组成的呢?我们在编写合约的时候又是如何把这些基本结构结合在一起的呢?这一节我们来探讨一下合约的七大组成结构,并且了解它们互相间的关系.
+你可能会有个疑问就是合约它都由什么基本结构组成的呢?我们在编写合约的时候又是如何把这些基本结构结合在一起的呢?这一节我们来探讨一下合约的七大组成结构,并且了解它们互相间的关系。
 
 合约的七大组成结构有:
 
@@ -14,13 +14,13 @@ title: 合约组成结构
 * 事件
 * Error
 * 结构体
-* 枚举 
+* 枚举
 
-![Untitled](assets/contract-building-block/Untitled.png)
+![](./assets/contract-building-block/c2b0b2600307488f82f8896a85700368.png)
 
 ## 一个典型的合约
 
-为了方便介绍每个组成结构都是什么,长什么样的,我们先看一个例子.下面是一个Owner合约,它什么别的事情都不干,只是记录谁是这个合约Owner.
+为了方便介绍每个组成结构都是什么,长什么样的,我们先看一个例子.下面是一个Owner合约,它别的事情都不干,只是记录谁是这个合约Owner.
 
 :::tip Owner合约
 ```solidity
@@ -30,36 +30,42 @@ pragma solidity ^0.8.9;
 
 contract Owner {
 
+    // 结构体
     struct Identity {
         address addr;
-            string name;
-        }
+        string name;
+    }
 
-        enum State {
-            HasOwner,
-            NoOwner
-        }
+    // 枚举
+    enum State {
+        HasOwner,
+        NoOwner
+    }
 
+    // 事件
     event OwnerSet(address indexed oldOwnerAddr, address indexed newOwnerAddr);
     event OwnerRemoved(address indexed oldOwnerAddr);
 
+    // 函数修饰器
     modifier isOwner() {
         require(msg.sender == owner.addr, "Caller is not owner");
         _;
     }
 
+    // 状态变量
     Identity private owner;
     State private state;
 
+    // 下面的都是函数
     constructor(string memory name) {
-        owner.addr = msg.sender; 
+        owner.addr = msg.sender;
         owner.name = name;
         state = State.HasOwner;
         emit OwnerSet(address(0), owner.addr);
     }
 
     function changeOwner(address addr, string calldata name) public isOwner {
-        owner.addr = msg.sender; 
+        owner.addr = msg.sender;
         owner.name = name;
         emit OwnerSet(owner.addr, addr);
     }
@@ -80,3 +86,95 @@ contract Owner {
 }
 ```
 :::
+
+这个Solidity合约实现了一个简单的 `owner` 管理功能，可以用来设置、管理和删除合约的 `owner`。它定义了一些结构体、枚举、事件、函数修饰器、状态变量和函数。我们逐个拆解来看看每一个组成结构。
+
+### 结构体
+```solidity
+struct Identity {
+    address addr;
+    string name;
+}
+```
+`Identity`：它是一个结构体，包含了`owner`的地址和姓名两个字段。
+
+### 枚举
+`State`：它是一个枚举，定义了两个状态 `HasOwner` 和 `NoOwner`。
+```solidity
+enum State {
+    HasOwner,
+    NoOwner
+}
+```
+
+### 事件
+`OwnerSet`：当 `owner` 被设置成新owner时触发
+`OwnerRemoved`：当 `owner` 被删除时触发
+```solidity
+event OwnerSet(address indexed oldOwnerAddr, address indexed newOwnerAddr);
+event OwnerRemoved(address indexed oldOwnerAddr);
+```
+
+### 函数修饰器
+`isOwner`：它是一个函数修饰器，只允许合约的 `owner` 调用修饰器修饰的函数。
+```solidity
+modifier isOwner() {
+    require(msg.sender == owner.addr, "Caller is not owner");
+    _;
+}
+```
+
+### 状态变量
+`owner`：它是一个 `Identity` 类型的变量，表示合约的 owner
+`state`：它是一个 `State` 类型的变量，表示合约的当前状态
+```solidity
+Identity private owner;
+State private state;
+```
+
+### 函数
+
+```solidity
+constructor(string memory name) {
+    owner.addr = msg.sender; 
+    owner.name = name;
+    state = State.HasOwner;
+    emit OwnerSet(address(0), owner.addr);
+}
+
+function changeOwner(address addr, string calldata name) public isOwner {
+    owner.addr = msg.sender; 
+    owner.name = name;
+    emit OwnerSet(owner.addr, addr);
+}
+
+function removeOwner() public isOwner {
+    emit OwnerRemoved(owner.addr);
+    delete owner;
+    state = State.NoOwner;
+}
+
+function getOwner() external view returns (address, string memory) {
+    return (owner.addr, owner.name);
+}
+
+function getState() external view returns (State) {
+    return state;
+}
+```
+
+合约一共定义了5个函数，它们分别为:
+* `constructor(string memory name)`：合约构造函数，在合约部署时自动执行。它将当前调用者设置为 `owner`，并设置合约的状态为 `HasOwner`
+* `changeOwner(address addr, string calldata name)`：修改 `owner`
+* `removeOwner()`：删除 `owner`
+* `getOwner()`：返回 `owner` 的地址和名称
+* `getState()`：返回合约的状态
+
+函数主要的操作包括：
+
+* 在合约部署时，调用构造函数 `constructor(string memory name)` 设置 `owner`。
+* 调用函数 c`hangeOwner(address addr, string calldata name)` 修改 `owner`。
+* 调用函数 `removeOwner()` 删除 `owner`。
+* 所有重要的操作都需要使用函数修饰器 `isOwner` 进行保护，只有 `owner` 才能执行。
+* 这个合约还提供了一些辅助函数，如 `getOwner` 和 `getState`，用来查询 `owner` 的信息和合约的状态
+* 此外，这个合约还定义了两个事件：`OwnerSet` 和 `OwnerRemoved`，分别在 `owner` 被设置或删除时触发。这些事件可以被外部监听，从而做出相应的反应。

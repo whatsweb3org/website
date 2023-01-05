@@ -51,6 +51,15 @@ uint[3] storage nftStorage;
 ```
 :::
 
+要注意在 Solidity 中静态数组的大小必须在编译时确定。这意味着你不能使用变量来指定数组的大小。例如，下面的代码是不合法的：
+
+:::tip 静态数组的大小必须要能够在编译期间确定
+```solidity
+uint size = 2;
+uint[size][size] memory array; // 非法
+```
+:::
+
 ### 动态数组的声明
 
 假设`T`是一种类型，那么动态数组的声明格式如下：
@@ -128,25 +137,54 @@ uint[] memory nftArr = new uint[](n);
 ```
 :::
 
+使用`new`关键字可以适用于所有动态数组。如果你的动态数组是在`storage`，那么你还可以使用数组字面值来初始化：
+
+:::tip 在`storage`的动态数组可以用数组字面值初始化
+```solidity
+uint[] storageArr = [uint(1), 2]; // 动态数组只有在storage位置才能用数组字面值初始化
+```
+:::
+
+## 静态数组和动态数组是不同的类型
+
+要注意静态数组和动态数组是不同的类型，所以它们之间是不能相互赋值的。如下面所示：
+
+:::tip 静态数组和动态数组之间不能相互赋值
+不能把静态数组赋值给动态数组：
+```solidity
+uint[2] memory staticArr = [uint(1), 2];
+uint[] memory dynamicArr = staticArr; // 编译错误
+```
+
+也不能把动态数组赋值给静态数组：
+```solidity
+uint[] memory dynamicArr = new uint[](2); 
+uint[2] memory staticArr = dynamicArr; // 编译错误
+```
+:::
+
 ## 下标访问
 
 跟大多数的编程语言一样，你也可以对Solidity的数组进行下标访问。下标访问所使用的操作符是`[]`，下标索引从`0`开始。
 
 :::tip 数组的下标访问
+下标访问静态数组：
 ```solidity
-// 下标访问静态字节数组
 uint[3] memory nftArr1 = [uint(1000), 1001, 1002];
 nftArr1[0] = 2000;
 nftArr1[1] = 2001;
 nftArr1[2] = 2002;
+```
 
-// 下标访问动态字节数组
+下标访问动态数组：
+```solidity
 uint[] memory nftArr2 = new uint[](n);
 nftArr2[0] = 1000;
 nftArr2[1] = 1001;
 nftArr2[2] = 1002;
 ```
 :::
+
 
 
 

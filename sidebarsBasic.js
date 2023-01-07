@@ -29,6 +29,7 @@ module.exports = {
         'while',
         'do-while',
         'break',
+        'continue',
       ],
     },
   ],

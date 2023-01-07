@@ -43,7 +43,7 @@ Solidity一共只有三种引用类型分别为：
 
 ### 引用传递（_pass by reference_）
 
-:::note
+:::info 传数据地址又被称为「引用传递」
 我们一般将赋值或是传参时所传递的是数据地址称之为「引用传递」（_pass by reference_）
 :::
 

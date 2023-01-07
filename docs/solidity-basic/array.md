@@ -40,7 +40,7 @@ T[arrSize] dataLocation arrName;
 
 其中`arrSize`是数组的长度，`dataLocation`是数据位置，而`arrName`是你为这个数组起的任意名字。
 
-:::note 数组是一种引用类型
+:::info 数组是一种引用类型
 注意：数组是一种引用类型，所以你必须在声明，定义的时候加上三个数据位置（_data location_）关键字之一：`storage`, `memory`, `calldata`。
 :::
 

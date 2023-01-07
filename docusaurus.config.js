@@ -70,6 +70,37 @@ module.exports = {
     footer: {
       style: 'dark',
       links: [
+        {
+          title: '社区',
+          items: [
+            {
+              label: 'Discord',
+              href: 'https://discord.gg/t6vevpcSS9',
+            },
+            {
+              label: 'Twitter',
+              href: 'https://twitter.com/whatsweb3org',
+            },
+          ],
+        },
+        {
+          title: '资源',
+          items: [
+            {
+              label: 'GitHub',
+              href: 'https://github.com/whatsweb3org/website',
+            },
+          ],
+        },
+        {
+          title: '网站',
+          items: [
+            {
+              label: '网站主页',
+              href: 'http://whatsweb3.org',
+            },
+          ],
+        },
       ],
       copyright,
     },

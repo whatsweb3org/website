@@ -113,6 +113,8 @@ module.exports = {
           path: 'docs/solidity-basic',
           routeBasePath: 'docs/solidity-basic',
           sidebarPath: require.resolve('./sidebarsBasic.js'),
+          showLastUpdateTime: true,
+          editUrl: 'https://github.com/whatsweb3org/website/tree/main',
         },
         googleAnalytics: {
           trackingID: 'G-WRCFLRDWJ5',
@@ -133,7 +135,6 @@ module.exports = {
             type: 'all',
             copyright,
           },
-
           blogSidebarTitle: 'Recent posts',
           blogSidebarCount: 5,
           postsPerPage: 'ALL',

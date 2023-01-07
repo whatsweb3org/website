@@ -27,7 +27,7 @@ Solidity有两种动态字节数组：
 - `bytes`
 - `string`
 
-其中`bytes`类似于`bytes1[]`不过`bytes`在`memory`和`calldata`位置会更加紧凑。而`string`是基本等同于`bytes`的类型，但是它不能进行下标访问，也不能获取长度。
+其中`bytes`类似于`bytes1[]`不过`bytes`在`memory`和`calldata`位置会更加紧凑。而`string`是基本等同于`bytes`的类型，**但是它不能进行下标访问，也不能获取长度**。
 
 ![Untitled](assets/dynamic-byte-array/Untitled.png)
 
@@ -51,5 +51,25 @@ string memory message = string(bstr); // 使用string()函数转换
 ```solidity
 string memory message = "hello world";
 bytes memory bstr = bytes(message); //使用bytes()函数转换
+```
+:::
+
+## string 不能进行下标访问，也不能获取长度
+
+虽然 `string` 也是数组但是目前还不支持它的下标访问和长度的获取。
+
+:::tip `string` 不能进行下标访问，也不能获取长度
+```solidity
+string memory str = "hello world";
+uint len = str.length; // 不合法，不能获取长度
+bytes1 b = str[0]; // 不合法，不能进行下标访问
+```
+
+你可以将 `string` 转换成 `bytes` 后再进行下标访问和获取长度
+
+:::tip 将 `string` 转换成 `bytes` 后再进行下标访问和获取长度
+```solidity
+uint len = bytes(str).length; // 合法
+bytes1 b = bytes(str)[0]; // 合法
 ```
 :::

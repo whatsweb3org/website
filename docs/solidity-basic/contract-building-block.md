@@ -8,13 +8,13 @@ title: 合约组成结构
 
 合约的七大组成结构有:
 
-* 状态变量
-* 函数
-* 函数修饰器
-* 事件
-* Error
-* 结构体
-* 枚举
+* **状态变量**
+* **函数**
+* **函数修饰器**
+* **事件**
+* **Error**
+* **结构体**
+* **枚举**
 
 ![](./assets/contract-building-block/c2b0b2600307488f82f8896a85700368.png)
 
@@ -57,6 +57,8 @@ contract Owner {
     State private state;
 
     // 下面的都是函数
+    
+    // 构造函数
     constructor(string memory name) {
         owner.addr = msg.sender;
         owner.name = name;
@@ -64,22 +66,26 @@ contract Owner {
         emit OwnerSet(address(0), owner.addr);
     }
 
+    // 普通函数
     function changeOwner(address addr, string calldata name) public isOwner {
         owner.addr = msg.sender;
         owner.name = name;
         emit OwnerSet(owner.addr, addr);
     }
 
+    // 普通函数
     function removeOwner() public isOwner {
         emit OwnerRemoved(owner.addr);
         delete owner;
         state = State.NoOwner;
     }
 
+    // 普通函数
     function getOwner() external view returns (address, string memory) {
         return (owner.addr, owner.name);
     }
 
+    // 普通函数
     function getState() external view returns (State) {
         return state;
     }
@@ -92,7 +98,7 @@ contract Owner {
 ### 结构体
 
 ```solidity
-struct Identity {
+struct Identity { // 结构体
     address addr;
     string name;
 }
@@ -102,7 +108,7 @@ struct Identity {
 ### 枚举
 
 ```solidity
-enum State {
+enum State { // 枚举
     HasOwner,
     NoOwner
 }
@@ -112,6 +118,7 @@ enum State {
 ### 事件
 
 ```solidity
+// 事件
 event OwnerSet(address indexed oldOwnerAddr, address indexed newOwnerAddr);
 event OwnerRemoved(address indexed oldOwnerAddr);
 ```
@@ -121,7 +128,7 @@ event OwnerRemoved(address indexed oldOwnerAddr);
 ### 函数修饰器
 
 ```solidity
-modifier isOwner() {
+modifier isOwner() { // 函数修饰器
     require(msg.sender == owner.addr, "Caller is not owner");
     _;
 }
@@ -131,8 +138,8 @@ modifier isOwner() {
 ### 状态变量
 
 ```solidity
-Identity private owner;
-State private state;
+Identity private owner;  // 状态变量
+State private state;     // 状态变量
 ```
 * `owner`：它是一个 `Identity` 类型的变量，表示合约的 owner
 * `state`：它是一个 `State` 类型的变量，表示合约的当前状态
@@ -140,6 +147,7 @@ State private state;
 ### 函数
 
 ```solidity
+// 构造函数
 constructor(string memory name) {
     owner.addr = msg.sender; 
     owner.name = name;
@@ -147,22 +155,26 @@ constructor(string memory name) {
     emit OwnerSet(address(0), owner.addr);
 }
 
+// 普通函数
 function changeOwner(address addr, string calldata name) public isOwner {
     owner.addr = msg.sender; 
     owner.name = name;
     emit OwnerSet(owner.addr, addr);
 }
 
+// 普通函数
 function removeOwner() public isOwner {
     emit OwnerRemoved(owner.addr);
     delete owner;
     state = State.NoOwner;
 }
 
+// 普通函数
 function getOwner() external view returns (address, string memory) {
     return (owner.addr, owner.name);
 }
 
+// 普通函数
 function getState() external view returns (State) {
     return state;
 }

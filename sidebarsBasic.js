@@ -27,7 +27,8 @@ module.exports = {
         'if-else',
         'for',
         'while',
-        'do-while'
+        'do-while',
+        'break',
       ],
     },
   ],

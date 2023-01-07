@@ -84,7 +84,7 @@ for(uint16 i = 1; i <= n; i++) {
 ```
 :::
 
-:::tip 条件判断较复杂，使用`while`循环
+:::tip 没有明确的初始和终止条件，条件判断较复杂，使用`while`循环
 ```solidity
 while(isEven(x) && !isZero(x)) {
     // 代码块

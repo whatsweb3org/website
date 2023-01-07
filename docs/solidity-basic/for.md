@@ -27,27 +27,27 @@ uint256 sum = 1+2+3;
 Solidity的`for`循环的语法与C语言基本相同，其语法如下：
 
 ```solidity
-for (init_statement; test_statement; iteration_statement) {
+for (init-statement; test-statement; iteration-statement) {
     // 循环体 
 }
 ```
 
 for循环有三个控制语句：
 
-- `init_statement` 用来在循环开始之前初始化循环变量，只执行一次
-- `test_statement` 用来判断循环是否已经满足退出条件，每一轮循环都会执行一次判断
-- `iteration_statement` 用来在每一轮循环执行完后（也就是执行完循环体后），改变循环变量的值
+- `init-statement` 用来在循环开始之前初始化循环变量，只执行一次
+- `test-statement` 用来判断循环是否已经满足退出条件，每一轮循环都会执行一次判断
+- `iteration-statement` 用来在每一轮循环执行完后（也就是执行完循环体后），改变循环变量的值
 
-例如下面的示例中我们可以看到`init_statement`是 `i=1` ， `test_statement`是 `i<=10` ， `iteration_statement`是 `i++`。
+例如下面的示例中我们可以看到`init-statement`是 `i=1` ， `test-statement`是 `i<=10` ， `iteration-statement`是 `i++`。
 
 ```solidity
 for(uint16 i = 1; i <= 10; i++) {
-    // init_statement是 i=1 ; test_statement是 i<=n ; iteration_statement是 i++
+    // init-statement是 i=1 ; test-statement是 i<=n ; iteration-statement是 i++
     sum += i;
 }
 ```
 
-比如上面的例子中，`init_statement`定义并初始化了循环变量`i=1`。然后`test_statement`则判断循环变量`i`是否还是小于等于10，如果是就继续执行，如果不是就退出循环。`iteration_statement`则是在每轮循环给循环变量`i`加1。
+比如上面的例子中，`init-statement`定义并初始化了循环变量`i=1`。然后`test-statement`则判断循环变量`i`是否还是小于等于10，如果是就继续执行，如果不是就退出循环。`iteration-statement`则是在每轮循环给循环变量`i`加1。
 
 ## for循环示例
 
@@ -61,7 +61,7 @@ function sumToN(uint16 n) public pure returns(uint16) {
     uint16 sum = 0;
     uint16 i;
     for(i = 1; i <= n; i++) {
-        // init_statement是 i=1 ; test_statement是 i<=n ; iteration_statement是 i++
+        // init-statement是 i=1 ; test-statement是 i<=n ; iteration-statement是 i++
         sum += i;
     }
     return sum;
@@ -69,11 +69,11 @@ function sumToN(uint16 n) public pure returns(uint16) {
 ```
 :::
 
-:::tip 在`init_statement`定义并初始化变量
+:::tip 在`init-statement`定义并初始化变量
 ```solidity
 function sumToN(uint16 n) public pure returns(uint16) {
     uint16 sum = 0;
-    for(uint16 i = 1; i <= n; i++) { //你可以在init_statement里面定义并初始化变量i
+    for(uint16 i = 1; i <= n; i++) { //你可以在init-statement里面定义并初始化变量i
         sum += i;
     }
     return sum;
@@ -81,12 +81,12 @@ function sumToN(uint16 n) public pure returns(uint16) {
 ```
 :::
 
-:::tip `init_statement`可以移动到for循环之前
+:::tip `init-statement`可以移动到for循环之前
 ```solidity
 function sumToN(uint16 n) public pure returns(uint16) {
     uint16 sum = 0;
-    uint16 i = 1; //init_statement被移动到这里了
-    for(; i <= n; i++) { //你可以将init_statement移到for循环之前
+    uint16 i = 1; //init-statement被移动到这里了
+    for(; i <= n; i++) { //你可以将init-statement移到for循环之前
         sum += i;
     }
     return sum;
@@ -94,14 +94,14 @@ function sumToN(uint16 n) public pure returns(uint16) {
 ```
 :::
 
-:::tip `iteration_statement`可以移动到for循环内部
+:::tip `iteration-statement`可以移动到for循环内部
 ```solidity
 function sumToN(uint16 n) public pure returns(uint16) {
     uint16 sum = 0;
-    uint16 i = 1; //init_statement被移动到这里了
-    for(; i <= n; ) { //你可以不写init_statement， 也不写iteration_statement
+    uint16 i = 1; //init-statement被移动到这里了
+    for(; i <= n; ) { //你可以不写init-statement， 也不写iteration-statement
         sum += i;
-        i++; // iteration_statement的i++被移到这里了
+        i++; // iteration-statement的i++被移到这里了
     }
     return sum;
 }
@@ -112,13 +112,13 @@ function sumToN(uint16 n) public pure returns(uint16) {
 ```solidity
 function sumToN(uint16 n) public pure returns(uint16) {
     uint16 sum = 0;
-    uint16 i = 1; //init_statement被移动到这里了
-    for(;;) { //你可以init_statement, test_statement，iteration_statement都不写，全部逻辑实现在循环体里面
-        if(i > n){ // 这个条件语句实现了test_statement的功能
+    uint16 i = 1; //init-statement被移动到这里了
+    for(;;) { //你可以init-statement, test-statement，iteration-statement都不写，全部逻辑实现在循环体里面
+        if(i > n){ // 这个条件语句实现了test-statement的功能
             break;
         }
         sum += i;
-        i++; // iteration_statement的i++被移到这里了
+        i++; // iteration-statement的i++被移到这里了
     }
     return sum;
 }

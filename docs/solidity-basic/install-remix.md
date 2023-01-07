@@ -1,5 +1,7 @@
 ---
-title: 安装使用Remix IDE 
+title: 安装使用Remix IDE
+last_update:
+    date: 1/7/2023
 ---
 
 # 安装使用Remix IDE

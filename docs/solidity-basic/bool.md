@@ -1,5 +1,7 @@
 ---
 title: 布尔类型
+last_update:
+    date: 1/7/2023
 ---
 
 # 布尔类型

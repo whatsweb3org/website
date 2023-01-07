@@ -1,5 +1,7 @@
 ---
 title: 字面值
+last_update:
+    date: 1/7/2023
 ---
 
 # 字面值

@@ -1,5 +1,7 @@
 ---
-title: Solidity简介 
+title: Solidity简介
+last_update:
+    date: 1/7/2023
 ---
 
 # Solidity简介

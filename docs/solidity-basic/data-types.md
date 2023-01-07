@@ -1,5 +1,7 @@
 ---
-title: 数据类型 
+title: 数据类型
+last_update:
+    date: 1/7/2023
 ---
 
 # 数据类型

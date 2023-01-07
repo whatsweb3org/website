@@ -1,5 +1,7 @@
 ---
-title: 整型 
+title: 整型
+last_update:
+    date: 1/7/2023
 ---
 
 # 整型

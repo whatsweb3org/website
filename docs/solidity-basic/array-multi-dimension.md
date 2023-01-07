@@ -24,13 +24,13 @@ uint[5] memory boredApe = [uint(1001), 1002, 1003, 2001, 2002];
 多维数组也是同类型元素的集合。只不过它在这个基础上再分组而已。例如，我们可以创建一个二维数组，如下所示：
 
 ```solidity
-uint[3][3] memory array;
+uint[3][3] memory arr;
 ```
 
 我们也可以创建一个三维数组，如下所示：
 
 ```solidity
-uint[3][3][3] memory array;
+uint[3][3][3] memory arr;
 ```
 
 多维数组也有静态和动态之分：
@@ -48,14 +48,16 @@ T[col][row] dataLocation arrName;
 
 其中`dataLocation`是数据位置，`arrName`是你为这个数组起的任意名字。而`row`和`col`则定义了你的多维数组有多少行和列。例如`uint[3][5]`就声明了一个5行3列的多维数组。如果你有学过其他语言，你会发现这样的声明方式跟其他语言是**恰恰相反**的。比如C语言和Javascript等在声明一个5行3列的多维数组，格式应该是`uint[5][3]`才对。这点要务必注意，尤其是在遍历多维数组的时候一不小心就搞反了。
 
+所以我们现在知道了Solidity的多维数组声明要**从右往左**看, 例如`uint[2][3][4]`包含了4个`uint[2][3]`静态数组进。一步拆解,其中每个`uint[2][3]`代表的是: 包含了3个`uint[2]`的静态数组,以此类推。
+
 :::caution
 Solidity在声明多维数组的时候「行」和「列」跟C语言, Javascript等是相反的
 :::
 
 :::tip 声明静态多维数组
 ```solidity
-uint[3][5] memory nftMem;
-uint[3][5] storage nftStorage;
+uint[3][5] memory arrMem;
+uint[3][5] storage arrStorage;
 ```
 :::
 
@@ -64,7 +66,7 @@ uint[3][5] storage nftStorage;
 :::tip 静态多维数组的大小必须要能够在编译期间确定
 ```solidity
 uint size = 2;
-uint[size][size] memory array; // 非法
+uint[size][size] memory arr; // 非法
 ```
 :::
 
@@ -80,9 +82,9 @@ T[][] dataLocation arrName;
 
 :::tip 声明动态多维数组
 ```solidity
-uint[][] memory nftMem; // 行列数任意的动态多维数组
-uint[][3] memory nftMem2; // 行为3，列任意的动态多维数组
-uint[][] storage nftStorage; // 行列数任意的动态多维数组
+uint[][] memory arrMem; // 行列数任意的动态多维数组
+uint[][3] memory arrMem2; // 行为3，列任意的动态多维数组
+uint[][] storage arrStorage; // 行列数任意的动态多维数组
 ```
 :::
 
@@ -98,7 +100,7 @@ uint[][] storage nftStorage; // 行列数任意的动态多维数组
 
 :::tip 零值初始化静态多维数组
 ```solidity
-uint[2][3] memory nftArr; //所有元素都是0
+uint[2][3] memory arr; //所有元素都是0
 ```
 :::
 
@@ -109,7 +111,7 @@ uint[2][3] memory nftArr; //所有元素都是0
 :::tip 多维数组字面值初始化静态多维数组
 ```solidity
 //必须使用uint(1)和uint(4)显式地将「数组字面值」第一个元素的类型转换成uint
-uint[3][2] memory nftArr = [[uint(1), 2, 3], [uint(4), 5, 6]]; 
+uint[3][2] memory arr = [[uint(1), 2, 3], [uint(4), 5, 6]]; 
 ```
 :::
 
@@ -121,7 +123,7 @@ uint[3][2] memory nftArr = [[uint(1), 2, 3], [uint(4), 5, 6]];
 本示例编译期间会报错，类型不匹配。因为第一个元素`1`会被隐式转换成能装得下它的最小整型，也就是`uint16`。与我们定义的数组的基础类型`uint`不匹配。
 ```solidity
 // 编译报错，类型不匹配
-uint[3][2] memory nftArr = [[1, 2, 3], [uint(4), 5, 6]]; 
+uint[3][2] memory arr = [[1, 2, 3], [uint(4), 5, 6]]; 
 ```
 :::
 
@@ -130,7 +132,7 @@ uint[3][2] memory nftArr = [[1, 2, 3], [uint(4), 5, 6]];
 :::tip 定义的「多维数组」的维度必须跟「多维数组字面值」的维度一致
 多维数组定义的维度是2*3，但是字面值中的`[uint(4)]`缺少两个元素
 ```solidity
-uint[3][2] memory nftArr = [[uint(1), 2, 3], [uint(4)]]; //编译错误 
+uint[3][2] memory arr = [[uint(1), 2, 3], [uint(4)]]; //编译错误 
 ```
 :::
 
@@ -156,10 +158,10 @@ function initArray() public {
 
 :::tip 静态数组长度不可改变，不可`push`, `pop`
 ```solidity
-uint[][3] arr;
+uint[][3] storageArr;
 function invalidPush() public {
     uint k = 2;
-    arr.push(new uint[](k)); // 编译错误
+    storageArr.push(new uint[](k)); // 编译错误
 }
 ```
 :::
@@ -168,9 +170,9 @@ function invalidPush() public {
 
 :::tip 动态数组可以`push`, `pop`
 ```solidity
-uint[][3] arr;
+uint[][3] storageArr;
 function validPush() public {
-    arr[0].push(999); // 合法
+    storageArr[0].push(999); // 合法
 }
 ```
 :::

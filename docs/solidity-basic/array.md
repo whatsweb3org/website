@@ -87,7 +87,7 @@ uint[] storage nftStorage;
 
 #### 零值初始化
 
-如果你只声明了一个静态数组，那么它的所有元素都会被零值初始化（_zero value initialized_)。
+如果你只声明静态数组，不手动进行初始化，那么它的所有元素都会被零值初始化（_zero value initialized_)。
 
 :::tip 零值初始化整型数组
 ```solidity

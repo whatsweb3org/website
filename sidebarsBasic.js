@@ -24,6 +24,7 @@ module.exports = {
         'array-slice',
         'array-members',
         'array-multi-dimension',
+        'struct',
         'if-else',
         'for',
         'while',

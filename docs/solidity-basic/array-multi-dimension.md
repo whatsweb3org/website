@@ -6,11 +6,11 @@ last_update:
 
 # 多维数组
 
-前面的章节我们学习了数组，知道了数组是同类型元素的集合。我们暂时看到的都是一维数组。想象一下，假设你的合约不仅仅是管理一种NFT了， 而是管理多种NFT。比如说你同时持有多个Crypto Punk和多个Bored Ape。
+前面的章节我们学习了数组，知道了数组是同类型元素的集合。我们目前看到过的都是一维数组。想象一下，假设你的合约不仅仅是管理一种NFT了， 而是管理多种NFT。比如说你同时持有多个Crypto Punk和多个Bored Ape。
 
 ![](./assets/array-multi-dimension/5db2a3f85c994d20ae85cdef38c9baaa.png)
 
-如果你把他们的NFT ID全部放在同一个以为数组里面显然不太合适，因为Crypto Punk和Bored Ape都有ID为1001，1002，1003...的NFT。这个时候你就希望把它们分组。用一个数组专门记录Crypto Punk的NFT ID，另外一个数组用来专门记录Bored Ape的NFT ID。如下面的例子所示：
+如果你把他们的NFT ID全部放在同一个一维数组里面显然不太合适，因为Crypto Punk和Bored Ape都有ID为1001，1002，1003...的NFT。这个时候你就希望把它们分组。用一个数组专门记录Crypto Punk的NFT ID，另外一个数组用来专门记录Bored Ape的NFT ID。如下面的例子所示：
 
 ```solidity
 // 分别记录两种NFT ID
@@ -50,7 +50,7 @@ T[col][row] dataLocation arrName;
 
 其中`dataLocation`是数据位置，`arrName`是你为这个数组起的任意名字。而`row`和`col`则定义了你的多维数组有多少行和列。例如`uint[3][5]`就声明了一个5行3列的多维数组。如果你有学过其他语言，你会发现这样的声明方式跟其他语言是**恰恰相反**的。比如C语言和Javascript等在声明一个5行3列的多维数组，格式应该是`uint[5][3]`才对。这点要务必注意，尤其是在遍历多维数组的时候一不小心就搞反了。
 
-所以我们现在知道了Solidity的多维数组声明要**从右往左**看, 例如`uint[2][3][4]`包含了4个`uint[2][3]`静态数组进。一步拆解,其中每个`uint[2][3]`代表的是: 包含了3个`uint[2]`的静态数组,以此类推。
+所以我们现在知道了Solidity的多维数组声明要**从右往左**看, 例如`uint[2][3][4]`包含了4个`uint[2][3]`静态数组。进一步拆解,其中每个`uint[2][3]`代表的是: 包含了3个`uint[2]`的静态数组,以此类推。
 
 :::caution
 Solidity在声明多维数组的时候「行」和「列」跟C语言, Javascript等是相反的
@@ -98,7 +98,7 @@ uint[][] storage arrStorage; // 行列数任意的动态多维数组
 
 #### 零值初始化
 
-如果你只声明了一个静态多维数组，那么它的所有元素都会被零值初始化（_zero value initialized_)。
+如果你只声明静态多维数组，不手动初始化，那么它的所有元素都会被零值初始化（_zero value initialized_)。
 
 :::tip 零值初始化静态多维数组
 ```solidity
@@ -156,7 +156,7 @@ function initArray() public {
 ```
 :::
 
-记得永远不要忘记静态数组的长度是不可以改变的，所以不会有`push`, `pop`函数。假设你定义了一个数组`uint[][3] arr`，它里面包含了3个`uint[]`动态数组。其中3是固定的，所以你不能执行`arr.push(new uint[](k))`。像下面这样是非法的：
+不要忘记静态数组的长度是不可以改变的，所以不会有`push`, `pop`函数。假设你定义了一个数组`uint[][3] arr`，它里面包含了3个`uint[]`动态数组。其中3是固定的，所以你不能执行`arr.push(new uint[](k))`。像下面这样是非法的：
 
 :::tip 静态数组长度不可改变，不可`push`, `pop`
 ```solidity

@@ -8,7 +8,7 @@ last_update:
 
 地址类型（*address*）是Solidity独有的类型。在给其他账户转账，或者与其他合约交互的时候都需要用到地址类型。好比如你要向别人的银行账户转账，你需要知道对方的账户号码一样。Solidity的地址类型也扮演着类似的角色。
 
-Solidity的地址类型用关键字`address`表示，它占据20bytes (*160bits*)。地址类型可以再细分为两种：
+Solidity的地址类型用关键字`address`表示，它占据20bytes (*160bits*)，默认值为`0x0`，表示空地址。地址类型可以再细分为两种：
 
 - `address` : 普通地址类型
 - `address payable` : 与普通地址类型类似，但是多了两个函数`transfer`和`send`
@@ -79,7 +79,7 @@ function get_codehash() public view returns(bytes32) {
 
 ## 成员函数
 
-- `transfer(uint256 amount)`: 将给定数量的 wei 从当前合约转移到地址，不成功就抛出异常（仅address payable可以使用）
+- `transfer(uint256 amount)`: 将给定数量的 wei 从当前合约转移到目标地址，不成功就抛出异常（仅address payable可以使用）
 - `send(uint256 amount)`: 与 transfer 函数类似，但是不会抛出异常，而是返回布尔值 （仅address payable可以使用）
 - `call(...)`: 调用地址上的合约，并传入参数
 - `delegatecall(...)`: 与 call 类似，但是使用的是调用者的数据存储

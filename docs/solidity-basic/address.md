@@ -10,8 +10,8 @@ last_update:
 
 Solidity的地址类型用关键字`address`表示，它占据20bytes (*160bits*)，默认值为`0x0`，表示空地址。地址类型可以再细分为两种：
 
-- `address` : 普通地址类型
-- `address payable` : 与普通地址类型类似，但是多了两个函数`transfer`和`send`
+- `address` : 普通地址类型（不可接收转账）
+- `address payable` : 可收款地址类型（可接收转账）
 
 它们大部分的应用场景是相同的，主要的区别就是`address payable`能接受转账，但是`address`不行。之所以要进行这样的区分是因为有一些合约就是被设计了不接受转账的，所以这种状况下你应该使用`address`来指向合约地址。
 
@@ -55,8 +55,8 @@ address payable addr_pay = payable(addr); // **显式类型转换**
 
 地址类型有三个成员变量，分别为：
 
-- `balance`    ：地址的账户余额，单位是Wei
-- `code`         ：地址的合约代码，可能为空
+- `balance`  ：地址的账户余额，单位是Wei
+- `code`     ：地址的合约代码，可能为空
 - `codehash` ：地址合约代码的hash值
 
 :::tip 获取成员变量值 
@@ -79,11 +79,11 @@ function get_codehash() public view returns(bytes32) {
 
 ## 成员函数
 
-- `transfer(uint256 amount)`: 将给定数量的 wei 从当前合约转移到目标地址，不成功就抛出异常（仅address payable可以使用）
-- `send(uint256 amount)`: 与 transfer 函数类似，但是不会抛出异常，而是返回布尔值 （仅address payable可以使用）
-- `call(...)`: 调用地址上的合约，并传入参数
-- `delegatecall(...)`: 与 call 类似，但是使用的是调用者的数据存储
-- `staticcall(...)`: 于call类似，但是不会改变链上状态
+- `transfer(uint256 amount)`: 向指定地址转账，不成功就抛出异常（仅address payable可以使用）
+- `send(uint256 amount)`: 与 transfer 函数类似，但是失败不会抛出异常，而是返回布尔值 （仅address payable可以使用）
+- `call(...)`: 调用其他合约中的函数
+- `delegatecall(...)`: 与 call 类似，但是使用当前合约的上下文来调用其他合约中的函数，修改的也是当前合约的数据存储
+- `staticcall(...)`: 于 call 类似，但是不会改变链上状态
 
 ### transfer
 
@@ -93,7 +93,7 @@ function get_codehash() public view returns(bytes32) {
 transfer(uint256 amount)
 ```
 
-`transfer`函数向目标地址发送给定`amount`的Wei，如果发送失败，直接`revert`。执行transaction的Gas固定为2300。注意`transfer`函数仅`address payable`可以使用。
+`transfer`函数向目标地址发送给定 `amount` 的 Wei，如果发送失败，直接 `revert`。执行 transaction 的 Gas 固定为2300。注意 `transfer` 函数仅 `address payable` 可以使用。
 
 ![Untitled](assets/address/Untitled1.png)
 
@@ -105,7 +105,7 @@ transfer(uint256 amount)
 send(uint256 amount) returns (bool)
 ```
 
-`send`函数向目标地址发送给定`amount`的Wei，如果发送失败，返回`false`。注意到`send`和`transfer`的区别是`send`返回`false`，而`transfer`直接revert。执行transaction的Gas同样固定为2300。注意`send`函数仅`address payable`可以使用。
+`send` 函数向目标地址发送给定 `amount` 的 Wei ，如果发送失败，返回 `false`。注意到 `send` 和 `transfer` 的区别是 `send` 返回 `false` ，而 `transfer` 直接 revert 。执行 transaction 的 Gas 同样固定为2300。注意`send`函数仅`address payable`可以使用。
 
 ![Untitled](assets/address/Untitled2.png)
 
@@ -159,3 +159,18 @@ https://docs.soliditylang.org/en/v0.8.17/units-and-global-variables.html#address
 https://docs.openzeppelin.com/upgrades-plugins/1.x/proxies
 https://eips.ethereum.org/EIPS/eip-214
 https://cryptoguide.dev/post/guide-to-solidity's-staticcall-and-how-to-use-it
+
+# 小结
+
+1. Solidity 中的地址类型是用于转账和与其他合约交互的
+2. 地址类型用 `address` 表示，占据20bytes (160bits)。默认值为`0x0`
+3. 地址类型有两种：普通地址类型和可收款地址类型
+4. 可收款地址类型可以接受转账，而普通地址类型不能
+5. 可以使用 payable() 函数将地址字面值显式转换为可收款地址类型
+6. `balance`：可以获取地址余额
+7. `transfer()`：可以向指定地址转账
+8. `send()`：与 `transfer()` 函数类似，但是如果转账失败会抛出异常
+9. `call()`：可以调用其他合约中的函数
+10. `delegatecall()`：与 `call()` 函数类似，但是使用当前合约的上下文来调用其他合约中的函数
+11. `staticcall()`: 与 `call()` 函数类似，但是不会允许有改变状态变量的操作
+12. `transfer()`和`send()` 函数只能在 `address payable` 类型中使用

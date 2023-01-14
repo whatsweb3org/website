@@ -1,7 +1,9 @@
 ---
 title: revert
 last_update:
+
     date: 1/15/2023
+
 ---
 
 # revert
@@ -27,9 +29,10 @@ revert("My Error string");
 
 其中 `CustomError` 是自定义的 Error
 
-例如下面的示例中，把传入的 Ether 分为两半，一半转入地址 `addr1`，另一边转到地址 `addr2` 。在实际分账之前，使用 `revert` 先检查传入的 Ether 是不是偶数。
+例如下面的示例中，把传入的 Ether 分为两半，一半转入地址 `addr1` ，另一边转到地址 `addr2` 。在实际分账之前，使用 `revert` 先检查传入的 Ether 是不是偶数。
 
 :::tip Ether对半分账
+
 ```solidity
 function splitEther(address payable addr1, address payable addr2) public payable {
     if (msg.value % 2 == 0) { // 检查传入的ether是不是偶数
@@ -39,14 +42,16 @@ function splitEther(address payable addr1, address payable addr2) public payable
     addr2.transfer(msg.value / 2);
 }
 ```
+
 :::
 
 ## revert 与 require 的区别
 
-我们在上面有提到 `revert` 可以代替 `require`，在某些复杂的情景下停止执行并抛出异常。例如，你可以认为下面两份代码的作用是等价的：
+我们在上面有提到 `revert` 可以代替 `require` ，在某些复杂的情景下停止执行并抛出异常。例如，你可以认为下面两份代码的作用是等价的：
 
 :::tip `require` 与 `revert` 的等价表达式
 判断是否是偶数
+
 ```solidity
 require(msg.value % 2 == 0, "Even value revertd.");
 ```
@@ -58,6 +63,7 @@ if (msg.value % 2 == 0) {
     revert("Even value revertd.");
 }
 ```
+
 :::
 
 在一些复杂的逻辑嵌套中，使用 `revert` 会更加方便，清晰：

@@ -1,7 +1,9 @@
 ---
 title: 安装使用Remix IDE
 last_update:
+
     date: 1/7/2023
+
 ---
 
 # 安装使用Remix IDE
@@ -34,7 +36,7 @@ Remix一共划分了4个面板，分别为:
 
 接下来介绍一下Icon Panel和Side Panel的主要交互操作。
 
-第一个要介绍的是**File Explorer**，里面可以看到你的合约，部署脚本以及测试脚本等代码的目录列表，点击这些代码文件，就会在Main Panel中打开，你便可以开始进行编辑。可以看到代码目录列表里面有三个文件夹，我们通常会把合约放在`contracts/`，然后把部署合约的Javascript脚本放在`scripts/`，测试脚本通常会放在`tests/`下面。
+第一个要介绍的是**File Explorer**，里面可以看到你的合约，部署脚本以及测试脚本等代码的目录列表，点击这些代码文件，就会在Main Panel中打开，你便可以开始进行编辑。可以看到代码目录列表里面有三个文件夹，我们通常会把合约放在 `contracts/` ，然后把部署合约的Javascript脚本放在 `scripts/` ，测试脚本通常会放在 `tests/` 下面。
 
 ![Untitled](assets/install-remix/Untitled2.png)
 

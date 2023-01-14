@@ -1,7 +1,9 @@
 ---
 title: Hello World!
 last_update:
+
     date: 1/7/2023
+
 ---
 
 # Hello World!
@@ -10,9 +12,10 @@ last_update:
 
 ## Solidity Hello World!
 
-下面的例子就是一个最简单的Hello World合约，它一共有两个函数，一个`set`函数用来将我们输入的字符串记录在`storeMsg`变量中，一个`get`函数从`storeMsg`中获取字符串。
+下面的例子就是一个最简单的Hello World合约，它一共有两个函数，一个 `set` 函数用来将我们输入的字符串记录在 `storeMsg` 变量中，一个 `get` 函数从 `storeMsg` 中获取字符串。
 
 :::tip Hello World!
+
 ```solidity
 // SPDX-License-Identifier: GPL-3.0
 
@@ -30,6 +33,7 @@ contract HelloWorld {
     }
 }
 ```
+
 :::
 
 你可能会问，为什么我们不像C或者Python的Hello World一样直接打印一个Hello World字符串。这是因为Solidity是无法像其他程序一样自动运行的，它必须要由某个账户或者其他合约触发，并且支付足够的Gas才能执行其函数。所以我们要测试这个Hello World程序就必须要通过主动与其进行交互才能看到执行结果。
@@ -44,12 +48,12 @@ contract HelloWorld {
 
 如下图所示，我们分两步与合约进行交互，执行了两笔transaction，两笔transaction要分别付Gas。
 
-- 第一步：调用`set(”hello world!”)`，将”hello world!”字符串写入`storeMsg`状态变量
-- 第二步：调用`get()`，返回”hello world!”字符串
+* 第一步：调用`set(”hello world!”)`，将”hello world!”字符串写入`storeMsg`状态变量
+* 第二步：调用`get()`，返回”hello world!”字符串
 
 ![Untitled](assets/hello-world/Untitled1.png)
 
-至此，我们成功与合约交互并且通过`get`函数获得了返回的”hello world!”字符串。大型的合约代码的开发也是基于相同的模式与流程，随着学习的不断深入，我们便可以开发越来越复杂的合约。
+至此，我们成功与合约交互并且通过 `get` 函数获得了返回的”hello world!”字符串。大型的合约代码的开发也是基于相同的模式与流程，随着学习的不断深入，我们便可以开发越来越复杂的合约。
 
 ## 小结
 

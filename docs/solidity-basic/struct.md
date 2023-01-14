@@ -1,7 +1,9 @@
 ---
 title: 结构体
 last_update:
+
     date: 1/8/2023
+
 ---
 
 # 结构体
@@ -16,15 +18,18 @@ last_update:
 4. 结构体加强了 Solidity 的表达能力（结构体可以与其他结构体或者数组，映射类型互相嵌套）。使得代码更加易读。
 
 ## 定义一个结构体
+
 我们来介绍一下如何定义一个结构体。定义结构体需要用到 `struct` 关键字。下面的例子中定义了一个 `Book` 的结构体，里面包含了两个元素，分别是书名和价格。
 
 :::tip 定义结构体类型
+
 ```solidity
 struct Book {
     string title; // 书名
     uint price;   // 价格
 }
 ```
+
 :::
 
 ## 结构体的声明
@@ -32,9 +37,11 @@ struct Book {
 接下来我们介绍一下如何声明结构体。我们在前面的章节已经知道，对于每个引用类型的声明我们都必须加上「数据位置」修饰符（_如果是声明状态变量的话可以不加_）。所以对于结构体也不例外。如下面的例子所示，我们声明了一个变量 `book` ，它的类型是 Book 。
 
 :::tip 声明结构体类型变量
+
 ```solidity
 Book memory book;
 ```
+
 :::
 
 根据上面的例子，我们不难总结出声明一个结构体的格式如下：
@@ -43,13 +50,14 @@ Book memory book;
 StructName DataLocation varName;
 ```
 
-其中 `StructName` 是你定义的结构体名称，`DataLocation` 是数据位置。然后 `varName` 是给变量取的任意名字。
+其中 `StructName` 是你定义的结构体名称， `DataLocation` 是数据位置。然后 `varName` 是给变量取的任意名字。
 
 ## 结构体的初始化
 
 你有两种方法来初始化结构体。一种是以键值的形式，指定每个成员的初始值。如下所示：
 
 :::tip 以键值的形式，指定每个成员的初始值
+
 ```solidity
 Book memory book1 = Book(
     {
@@ -58,6 +66,7 @@ Book memory book1 = Book(
     }
 );
 ```
+
 :::
 
 注意你必须为每一个成员赋初始值，不能省略任何一个成员。
@@ -65,9 +74,11 @@ Book memory book1 = Book(
 第二种是比较简短的形式，依据你定义结构体时各个成员的顺序一一给定初始化值，如下所示：
 
 :::tip 依据定义结构体时各个成员的顺序一一给定初始化值
+
 ```solidity
 Book memory book2 = Book("my book title", 25);
 ```
+
 :::
 
 同样地，你必须为每一个成员赋初始值，不能省略任何一个成员。
@@ -77,6 +88,7 @@ Book memory book2 = Book("my book title", 25);
 要获取结构体成员我们可以使用 `.` 操作符。如下面例子所示：
 
 :::tip 获取结构体成员值
+
 ```solidity
 Book memory book3;
 book3.title = "my book title"; // 给结构体成员赋值
@@ -84,6 +96,7 @@ book3.price = 25; // 给结构体成员赋值
 
 console.log("title: %s", book3.title); // 获取结构体成员值
 ```
+
 :::
 
 ## 结构体可以和数组，映射类型互相嵌套
@@ -91,18 +104,21 @@ console.log("title: %s", book3.title); // 获取结构体成员值
 有了结构体，我们可以更方便管理数据了。不仅如此，结构体还可以和数组，映射类型（下一节我们介绍映射类型）互相嵌套。这样一来，又大大增强了 Solidtiy 的表达能力。例如我们可以创建一个书库数组，你可以每买一本书，就把书添加到数组里。如下所示：
 
 :::tip 结构体数组
+
 ```solidity
 Book[] public lib; // Book数组，状态变量
 function addNewBook(Book memory book) public {
     lib.push(book);
 }
 ```
+
 :::
 
 此外，结构体里面也可以有数组：
 
 :::tip 结构体的数组成员
 例如，每本书可能会有多个联合作者，我们可以在里面增加一个作者的数组
+
 ```solidity
 struct Book {
     string title; // 书名
@@ -110,7 +126,7 @@ struct Book {
     string[] author; // 作者
 }
 ```
-:::
 
+:::
 
 当然，结构体也可以与映射类型互相嵌套，这个部分我们会在映射类型一节详细介绍。

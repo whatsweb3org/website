@@ -98,7 +98,7 @@ contract Owner {
 这个Solidity合约实现了一个简单的 `owner` 管理功能，可以用来设置、管理和删除合约的 `owner`。它定义了一些结构体、枚举、事件、函数修饰器、状态变量和函数。我们逐个拆解来看看每一个组成结构。
 
 ### 结构体
-
+结构体是一种类型，用于表示多个字段的集合。结构体可以用来定义复杂的数据类型。
 ```solidity
 struct Identity { // 结构体
     address addr;
@@ -108,7 +108,7 @@ struct Identity { // 结构体
 `Identity`：它是一个结构体，包含了`owner`的地址和姓名两个字段。
 
 ### 枚举
-
+枚举是一种类型，用于定义一组名称和整数值之间的对应关系。枚举可以用来让代码更具可读性和可维护性。
 ```solidity
 enum State { // 枚举
     HasOwner,
@@ -118,7 +118,7 @@ enum State { // 枚举
 `State`：它是一个枚举，定义了两个状态 `HasOwner` 和 `NoOwner`。
 
 ### 事件
-
+事件是一种特殊的函数，可以用来记录合约执行过程中发生的重要事件，并且可以通过已连接的客户端来访问这些事件。
 ```solidity
 // 事件
 event OwnerSet(address indexed oldOwnerAddr, address indexed newOwnerAddr);
@@ -128,7 +128,7 @@ event OwnerRemoved(address indexed oldOwnerAddr);
 * `OwnerRemoved`：当 `owner` 被删除时触发
 
 ### 函数修饰器
-
+函数修饰器是一种特殊的关键字，用于在函数定义前指定函数的性质或行为
 ```solidity
 modifier isOwner() { // 函数修饰器
     require(msg.sender == owner.addr, "Caller is not owner");
@@ -138,6 +138,7 @@ modifier isOwner() { // 函数修饰器
 `isOwner`：它是一个函数修饰器，只允许合约的 `owner` 调用修饰器修饰的函数。
 
 ### 状态变量
+状态变量是用于存储合约状态的变量。状态变量会被永久保存在区块链上，并且可以在合约执行期间被读写。
 
 ```solidity
 Identity private owner;  // 状态变量
@@ -147,7 +148,7 @@ State private state;     // 状态变量
 * `state`：它是一个 `State` 类型的变量，表示合约的当前状态
 
 ### 函数
-
+函数是一组逻辑块，用于定义合约的行为。函数可以接受参数，并返回结果。函数可以在合约内部或外部调用。
 ```solidity
 // 构造函数
 constructor(string memory name) {

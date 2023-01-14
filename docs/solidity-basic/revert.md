@@ -10,12 +10,12 @@ last_update:
 
 `revert` 函数通常有下面几种用途：
 
-1. 在 fallback function 拒绝接收 Ether
+1. 在 fallback function 拒绝接收 Ether (我们在fallback function章节再展开介绍)
 2. 代替 `require`，在某些复杂的情景下停止执行并抛出异常
 
 ## revert 语法
 
-revert 的语法如下所示：
+`revert` 的语法如下所示：
 
 ```solidity
 // 使用方式一

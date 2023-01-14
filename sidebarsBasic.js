@@ -2,14 +2,21 @@ module.exports = {
   DocsSidebar: [
     {
       type: 'category',
-      label: 'Solidity入门指南',
-      collapsible: true,
+      label: 'Solidity入门简介',
+      collapsible: false,
       items: [
         'intro',
         'install-remix',
         'hello-world',
         'contract-building-block',
         'comment',
+      ],
+    },
+    {
+      type: 'category',
+      label: 'Solidity数据类型',
+      collapsible: false,
+      items: [
         'data-types',
         'bool',
         'integer',
@@ -26,6 +33,13 @@ module.exports = {
         'dynamic-byte-array',
         'struct',
         'mapping',
+      ],
+    },
+    {
+      type: 'category',
+      label: 'Solidity控制结构',
+      collapsible: false,
+      items: [
         'if-else',
         'for',
         'while',

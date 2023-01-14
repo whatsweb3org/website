@@ -28,7 +28,7 @@ function hasSpace(string memory input) public view returns (bool) {
 ```
 :::
 
-下图更形象展示了 break 的行为。黄色框框代表的循环代码块，绿色代表的是循环外的代码块。当执行到 break 的时候会跳出黄色框框，然后直接进入绿色框框的代码继续执行。
+下图更形象展示了 break 的行为。黄色框代表的循环代码块，绿色代表的是循环外的代码块。当执行到 break 的时候会跳出黄色框，然后直接进入绿色框的代码继续执行。
 
 ![](./assets/break/18dfeece105b44569db703bdf98dbd8a.png)
 

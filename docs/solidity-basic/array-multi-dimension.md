@@ -45,10 +45,10 @@ uint[3][3][3] memory arr;
 假设`T`是一种类型，那么静态多维数组的声明格式如下：
 
 ```solidity
-T[col][row] dataLocation arrName;
+T[col][row] DataLocation arrName;
 ```
 
-其中`dataLocation`是数据位置，`arrName`是你为这个数组起的任意名字。而`row`和`col`则定义了你的多维数组有多少行和列。例如`uint[3][5]`就声明了一个5行3列的多维数组。如果你有学过其他语言，你会发现这样的声明方式跟其他语言是**恰恰相反**的。比如C语言和Javascript等在声明一个5行3列的多维数组，格式应该是`uint[5][3]`才对。这点要务必注意，尤其是在遍历多维数组的时候一不小心就搞反了。
+其中`DataLocation`是数据位置，`arrName`是你为这个数组起的任意名字。而`row`和`col`则定义了你的多维数组有多少行和列。例如`uint[3][5]`就声明了一个5行3列的多维数组。如果你有学过其他语言，你会发现这样的声明方式跟其他语言是**恰恰相反**的。比如C语言和Javascript等在声明一个5行3列的多维数组，格式应该是`uint[5][3]`才对。这点要务必注意，尤其是在遍历多维数组的时候一不小心就搞反了。
 
 ![](./assets/array-multi-dimension/0b132ecfcdef437e832bd90ca4943add.png)
 
@@ -79,10 +79,10 @@ uint[size][size] memory arr; // 非法
 假设`T`是一种类型，那么动态多维数组的声明格式如下：
 
 ```solidity
-T[][] dataLocation arrName;
+T[][] DataLocation arrName;
 ```
 
-其中`dataLocation`是数据位置，而`arrName`是你为这个数组起的任意名字。虽然动态多维数组没有指定行和列，但是它的行为跟静态多维数组是一样的。也就是说它的行和列跟其他语言相比也是反的。
+其中`DataLocation`是数据位置，而`arrName`是你为这个数组起的任意名字。虽然动态多维数组没有指定行和列，但是它的行为跟静态多维数组是一样的。也就是说它的行和列跟其他语言相比也是反的。
 
 :::tip 声明动态多维数组
 ```solidity

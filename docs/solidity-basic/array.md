@@ -6,8 +6,8 @@ last_update:
 
 # 数组
 假设你有一个合约专门用来的管理你所持有的NFT，然后可能需要记录你都持有哪些NFT，它们的ID是什么。于是你会想到像下面的示例一样，定义多个`uint`变量来记录每个NFT ID:
-![](./assets/array/8b7903fe53a24dfda50d162865c4bbbd.png)
 
+![](./assets/array/8b7903fe53a24dfda50d162865c4bbbd.png)
 
 :::tip 定义多个`uint`变量来记录持有的NFT ID
 ```solidity
@@ -37,10 +37,10 @@ uint nftID4 = 1004;
 假设`T`是一种类型，那么静态数组的声明格式如下：
 
 ```solidity
-T[arrSize] dataLocation arrName;
+T[arrSize] DataLocation arrName;
 ```
 
-其中`arrSize`是数组的长度，`dataLocation`是数据位置，而`arrName`是你为这个数组起的任意名字。
+其中`arrSize`是数组的长度，`DataLocation`是数据位置，而`arrName`是你为这个数组起的任意名字。
 
 :::info 数组是一种引用类型
 注意：数组是一种引用类型，所以你必须在声明，定义的时候加上三个数据位置（_data location_）关键字之一：`storage`, `memory`, `calldata`。
@@ -67,10 +67,10 @@ uint[size][size] memory array; // 非法
 假设`T`是一种类型，那么动态数组的声明格式如下：
 
 ```solidity
-T[] dataLocation arrName;
+T[] DataLocation arrName;
 ```
 
-其中`dataLocation`是数据位置，而`arrName`是你为这个数组起的任意名字。
+其中`DataLocation`是数据位置，而`arrName`是你为这个数组起的任意名字。
 
 :::tip 声明动态数组
 ```solidity

@@ -41,13 +41,13 @@ function extracFourBytes(string calldata payload) public view {
 ```
 :::
 
-##  数组切片只能使用在`calldata`数组
+##  数组切片只能作用于 calldata 
 
 :::caution
-目前只有`calldata`可以使用数组切片。`memory`和`storage`都不可以使用
+目前只能对 `calldata` 使用数组切片。`memory` 和 `storage` 都不可以使用
 :::
 
-目前数组切片只能用在`calldata`数组身上，否则编译会报错。因为`calldata`数据是不可更改的，所以你也不能更改数组切片的值。
+目前只能对 `calldata` 使用数组切片，否则编译会报错。因为 `calldata` 数据是不可更改的，所以你也不能更改数组切片的值。
 
 :::tip 编译错误：数组切片不能用在`memory`或者`storage`
 ```solidity

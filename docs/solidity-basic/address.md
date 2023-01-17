@@ -161,7 +161,7 @@ delegatecall(bytes memory) returns (bool, bytes memory)
 
 ![Untitled](assets/address/Untitled5.png)
 
-# 参考资料
+## 参考资料
 
 https://docs.soliditylang.org/en/v0.8.17/types.html#address
 https://docs.soliditylang.org/en/v0.8.17/units-and-global-variables.html#address-related]
@@ -169,7 +169,8 @@ https://docs.openzeppelin.com/upgrades-plugins/1.x/proxies
 https://eips.ethereum.org/EIPS/eip-214
 https://cryptoguide.dev/post/guide-to-solidity's-staticcall-and-how-to-use-it
 
-# 小结
+## 小结
+
 01. Solidity 中的地址类型是用于转账和与其他合约交互的
 02. 地址类型用 `address` 表示，占据20bytes (160bits)。默认值为`0x0`
 03. 地址类型有两种：普通地址类型和可收款地址类型

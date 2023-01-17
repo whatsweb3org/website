@@ -32,7 +32,8 @@ function printOddNumbers() public {
 
 ![](./assets/continue/757a73c67fcc4e14896a6874430573b6.png)
 
-# 小结
+## 小结
+
 1. `break` 和 `continue` 关键字都是用于控制循环的行为
 2. `break` 关键字用于提前退出循环，减少无用开销, continue 关键字用于跳过当前循环的剩余部分，并立即开始下一轮循环
 3. `continue` 关键字可以用于跳过循环中不感兴趣的数据，只处理感兴趣的数据

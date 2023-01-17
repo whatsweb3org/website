@@ -218,7 +218,9 @@ function getState() external view returns (State) {
 * 所有重要的操作都需要使用函数修饰器 `isOwner` 进行保护，只有 `owner` 才能执行。
 * 这个合约还提供了一些辅助函数，如 `getOwner` 和 `getState`，用来查询 `owner` 的信息和合约的状态
 * 此外，这个合约还定义了两个事件：`OwnerSet` 和 `OwnerRemoved`，分别在 `owner` 被设置或删除时触发。这些事件可以被外部监听，从而做出相应的反应。
-# 小结
+
+## 小结
+
 1. 状态变量: 储存在合约中的变量。在本例中，定义了私有状态变量 `owner` 和 `state`。
 2. 函数: 合约中定义的可执行代码块。在本例中，有构造函数 `constructor` 和普通函数 `changeOwner`、`removeOwner`、`getOwner` 和 `getState`。
 3. 函数修饰器: 在函数定义之前使用的一个声明，可以对函数的行为进行修饰。在本例中，使用了 `isOwner` 修饰器。

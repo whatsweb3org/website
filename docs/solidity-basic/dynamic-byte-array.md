@@ -66,6 +66,7 @@ string memory str = "hello world";
 uint len = str.length; // 不合法，不能获取长度
 bytes1 b = str[0]; // 不合法，不能进行下标访问
 ```
+:::
 
 你可以将 `string` 转换成 `bytes` 后再进行下标访问和获取长度
 

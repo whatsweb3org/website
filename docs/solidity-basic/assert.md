@@ -8,7 +8,15 @@ last_update:
 
 # assert
 
-Solidity提供了 `assert` 函数，让我们可以检查合约状态是否正常，否则抛出异常。
+合约执行过程中往往会出现一些异常状况，比如输入参数不合法，算数运算时除以0，整型溢出等等。如果出现这些情况，我们就需要进行异常处理。Solidity 异常处理的统一原则是状态回滚（*state reverting*），也就是恢复执行前的状态，就好像什么都没有发生一样。目前 Solidity 提供了三个异常处理的函数：
+
+* [require](require)
+* [assert](assert)
+* [revert](revert)
+
+本节我们将会介绍 `assert` 。
+
+Solidity提供的 `assert` 函数让我们可以检查合约状态是否正常，否则抛出异常。
 
 `assert` 函数通常有下面几种用途：
 

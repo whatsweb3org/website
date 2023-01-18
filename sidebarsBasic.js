@@ -17,7 +17,9 @@ module.exports = {
       label: 'Solidity数据类型',
       collapsible: false,
       items: [
+        'variable',
         'data-types',
+        'data-location',
         'bool',
         'integer',
         'address',
@@ -25,7 +27,6 @@ module.exports = {
         'literal',
         'enum',
         'user-defined-types',
-        'data-location',
         'array',
         'array-slice',
         'array-members',

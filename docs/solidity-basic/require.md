@@ -1,7 +1,9 @@
 ---
 title: require
 last_update:
+
     date: 1/15/2023
+
 ---
 
 # require
@@ -34,9 +36,10 @@ require(condition, "My error string");
 
 其中 `condition` 是布尔表达式，如果其结果是 `false` 那么就会抛出异常。然后所有状态变量都会恢复原状。
 
-例如下面的示例中，把传入的 Ether 分为两半，一半转入地址 `addr1`，另一边转到地址 `addr2` 。在实际分账之前，使用 `require` 先检查传入的 Ether 是不是偶数。
+例如下面的示例中，把传入的 Ether 分为两半，一半转入地址 `addr1` ，另一边转到地址 `addr2` 。在实际分账之前，使用 `require` 先检查传入的 Ether 是不是偶数。
 
 :::tip Ether对半分账
+
 ```solidity
 function splitEther(address payable addr1, address payable addr2) public payable {
     require(msg.value % 2 == 0, "Even value required."); // 检查传入的ether是不是偶数
@@ -44,4 +47,5 @@ function splitEther(address payable addr1, address payable addr2) public payable
     addr2.transfer(msg.value / 2);
 }
 ```
+
 :::

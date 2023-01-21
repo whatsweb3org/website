@@ -52,5 +52,16 @@ module.exports = {
         'revert',
       ],
     },
+    {
+      type: 'category',
+      label: 'Solidity合约',
+      collapsible: false,
+      items: [
+        'contract',
+        'constant',
+        'immutable',
+        'function',
+      ],
+    },
   ],
 };

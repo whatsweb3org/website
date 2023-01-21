@@ -102,7 +102,7 @@ mapping(address => uint) memory myMap; // 编译错误
 
 :::
 
-## 映射类型使用在入参和返回值时，函数可见性必须是 private 或 internal
+## 映射类型作为入参和返回值时，函数可见性必须是 private 或 internal
 
 * 函数的可见性为 `public` 或 `external`时， 那么在入参和返回值里面**不能**使用映射类型。
 * 函数的可见性为 `private` 或 `internal`时，那么在入参和返回值里面**可以**使用映射类型。
@@ -111,7 +111,7 @@ mapping(address => uint) memory myMap; // 编译错误
 
 下面的例子展示了这个规则：
 
-:::tip 
+:::tip 映射类型作为入参和返回值时，函数可见性必须是 `private` 或 `internal` 
 
 ```solidity
 function invalidDeclaration(mapping(address => uint) storage myMap) public {} // 编译错误

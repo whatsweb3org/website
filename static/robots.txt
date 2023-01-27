@@ -1,4 +1,4 @@
-# deliberately empty
-Sitemap: http://www.whatsweb3.org/sitemap.xml
 User-agent: *
-Disallow:
+Allow: /
+
+Sitemap: http://www.whatsweb3.org/sitemap.xml

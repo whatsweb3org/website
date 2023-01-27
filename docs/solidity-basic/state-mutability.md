@@ -12,6 +12,9 @@ last_update:
 
 Solidity 提供了三个状态可变性修饰符：
 
+![picture 1](assets/state-mutability/1674825720506.png)  
+
+
 - `view` 函数只能查询合约状态，不能更改合约状态。简单来讲就是 read only
 - `pure` 既不能查询，也不能修改函数状态。只能使用函数参数进行简单计算并返回结果
 - `payable` 允许函数接受 Ether 转账。默认情况下是不能接受转账的，如果你需要接受转账，那么必须指定函数为 payable
@@ -64,6 +67,22 @@ function GetCount() public view returns(uint) {
 
 function add(uint lhs, uint rhs) public pure returns(uint) {
     return lhs + rhs;
+}
+
+```
+
+:::
+
+## payable 函数
+
+函数默认是不能接受 Ether 转账的。如果你的函数需要接受转账，那么你应该为它加上 `payable` 修饰符。如下所示：
+
+:::tip `payable` 函数
+
+```solidity
+
+function deposit() external payable {
+    // deposit to current contract
 }
 
 ```

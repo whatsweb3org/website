@@ -10,7 +10,9 @@ last_update:
 
 为了保证合约安全性, Solidity 对变量和函数的访问进行限制。可见性（ `visibility` ）指的是其他合约对当前合约中的变量或函数的可访问性（ `accessibility` ）。换一种说法就是：其他合约能不能访问当前合约的变量和函数是由可见性决定的。
 
-Solidity支持四种可见性修饰符： `public` , `external` , `private` 和 `internal` 。
+Solidity支持四种可见性修饰符：
+
+![picture 2](assets/visibility/1674825674344.png)  
 
 * `public` 修饰符表示该变量或函数可以在合约内部和外部访问
 * `external` 修饰符表示该变量或函数只能在合约外部访问
@@ -26,6 +28,9 @@ Solidity支持四种可见性修饰符： `public` , `external` , `private` 和 
 1. 主合约 （也就是合约内部）
 2. 子合约 （也就是继承合约）
 3. 第三方合约 （也就是合约外部）
+
+![picture 3](assets/visibility/1674825791282.png)  
+
 
 简单来讲，子合约继承了主合约，而第三方合约跟主/子合约没有继承关系。把主合约和子合约想象成一个家庭的话，第三方合约就是个陌生人。
 
@@ -86,14 +91,23 @@ contract ThirdPartyContract {
 
 可见性为 `public` 的变量和函数可以被任何合约访问。也就是可以被 `MainContract` , `ChildContract` , `ThirdPartyContract` 访问。
 
+![picture 4](assets/visibility/1674825830199.png)  
+
 ### external
 
 可见性为 `external` 的函数只能被第三方合约访问。也就是只能被 `ThirdPartyContract` 访问。注意变量是没有 `external` 修饰符的。
+
+![picture 7](assets/visibility/1674825905583.png)  
 
 ### internal
 
 可见性为 `internal` 的变量和函数可以被主合约和子合约访问。也就是可以被 `MainContract` , `ChildContract` 访问。
 
+![picture 5](assets/visibility/1674825863125.png)  
+
 ### private
 
 可见性为 `private` 的变量和函数只能被主合约访问。也就是只能被 `MainContract` 访问。
+
+![picture 8](assets/visibility/1674825933657.png)  
+

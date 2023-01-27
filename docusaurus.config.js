@@ -97,7 +97,7 @@ module.exports = {
           items: [
             {
               label: '网站主页',
-              href: 'http://whatsweb3.org',
+              href: 'https://whatsweb3.org',
             },
           ],
         },

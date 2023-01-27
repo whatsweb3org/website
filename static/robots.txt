@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: http://www.whatsweb3.org/sitemap.xml
+Sitemap: https://www.whatsweb3.org/sitemap.xml

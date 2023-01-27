@@ -5,7 +5,7 @@ module.exports = {
   title: 'WhatsWeb3最佳Web3学习资源',
   tagline:
     'WhatsWeb3 org (WW3) 是由Web3极客共建的开源学习社区。是初学者以及Web2开发者转型Web3的桥梁。我们专注Web3技术普及，包括且不限于Solidity基础，Solidity进阶，Openzeppelin标准合约，以及合约安全等主题。WW3与你携手一起探索这未知的Web3领域',
-  url: 'https://whatsweb3.org',
+  url: 'https://www.whatsweb3.org',
   baseUrl: '/',
   staticDirectories: ['static'],
   onBrokenLinks: 'warn',
@@ -97,7 +97,7 @@ module.exports = {
           items: [
             {
               label: '网站主页',
-              href: 'https://whatsweb3.org',
+              href: 'https://www.whatsweb3.org',
             },
           ],
         },

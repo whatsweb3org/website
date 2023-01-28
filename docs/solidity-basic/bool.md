@@ -47,7 +47,7 @@ a != b // true
 ```solidity
 // SPDX-License-Identifier: GPL-3.0
 
-pragma solidity ^0.8.9;
+pragma solidity ^0.8.17;
 
 contract BoolShortCircuit {
     uint256 public zeroCount = 0;

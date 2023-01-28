@@ -14,7 +14,7 @@ last_update:
 
 ```solidity
 
-pragma solidity ^0.8.9;
+pragma solidity ^0.8.17;
 
 contract ExampleContract {
     address private owner;
@@ -49,7 +49,7 @@ contract ExampleContract {
 
 ```solidity
 
-pragma solidity ^0.8.9;
+pragma solidity ^0.8.17;
 
 contract ExampleContract {
     address private owner;

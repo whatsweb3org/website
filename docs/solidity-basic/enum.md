@@ -96,7 +96,7 @@ function uintToEnum(uint i) public pure returns(ActionChoices) {
 
 ```solidity
 // SPDX-License-Identifier: GPL-3.0
-pragma solidity ^0.8.9;
+pragma solidity ^0.8.17;
 
 contract Enum {
     enum ActionChoices { 
@@ -117,6 +117,13 @@ contract Enum {
 ```
 
 :::
+
+## 小结
+
+1. 枚举类型是组织收集有关联变量的一种方式
+2. Solidity的枚举类型跟C语言的类似，都是一种特殊的整型
+3. 使用枚举类型可以提高代码的类型安全性和可读性。
+4. 可以通过 `.` 操作符来获取枚举类型的某个枚举值
 
 ## 参考资料
 

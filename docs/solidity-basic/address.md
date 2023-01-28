@@ -161,14 +161,6 @@ delegatecall(bytes memory) returns (bool, bytes memory)
 
 ![Untitled](assets/address/Untitled5.png)
 
-## 参考资料
-
-https://docs.soliditylang.org/en/v0.8.17/types.html#address
-https://docs.soliditylang.org/en/v0.8.17/units-and-global-variables.html#address-related]
-https://docs.openzeppelin.com/upgrades-plugins/1.x/proxies
-https://eips.ethereum.org/EIPS/eip-214
-https://cryptoguide.dev/post/guide-to-solidity's-staticcall-and-how-to-use-it
-
 ## 小结
 
 01. Solidity 中的地址类型是用于转账和与其他合约交互的
@@ -183,3 +175,11 @@ https://cryptoguide.dev/post/guide-to-solidity's-staticcall-and-how-to-use-it
 10. `delegatecall()`：与 `call()` 函数类似，但是使用当前合约的上下文来调用其他合约中的函数
 11. `staticcall()`: 与 `call()` 函数类似，但是不会允许有改变状态变量的操作
 12. `transfer()`和`send()` 函数只能在 `address payable` 类型中使用
+
+## 参考资料
+
+https://docs.soliditylang.org/en/v0.8.17/types.html#address
+https://docs.soliditylang.org/en/v0.8.17/units-and-global-variables.html#address-related]
+https://docs.openzeppelin.com/upgrades-plugins/1.x/proxies
+https://eips.ethereum.org/EIPS/eip-214
+https://cryptoguide.dev/post/guide-to-solidity's-staticcall-and-how-to-use-it

@@ -106,7 +106,7 @@ Solidity整型运算结果可能出现溢出的情况，导致合约运行出现
 ```solidity
 // SPDX-License-Identifier: GPL-3.0
 
-pragma solidity ^0.8.9;
+pragma solidity ^0.8.17;
 
 contract Integer {
 	function overflow() public view {

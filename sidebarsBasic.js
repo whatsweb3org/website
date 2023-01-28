@@ -64,6 +64,10 @@ module.exports = {
         'modifier',
         'visibility',
         'state-mutability',
+        'function-view',
+        'function-pure',
+        'function-receive',
+        'function-fallback'
       ],
     },
   ],

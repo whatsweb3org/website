@@ -88,6 +88,14 @@ function add(Weight lhs, Weight rhs) public pure returns(Weight) {
 
 :::
 
+## 小结
+
+1. 自定义值类型是用户自定义的值类型，类似于别名，但是不等同于别名
+2. 可以通过 `type C is V` 来定义新的自定义值类型
+3. 使用自定义值类型可以提高代码的类型安全性和代码可读性
+4. 不同自定义值类型之间不能进行算术运算
+5. 自定义值类型和原生类型之间没有隐式类型转换，需要使用强制类型转换进行转换
+
 ## 参考资料
 
 https://blog.soliditylang.org/2021/09/27/user-defined-value-types

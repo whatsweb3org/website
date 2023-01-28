@@ -64,7 +64,7 @@ uint128 u = Weight.unwrap(w);
 
 ## 「自定义值类型」不继承操作符
 
-要注意到「自定义值类型」是不继承原生类型的操作符的，包括 `+ - * /` 等等。例如下面的例子中编译器是会报错 `*TypeError: Operator + not compatible with types UserDefinedValueType.Weight and UserDefinedValueType.Weight.*` ：
+要注意到「自定义值类型」是不继承原生类型的操作符的，包括 `+ - * /` 等等。例如下面的例子中编译器是会报错 `TypeError: Operator + not compatible with types UserDefinedValueType.Weight and UserDefinedValueType.Weight.` ：
 
 :::tip 「自定义值类型」使用原生类型操作符报错
 

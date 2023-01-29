@@ -1,8 +1,8 @@
 ---
 title: 状态可变性
-last_update: 
+last_update:
 
-    date: 1/27/2023
+    date: 2023-01-28
 
 ---
 

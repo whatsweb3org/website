@@ -2,7 +2,7 @@
 title: 变量
 last_update:
 
-    date: 1/17/2023
+    date: 2023-01-21
 
 ---
 

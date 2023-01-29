@@ -2,7 +2,7 @@
 title: 枚举类型
 last_update:
 
-    date: 1/7/2023
+    date: 2023-01-28
 
 ---
 

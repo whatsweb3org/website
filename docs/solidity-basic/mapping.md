@@ -2,7 +2,7 @@
 title: 映射类型
 last_update:
 
-    date: 1/14/2023
+    date: 2023-01-21
 
 ---
 

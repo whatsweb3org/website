@@ -1,7 +1,8 @@
 ---
 title: 比较require,assert,revert
 last_update:
-    date: 1/15/2023
+
+    date: 2023-01-14
 ---
 
 # 比较require,assert,revert

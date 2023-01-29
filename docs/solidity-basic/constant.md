@@ -2,7 +2,7 @@
 title: constant
 last_update:
 
-    date: 1/21/2023
+    date: 2023-01-21
 
 ---
 

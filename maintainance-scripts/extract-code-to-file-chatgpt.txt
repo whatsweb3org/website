@@ -1,0 +1,35 @@
+
+
+Write a python program that parse all markdown files under the path `../docs/solidity-basic/` and extract the code block between "```solidity" and "```" . Then save each one into a solidity file. You should complete the solidity file so that it's runable. The pragma is `pragma solidity ^0.8.17;`. 
+
+All of the generated files should be under the directory `sample-code/dirname` where `dirname` is the same name as the markdown file name without `.md` suffix.
+
+
+The format of the code block is like this:
+
+{
+
+:::tip tipTitle
+
+```solidity
+// code block
+```
+
+}
+
+
+The code block is surrounded by "```solidity" and "```". If the "```solidity" and "```" pair is not surrounded by :::tip and ::: you don't need to extract them. 
+
+The extracted code block need to be completed as a runnable contract similar to the following format:
+
+```
+// SPDX-License-Identifier: GPL-3.0
+
+pragma solidity ^0.8.17;
+
+contract ExampleContract {
+    // put code block here
+}
+```
+
+The extracted code block should be put on the comment position: `// put code block here`

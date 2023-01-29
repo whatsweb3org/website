@@ -1,16 +1,6 @@
 import os
-from langdetect import detect
-from translate import Translator
 
 path = "../docs/solidity-basic/"
-
-
-def translate(title):
-    if detect(title) == "zh-cn":
-        translator = Translator(to_lang="en")
-        title = translator.translate(title)
-    return title.replace(" ", "-").lower()
-
 
 for filename in os.listdir(path):
     if filename.endswith(".md"):
@@ -23,7 +13,7 @@ for filename in os.listdir(path):
                 previous_line = contents[:start].strip().split("\n")[-1]
                 if previous_line.startswith(":::tip"):
                     tip_title = previous_line.split(" ")[1].strip()
-                    name = translate(tip_title)
+                    name = tip_title
                 else:
                     name = f"{filename[:-3]}_{start}"
                 code_path = f"sample-code/{filename[:-3]}/"

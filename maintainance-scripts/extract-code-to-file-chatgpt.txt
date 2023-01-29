@@ -32,4 +32,7 @@ contract ExampleContract {
 }
 ```
 
-The extracted code block should be put on the comment position: `// put code block here`
+The extracted code block should be put on the comment position: `// put code block here`. If the code block is already a contract, you don't need complete it. You should directly extract the code block and put into the solidity file.
+
+
+After finding "```solidity" and "```" and the code block within it. You need to check whether it's surrounded by ":::tip tipTitle" and ":::". If yes, please use "tipTitle" as the name of the generated solidity tile. 

@@ -1,0 +1,31 @@
+If have a bunch or markdown file under the folder "../docs/solidity-basic/". And each markdown file is started with some meta data surrounded by "---" like this :
+
+```
+---
+title: fileTitle
+last_update:
+
+    date: lastUpdateDate
+
+---
+```
+
+or like this:
+
+```
+---
+title: fileTitle
+last_update:
+    date: lastUpdateDate
+
+---
+```
+
+
+where `lastUpdateDate` is the last update date of the file. 
+
+The formart of `lasteUpdateDate` is `YY/MM/DD` for example `2023-01-14`. 
+
+
+Your mission is to write a python program that execute a `git` command to get the last modify time of each markdown file under the folder "../docs/solidity-basic/". And then you should update the `lasteUpdateDate` of each markdown file with the last modify time in the format `YY-MM-DD`. You should use regular expression by importing the `re` package.
+

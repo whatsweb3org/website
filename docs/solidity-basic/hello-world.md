@@ -34,6 +34,8 @@ contract HelloWorld {
 }
 ```
 
+<tryit fileName={ 'HelloWorld.sol' } />
+
 :::
 
 你可能会问，为什么我们不像C或者Python的Hello World一样直接打印一个Hello World字符串。这是因为Solidity是无法像其他程序一样自动运行的，它必须要由某个账户或者其他合约触发，并且支付足够的Gas才能执行其函数。所以我们要测试这个Hello World程序就必须要通过主动与其进行交互才能看到执行结果。

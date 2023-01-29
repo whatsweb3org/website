@@ -8,9 +8,15 @@ last_update:
 
 `receive` 函数是 Solidity 中的一种特殊函数，它主要被用来接收 Ether 转账。还有一个 `fallback` 函数也可以用来接收 Ether 转账，下一节我们会介绍。
 
+:::caution 
+
+要注意 Ether 转账和 ERC20 代币转账的区别。Ether 转账时所转的是原生代币（native token）。而 ERC20 所定义的都是非原生代币（non-native token）。ERC20 代币内部实现类似于一个数据库，里面记录了每个持有者持有了多少个代币。ERC20 代币转账调用的都是普通函数。跟 Ether 转账是有本质不同的。
+
+:::
+
 ## receive 函数定义语法
 
-`receive` 函数的定义是固定的，其可见性必（*visibility*）须为 `external`，状态可变性（*state mutability*）必须为 `payable`。同时要注意 `receive` 函数不需要 `function` 前缀
+`receive` 函数的定义是固定的，其可见性（*visibility*）必须为 `external`，状态可变性（*state mutability*）必须为 `payable`。同时要注意 `receive` 函数不需要 `function` 前缀
 
 ```solidity
 
@@ -22,7 +28,7 @@ receive() external payable {
 
 ## 合约没有定义 receive 和 fallback 函数时，不能对其转账
 
-如果一个合约既没有定义 `receive` 函数，也没有定义 `fallback` 函数，那么我们不能对它发起转账。这种情况下所有试图转账的操作都会被 revert 。如下面的示例所示：
+如果一个合约既没有定义 `receive` 函数，也没有定义 `fallback` 函数，那么我们不能对它发起 Ether 转账。这种情况下所有试图向该合约转账的交易都会被 revert 。如下面所示：
 
 
 :::tip `Callee` 没有定义 `receive` 和 `fallback` 函数，三种对其转账的方法都失败
@@ -65,7 +71,7 @@ contract Caller {
 
 :::
 
-要注意我们上面提到的转账指的是单纯的转账（*msg.data为空*）。单纯的转账有三种方法：
+要注意我们上面提到的 Ether 转账指的是单纯的转账（*msg.data为空*）。单纯的转账有三种方法：
 
 - `send(amount)` （gas 固定为 2300，错误时 revert)
 - `transfer(amount)` （gas 固定为 2300, 返回布尔值） 
@@ -73,19 +79,19 @@ contract Caller {
 
 这三种方法都是发送 amount 数量的 Wei 到目标账户。
 
-我们提到如果合约既没有定义 `receive` 函数，也没有定义 `fallback` 函数，那么对其转账会失败。但是如果是进行普通函数调用（*msg.data不为空*），那么还是可以成功的。例如你可以用 call 函数进行普通函数调用：
+我们提到如果合约既没有定义 `receive` 函数，也没有定义 `fallback` 函数，那么对其转账会失败。但是在同等情况下，不影响普通函数调用（*msg.data不为空*）。例如你可以用 `call` 来调用普通函数：
 
 ```solidity
 
-// 调用 foo() 函数 (msg.data 不为空)
+// 调用 foo() 函数 
 call( abi.encodeWithSignature("foo()") );
 
-// 调用 foo() 函数，并转账 1 Wei (msg.data 不为空)
+// 调用 foo() 函数，并转账 1 Wei 
 call{value: 1}( abi.encodeWithSignature("foo()") );
 
 ```
 
-注意第二种函数调用中，还同时给目标合约转了 1 Wei， 这也是允许的，因为这是一个函数调用，而不是单纯的转账。
+注意第二个函数调用中，还同时向目标合约转了 1 Wei， 这也是允许的，因为这是一个普通函数调用，而不是单纯的转账。
 
 ## 注意 Gas 不足的问题
 

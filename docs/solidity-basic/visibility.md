@@ -19,11 +19,11 @@ Solidity支持四种可见性修饰符：
 * `private` 修饰符表示该变量或函数只能在合约内部访问
 * `internal` 修饰符表示该变量或函数只能在合约内部和继承该合约的合约中访问
 
-其中，变量可见性修饰符有三个： `public` , `private` , `internal` 。而函数包含上面所有四个修饰符。
+其中，**变量**可见性修饰符有三个： `public` , `private` , `internal` 。而**函数**包含上面所有四个修饰符。
 
 ## 合约分类
 
-我们在上面看到有合约内部，合约外部，继承合约等等名词。它们到底是什么含义呢？本小结我们将会分类进行说明。根据可见性的限制，我们可以把合约分为三类：
+我们在上面看到有合约内部，合约外部，继承合约等等名词。它们到底是什么含义呢？本小节我们将会分类进行说明。根据可见性的限制，我们可以把合约分为三类：
 
 1. 主合约 （也就是合约内部）
 2. 子合约 （也就是继承合约）
@@ -34,12 +34,14 @@ Solidity支持四种可见性修饰符：
 
 简单来讲，子合约继承了主合约，而第三方合约跟主/子合约没有继承关系。把主合约和子合约想象成一个家庭的话，第三方合约就是个陌生人。
 
+要注意我们所谈到的访问限制都是以主合约为视角的。也就是当我们在编写主合约的时候，使用可见性修饰符来决定哪些合约可以访问主合约的哪些变量和函数。
+
 ### 主合约
 
-主合约就是一个普通合约，内部定义了很多变量和函数。这些变量和函数可能有不同的可见性。主合约可以访问自己的 `private` , `internal` , `public` 任何变量和函数。
+主合约就是一个普通合约，内部定义了很多变量和函数。这些变量和函数可能有不同的可见性。主合约可以访问自己内部可见性为 `private` , `internal` , `public` 的任何变量和函数。
 
 ```solidity
-// 主合约可以访问自己的 private, internal, public 变量和函数
+// 主合约可以访问自己内部可见性为 private, internal, public 的变量和函数
 contract MainContract {
     uint varPrivate;
     uint varInternal;
@@ -55,14 +57,14 @@ contract MainContract {
 
 ### 子合约
 
-子合约继承了主合约。继承的语法是 `Child is Parent` 。子合约允许访问可见性为 `internal` ， `public` 的函数。
+子合约继承了主合约。继承的语法是 `Child is Parent` 。子合约允许访问主合约中可见性为 `internal` ， `public` 的函数。
 
 ```solidity
 
 contract ChildContract is MainContract {
     function funcChild() private {
-        funcInternal(); // 子合约可以访问可见性为internal，public的函数
-        funcPublic(); // 子合约可以访问可见性为internal，public的函数
+        funcInternal(); // 子合约可以访问主合约中可见性为internal，public的函数
+        funcPublic(); // 子合约可以访问主合约中可见性为internal，public的函数
     }
 }
 
@@ -70,14 +72,14 @@ contract ChildContract is MainContract {
 
 ### 第三方合约
 
-第三方合约是一个普通合约。可以通过主合约的地址来与主合约进行交互, 其交互语法如下所示。第三方合约可以访问可见性为 `external` ， `public` 的函数
+第三方合约是一个普通合约。可以通过主合约的地址来与主合约进行交互, 其交互语法如下所示。第三方合约可以访问主合约中可见性为 `external` ， `public` 的函数
 
 ```solidity
 
 contract ThirdPartyContract {
       function funcThirdParty(address mainContractAddress) private {
-            MainContract(mainContractAddress).funcExternal(); // 第三方合约可以访问可见性为external，public的函数
-            MainContract(mainContractAddress).funcPublic(); // 第三方合约可以访问可见性为external，public的函数
+            MainContract(mainContractAddress).funcExternal(); // 第三方合约可以访问主合约中可见性为external，public的函数
+            MainContract(mainContractAddress).funcPublic(); // 第三方合约可以访问主合约中可见性为external，public的函数
       }
 }
 
@@ -85,7 +87,7 @@ contract ThirdPartyContract {
 
 ## 可见性对于合约访问的限制
 
-我们已经提到，可见性就是合约变量和函数的可访问性。那么可见性对每种类型合约的访问限制是什么呢？本小结将会展开讨论。
+我们已经提到，可见性就是合约变量和函数的可访问性。那么可见性对每种类型合约的访问限制是什么呢？本小节将会展开讨论。
 
 ### public
 

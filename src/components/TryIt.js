@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from '@docusaurus/Link';
 import {useLocation} from '@docusaurus/router';
+import clsx from 'clsx';
 
 const TryIt = ( { fileName } ) => {
   const location = useLocation();
@@ -11,10 +12,11 @@ const TryIt = ( { fileName } ) => {
   var pathToCode = splittedPath.join('/');
   return (
     <Link
-        className={'button button--lg button--primary'}
+        className={clsx('button', 'button--primary')} 
+        style={ { textDecoration: 'none' } }
         href={'https://remix.ethereum.org/whatsweb3org/website/blob/main' + pathToCode}
     >
-      { '试一试 >> ' }
+      试一试 »
     </Link>
   );
 };

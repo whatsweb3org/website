@@ -6,17 +6,17 @@ last_update:
 
 ---
 
-`receive` 函数是 Solidity 中的一种特殊函数，它主要被用来接收 Ether 转账。还有一个 `fallback` 函数也可以用来接收 Ether 转账，下一节我们会介绍。
+`receive` 函数是 Solidity 中的一种特殊函数，它主要被用来接收 Ether 转账。另外还有一个 `fallback` 函数也可以用来接收 Ether 转账，下一节我们会介绍。
 
-:::caution 
+:::caution 要注意 Ether 转账和 ERC20 代币转账的区别
 
-要注意 Ether 转账和 ERC20 代币转账的区别。Ether 转账时所转的是原生代币（native token）。而 ERC20 所定义的都是非原生代币（non-native token）。ERC20 代币内部实现类似于一个数据库，里面记录了每个持有者持有了多少个代币。ERC20 代币转账调用的都是普通函数。跟 Ether 转账是有本质不同的。
+Ether 转账时所转的是原生代币（native token）。而 ERC20 所定义的都是非原生代币（non-native token）。ERC20 代币内部实现类似于一个数据库，里面记录了每个持有者持有了多少个代币。ERC20 代币转账调用的都是普通函数。跟 Ether 转账是有本质不同的。
 
 :::
 
 ## receive 函数定义语法
 
-`receive` 函数的定义是固定的，其可见性（*visibility*）必须为 `external`，状态可变性（*state mutability*）必须为 `payable`。同时要注意 `receive` 函数不需要 `function` 前缀
+`receive` 函数的定义格式是固定的，其可见性（*visibility*）必须为 `external`，状态可变性（*state mutability*）必须为 `payable`。同时要注意 `receive` 函数不需要 `function` 前缀
 
 ```solidity
 
@@ -38,7 +38,7 @@ receive() external payable {
 
 pragma solidity ^0.8.17;
 
-// Callee 没有定义 receive 和 fallback 函数
+// Callee既没有定义receive函数，也没有定义fallback函数
 contract Callee {}
 
 contract Caller {
@@ -49,18 +49,18 @@ contract Caller {
         callee = payable(address(new Callee()));
     }
 
-    // 失败
+    // 失败，因为Callee既没有定义receive函数，也没有定义fallback函数
     function tryTransfer() external {
         callee.transfer(1);
     }
 
-    // 失败
+    // 失败，因为Callee既没有定义receive函数，也没有定义fallback函数
     function trySend() external {
         bool success = callee.send(1);
         require(success, "Failed to send Ether");
     }
 
-    // 失败
+    // 失败，因为Callee既没有定义receive函数，也没有定义fallback函数
     function tryCall() external {
         (bool success, bytes memory data) = callee.call{value: 1}("");
         require(success, "Failed to send Ether");
@@ -71,15 +71,15 @@ contract Caller {
 
 :::
 
-要注意我们上面提到的 Ether 转账指的是单纯的转账（*msg.data为空*）。单纯的转账有三种方法：
+要注意我们上面提到的 Ether 转账指的是纯转账（*msg.data = empty*）。Ether 转账不进行函数调用，只是把 Ether 转到目标地址。Solidity 中有三种方法进行 Ether 转账：
 
 - `send(amount)` （gas 固定为 2300，错误时 revert)
 - `transfer(amount)` （gas 固定为 2300, 返回布尔值） 
 - `call{value: amount}("")`（gas 可以随意设定，返回布尔值）
 
-这三种方法都是发送 amount 数量的 Wei 到目标账户。
+这三种方法都是发送 amount 数量的 Wei 到目标地址。
 
-我们提到如果合约既没有定义 `receive` 函数，也没有定义 `fallback` 函数，那么对其转账会失败。但是在同等情况下，不影响普通函数调用（*msg.data不为空*）。例如你可以用 `call` 来调用普通函数：
+我们提到如果合约既没有定义 `receive` 函数，也没有定义 `fallback` 函数，那么对其转账会失败。但是在同等情况下，不影响普通函数调用（*msg.data != empty*）。例如你可以用 `call` 来调用普通函数：
 
 ```solidity
 
@@ -91,7 +91,7 @@ call{value: 1}( abi.encodeWithSignature("foo()") );
 
 ```
 
-注意第二个函数调用中，还同时向目标合约转了 1 Wei， 这也是允许的，因为这是一个普通函数调用，而不是单纯的转账。
+注意第二个函数调用中，还同时向目标合约转了 1 Wei， 这也是允许的，因为这是一个普通函数调用，而不是纯转账。
 
 ## 注意 Gas 不足的问题
 

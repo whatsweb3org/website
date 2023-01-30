@@ -8,12 +8,14 @@ last_update:
 
 # immutable
 
-Solidity 中的 `immutable` 和 `constant` 类似，都是用来定义不能再改变的变量。不过 `immutable` 的限制比 `constant` 稍微宽松一点。我们在 [「constant」](constant) 一节提到： `constant` 变量必须在定义的时候赋值，其他任何地方都不能再赋值。而 `immutable` 的限制是：只允许赋值（初始化）一次。
+Solidity 中的 `immutable` 和 `constant` 类似，都是用来定义不能二度改变的变量。不过 `immutable` 的限制比 `constant` 稍微宽松一点。我们在 [「constant」](constant) 一节提到： `constant` 变量必须在定义的时候就初始化，其他任何地方都不能再赋值。而 `immutable` 的限制是：只允许初始化（赋值）一次，并允许在构建函数中再做初始化。
 
-也就是说， `immutable` 变量只允许：
+也就是说， `immutable` 变量允许：
 
 1. 在声明的时候初始化
 2. 或者在构建函数初始化
+
+所以 `immutable` 与 `constant` 的最大区别就是，它允许在构建函数中才做初始化。
 
 ## immutable 变量声明
 

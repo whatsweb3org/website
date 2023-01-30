@@ -8,17 +8,17 @@ last_update:
 
 # fallback 函数
 
-`fallback` 函数是 Solidity 中的一种特殊函数。当调用的函数不存在时可以用 `fallback` 函数来兜底。顾名思义，`fallback` 有回退，兜底的意思。其含义就是当 xxx 不存在时，使用 xxx 来代替。类似于当你没有带现金时，使用银行卡来付款一样。
+`fallback` 函数是 Solidity 中的一种特殊函数。当调用的函数匹配不到（不存在，没有定义）时自动使用 `fallback` 函数来兜底。顾名思义，`fallback` 在中文里有回退，兜底的意思。类比于当你没有带现金时，可以使用银行卡来付款一样。注意匹配不到，不存在，没有定义指的是同一个意思。
 
 `fallback` 函数可以兜底两类函数不存在的情况：
 
-- `receive` 函数不存在
-- 普通函数不存在
+- `receive` 函数不存在（因为没有定义）
+- 普通函数不存在（因为没有定义）
 
 简单来讲就是：
 
-- 需要用到 `receive` 函数时它不存在，那么就用 `fallback` 函数兜底
-- 所调用的函数在合约里找不到，不存在时，使用 `fallback` 函数兜底
+- 需要用到 `receive` 函数时它没有被定义，那么就用 `fallback` 函数兜底
+- 调用的函数在合约里不存在，没有被定义时，使用 `fallback` 函数兜底
 
 下面这个图就表达了我们所谓「兜底」的含义。其中左半部分描述的是普通函数兜底，右半部分描述的是 `receive` 函数兜底：
 
@@ -26,19 +26,19 @@ last_update:
 
 ## 兜底 receive 函数不存在的情况
 
-我们在 [receive 函数](function-receive) 一节已经解析过，它只能在合约接受单纯的转账（*msg.data为空*）时被触发：
+我们在 [receive 函数](function-receive) 一节已经解析过，它只能在合约接受纯转账（*msg.data = empty*）时被触发：
 
 - `send(amount)` （gas 固定为 2300，错误时 revert)
 - `transfer(amount)` （gas 固定为 2300, 返回布尔值） 
 - `call{value: amount}("")`（gas 可以随意设定，返回布尔值）
 
-如果按照上面三个函数的格式调用来进行转账，那么 transacton 的 `msg.data` 是空的。所以理论上应该要触发 `receive` 函数。如果刚好合约没有定义 `receive` 函数，那么 `fallback` 函数就会被用来兜底。如果 `fallback` 函数也没有定义，那么交易会失败 revert。
+如果按照上面三个函数的格式调用来进行转账，那么 transacton 的 `msg.data` 是空的。所以理论上应该要触发 `receive` 函数。这个时候，如果刚好合约没有定义 `receive` 函数，那么 `fallback` 函数就自动会被用来兜底。如果 `fallback` 函数也没有定义，那么交易会失败 revert。
 
-![picture 4](assets/function-fallback/1674919568395.png)  
+![picture 6](assets/function-fallback/1675088649767.png)  
 
 ## 兜底普通函数不存在情况
 
-这种情况比较好理解，就是字面意思。如果你调用了一个合约里面没有定义的函数，比如说 `funcNotExist()` 那么 `fallback` 函数就会被用来兜底。
+这种情况比较好理解，就是字面上的意思。如果你调用了一个合约里面没有定义的函数，比如说 `funcNotExist()` 那么 `fallback` 函数就会自动被调用。
 
 ![picture 5](assets/function-fallback/1674919609462.png)  
 
@@ -61,12 +61,12 @@ contract Callee {
         emit FunctionCalled("this is foo");
     }
 
-    // 你可以注释 receive 函数来模拟 receive 函数没定义的情况
+    // 你可以注释掉 receive 函数来模拟它没有被定义的情况
     receive() external payable {
         emit FunctionCalled("this is receive");
     }
 
-    // // 你可以注释 fallback 函数来模拟 fallback 函数没定义的情况
+    // 你可以注释掉 fallback 函数来模拟它没有被定义的情况
     fallback() external payable {
         emit FunctionCalled("this is fallback");
     }
@@ -76,6 +76,7 @@ contract Caller {
     address payable callee;
 
     // 注意： 记得在部署的时候给 Caller 合约转账一些 Wei，比如 100
+    // 因为在调用下面的函数时需要用到一些 Wei
     constructor() payable{
         callee = payable(address(new Callee()));
     }
@@ -105,7 +106,7 @@ contract Caller {
         require(success, "Failed to send Ether");
     }
 
-    // 触发 fallback 函数
+    // 触发 fallback 函数，因为 funcNotExist() 在 Callee 没有定义
     function callFallback() external {
         (bool success, bytes memory data) = callee.call{value: 1}(
             abi.encodeWithSignature("funcNotExist()")

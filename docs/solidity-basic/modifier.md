@@ -64,18 +64,21 @@ contract ExampleContract {
         _;
     }
 
-    // Only the owner can call this function
-    function mint() external onlyOwner { // 使用 onlyOwner 修饰器来对调用者进行限制
+    // 使用 onlyOwner 修饰器来对调用者进行限制
+    // 只有 owner 才有权限调用这个函数
+    function mint() external onlyOwner { 
         // Function code goes here
     }
 
-    // Only the owner can call this function
-    function changeOwner() external onlyOwner { // 使用 onlyOwner 修饰器来对调用者进行限制
+    // 使用 onlyOwner 修饰器来对调用者进行限制
+    // 只有 owner 才有权限调用这个函数
+    function changeOwner() external onlyOwner {
         // Function code goes here
     }
 
-    // Only the owner can call this function
-    function pause() external onlyOwner { // 使用 onlyOwner 修饰器来对调用者进行限制
+    // 使用 onlyOwner 修饰器来对调用者进行限制
+    // 只有 owner 才有权限调用这个函数
+    function pause() external onlyOwner {
         // Function code goes here
     }
 }
@@ -100,7 +103,7 @@ modifier modifierName {
 
 ```
 
-修饰器的语法是比较简单的，其中要注意 `_` 是一个占位符（*placeholder*），代表的是函数主体（*function body*）。你可以认为函数主体被复制粘贴到 `_` 所在的位置。按照上面的定义，其执行顺序为：
+修饰器的语法是比较简单直接的，其中要注意 `_` 是一个占位符（*placeholder*），代表的是函数主体（*function body*）。你可以认为函数主体被复制粘贴到 `_` 所在的位置。按照上面的定义，其执行顺序为：
 
 1. 执行 modifier body 1
 2. 执行函数主体

@@ -12,11 +12,11 @@ Solidity是由以太坊开发的一种高级编程语言，用于构建智能合
 
 ![Untitled](assets/intro/Untitled.png)
 
-本教程是由WhatsWeb3 org出品的Web3入门系列教程之一。这个系列的教程涵盖了以下内容：
+本教程是由WhatsWeb3 org贡献的Web3入门系列教程之一。这个系列的教程涵盖了以下内容：
 
 * **Solidity**: 合约开发语言，包括入门与进阶教程
 * **Openzeppelin标准合约库**：由Openzeppelin维护的一系列标准合约，可以帮助加快合约开发
-* **Ethernut**: 是一个游戏，上面部署了靶合约，让你进行攻击并学习安全知识
+* **Ethernaut**: 是一个游戏，上面部署了靶合约，让你进行攻击并学习安全知识
 * **Hardhat & Truffle**: 合约测试部署框架
 * **Web3.js**: 与合约进行交互的前端Javascript库
 

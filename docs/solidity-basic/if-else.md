@@ -1,12 +1,12 @@
 ---
-title: if-else
+title: Solidity if-else
 last_update:
 
     date: 2023-01-14
 
 ---
 
-# if-else
+# Solidity if-else
 
 智能合约之所以智能是因为它能够在不同条件下执行不同的操作。所以，这个时候我们需要使用条件判断语句。Solidity的条件语句与C语言别无二致，你可以使用到的三个条件语句分别是：
 

@@ -1,12 +1,12 @@
 ---
-title: view函数
+title: Solidity view函数
 last_update:
 
     date: 2023-01-29
 
 ---
 
-# view 函数
+# Solidity view 函数
 
 `view`（视图）函数只能读取合约状态，不能修改合约状态。在 `view` 函数体修改合约状态时，编译器会直接报错。使用 `view` 函数可以提高代码安全性，避免出现与预期不符副作用。如果你的函数承诺不会修改合约状态，那么你应该将其声明为 `view` 函数。如下所示：
 

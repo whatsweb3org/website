@@ -2,7 +2,7 @@ module.exports = {
   DocsSidebar: [
     {
       type: 'category',
-      label: 'Solidity入门简介',
+      label: '课程预备',
       collapsible: false,
       items: [
         'intro',
@@ -14,7 +14,7 @@ module.exports = {
     },
     {
       type: 'category',
-      label: 'Solidity数据类型',
+      label: '数据类型',
       collapsible: false,
       items: [
         'variable',
@@ -38,7 +38,7 @@ module.exports = {
     },
     {
       type: 'category',
-      label: 'Solidity控制结构',
+      label: '控制结构',
       collapsible: false,
       items: [
         'if-else',
@@ -54,7 +54,7 @@ module.exports = {
     },
     {
       type: 'category',
-      label: 'Solidity合约',
+      label: '合约及其结构',
       collapsible: false,
       items: [
         'contract',

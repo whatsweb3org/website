@@ -1,12 +1,12 @@
 ---
-title: 安装使用Remix IDE
+title: Solidity 安装使用Remix IDE
 last_update:
 
     date: 2023-01-14
 
 ---
 
-# 安装使用Remix IDE
+# Solidity 安装使用Remix IDE
 
 在本章节以及之后的所有教程内容，我们都会使用Remix IDE作为我们的编译开发平台。Remix 是一个开源的Solidity 智能合约开发环境，提供基本的编译、部署至本地或测试网络、执行合约等功能。目前你Remix提供四种IDE开发工具让你可以在自己电脑或者浏览器进行合约开发，它们是：
 

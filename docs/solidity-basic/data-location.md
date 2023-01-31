@@ -1,12 +1,12 @@
 ---
-title: 数据位置
+title: Solidity 数据位置
 last_update:
 
     date: 2023-01-18
 
 ---
 
-# 数据位置
+# Solidity 数据位置
 
 Solidity 要求在声明或定义「引用类型」的时候**必须**要加上数据位置(*data location*)。例如 `uint[] storage` 。
 

@@ -1,12 +1,12 @@
 ---
-title: immutable 
+title: Solidity immutable 
 last_update:
 
     date: 2023-01-29
 
 ---
 
-# immutable
+# Solidity immutable
 
 Solidity 中的 `immutable` 和 `constant` 类似，都是用来定义不能二度改变的变量。不过 `immutable` 的限制比 `constant` 稍微宽松一点。我们在 [「constant」](constant) 一节提到： `constant` 变量必须在定义的时候就初始化，其他任何地方都不能再赋值。而 `immutable` 的限制是：只允许初始化（赋值）一次，并允许在构建函数中再做初始化。
 

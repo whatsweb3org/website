@@ -1,12 +1,12 @@
 ---
-title: 合约
+title: Solidity 合约
 last_update:
 
     date: 2023-01-21
 
 ---
 
-# 合约
+# Solidity 合约
 
 在 Solidity 中, 合约类似于其他语言的类(_class_), 它有自己的成员属性和成员函数。例如去中心化交易所可以实现为一个合约，借贷平台的功能也可以实现为一个合约。可以使用 `contract` 关键字来定义一个新的合约:
 
@@ -20,9 +20,7 @@ contract myContractName {
 
 下图展示了合约的组成结构:
 
-![picture 2](assets/contract/1674270177514.png)
-
-  
+![picture 3](assets/contract/1675168506669.png)  
 
 其中, 每个组成成员的作用如下:
 

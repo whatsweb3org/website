@@ -1,5 +1,5 @@
 ---
-title: receive函数
+title: Solidity receive函数
 last_update:
 
     date: 2023-01-29
@@ -14,7 +14,7 @@ Ether 转账时所转的是原生代币（native token）。而 ERC20 所定义�
 
 :::
 
-## receive 函数定义语法
+## Solidity receive 函数定义语法
 
 `receive` 函数的定义格式是固定的，其可见性（*visibility*）必须为 `external`，状态可变性（*state mutability*）必须为 `payable`。同时要注意 `receive` 函数不需要 `function` 前缀
 

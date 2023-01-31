@@ -1,12 +1,12 @@
 ---
-title: 多维数组
+title: Solidity 多维数组
 last_update:
 
     date: 2023-01-14
 
 ---
 
-# 多维数组
+# Solidity 多维数组
 
 前面的章节我们学习了数组，知道了数组是同类型元素的集合。我们目前看到过的都是一维数组。想象一下，假设你的合约不仅仅是管理一种NFT了， 而是管理多种NFT。比如说你同时持有多个Crypto Punk和多个Bored Ape。
 

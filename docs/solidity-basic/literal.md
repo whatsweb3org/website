@@ -1,12 +1,12 @@
 ---
-title: 字面值
+title: Solidity 字面值
 last_update:
 
     date: 2023-01-17
 
 ---
 
-# 字面值
+# Solidity 字面值
 
 字面值（*literal*）是指在程序中无需变量保存，可直接表示为一个具体的数字或字符串的值。Solidity支持多种字面值类型，包括：
 

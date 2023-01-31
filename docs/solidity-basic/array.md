@@ -1,12 +1,12 @@
 ---
-title: 数组
+title: Solidity 数组
 last_update:
 
     date: 2023-01-14
 
 ---
 
-# 数组
+# Solidity 数组
 
 假设你有一个合约专门用来的管理你所持有的NFT，然后可能需要记录你都持有哪些NFT，它们的ID是什么。于是你会想到像下面的示例一样，定义多个 `uint` 变量来记录每个NFT ID:
 

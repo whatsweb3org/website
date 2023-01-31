@@ -1,20 +1,20 @@
 ---
-title: Hello World!
+title: Solidity Hello World
 last_update:
 
     date: 2023-01-29
 
 ---
 
-# Hello World!
+# Solidity Hello World
 
 跟其他编程语言一样，我们也通过编写一段简单的Hello World程序来展示Solidity的基本语法。这是确认编译器、程序开发或运行环境是否已经安装妥当的常用手段。
 
-## Solidity Hello World!
+## Hello World 合约
 
 下面的例子就是一个最简单的Hello World合约，它一共有两个函数，一个 `set` 函数用来将我们输入的字符串记录在 `storeMsg` 变量中，一个 `get` 函数从 `storeMsg` 中获取字符串。
 
-:::tip Hello World!
+:::tip Hello World
 
 ```solidity
 // SPDX-License-Identifier: GPL-3.0

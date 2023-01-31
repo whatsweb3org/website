@@ -1,12 +1,12 @@
 ---
-title: 数组切片
+title: Solidity 数组切片
 last_update:
 
     date: 2023-01-14
 
 ---
 
-# 数组切片
+# Solidity 数组切片
 
 数组切片（_array slice_）是基于数组建立的视图（_view_）。其语法为 `arr[start:end]` 。视图包含的是从 `start` 到 `end-1` 的元素。与数组不同的是，视图是没有类型的，也不能占据存储空间。它是为了方便我们对数据进行处理的一种抽象方式。
 

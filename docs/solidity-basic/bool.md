@@ -1,12 +1,12 @@
 ---
-title: 布尔类型
+title: Solidity 布尔类型
 last_update:
 
     date: 2023-01-28
 
 ---
 
-# 布尔类型
+# Solidity 布尔类型
 
 布尔类型是只有 `true` 或者 `false` 两种可能取值的类型。Solidity的布尔类型变量可以用 `bool` 关键字定义。
 

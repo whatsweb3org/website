@@ -1,12 +1,12 @@
 ---
-title: constant
+title: Solidity constant
 last_update:
 
     date: 2023-01-21
 
 ---
 
-# constant
+# Solidity constant
 
 Solidity 中的 `constant` 关键字用来定义常量。也就是在编译期间就确定值，以后都不能再改变的变量。因为 `constant` 是不能更改的，所以使用它可以提高合约安全性。例如假设你写了一个借贷合约，要求抵押率为 3 倍，同时你预期这个比率永远都不会改变的。那么你可以把这个比率定义为一个 `constant` 变量。
 

@@ -1,12 +1,12 @@
 ---
-title: break
+title: Solidity break
 last_update:
 
     date: 2023-01-14
 
 ---
 
-# break
+# Solidity break
 
 在前几节我们学了三种循环 `for` , `while` , `do-while` 。有时候我们会发现我们并不需要循环那么多次，当某些条件满足后就可以直接退出就好了。比如说判断字符串是否包含空格，只要找到一个空格我们就可以直接下结论了，不需要遍历完整一个字符串。这个时候我们就可以用到 `break` 关键字。
 

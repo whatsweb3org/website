@@ -1,12 +1,12 @@
 ---
-title: while循环
+title: Solidity while循环
 last_update:
 
     date: 2023-01-21
 
 ---
 
-# while循环
+# Solidity while循环
 
 如果我们要计算 `1+2+3` 的和，这很简单：
 

@@ -1,12 +1,12 @@
 ---
-title: for循环
+title: Solidity for循环
 last_update:
 
     date: 2023-01-28
 
 ---
 
-# for循环
+# Solidity for循环
 
 如果我们要计算 `1+2+3` 的和，这很简单：
 

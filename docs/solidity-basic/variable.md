@@ -1,12 +1,12 @@
 ---
-title: 变量
+title: Solidity 变量
 last_update:
 
     date: 2023-01-21
 
 ---
 
-# 变量
+# Solidity 变量
 
 合约里面常常需要记录一些状态数据，例如 Token 余额， NFT ID 等等。那么这些状态是放在哪里呢？答案是：这些数据被放在变量里，我们可以对变量进行运算操作。在 Solidity 中，变量就是用来存储数据的容器。
 

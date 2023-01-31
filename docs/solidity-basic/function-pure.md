@@ -1,12 +1,12 @@
 ---
-title: pure函数
+title: Solidity pure函数
 last_update:
 
     date: 2023-01-29
 
 ---
 
-# pure 函数
+# Solidity pure 函数
 
 纯函数（*pure function*）是函数式编程的一个重要概念。在程序设计中，若一个函数符合以下要求，则它可能被认为是纯函数：
 

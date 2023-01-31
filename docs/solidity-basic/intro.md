@@ -1,12 +1,12 @@
 ---
-title: Solidity简介
+title: Solidity 简介
 last_update:
 
     date: 2023-01-14
 
 ---
 
-# Solidity简介
+# Solidity 简介
 
 Solidity是由以太坊开发的一种高级编程语言，用于构建智能合约。它于2014年7月发布，并在过去几年中成为了区块链开发中最流行的智能合约编程语言之一, 并在许多大型区块链项目中使用。它拥有丰富的社区和生态系统，为开发人员提供了大量的工具和资源，帮助他们更轻松地开发智能合约。Solidity的发展与以太坊的发展密不可分。以太坊的智能合约功能使得Solidity在过去几年中得到了广泛的应用。众多重要的DeFi, NFT项目都由Solidity进行开发。例如我们耳熟能详的UniSwap，Compound, Aave等。
 

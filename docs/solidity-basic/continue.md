@@ -1,12 +1,12 @@
 ---
-title: continue
+title: Solidity continue
 last_update:
 
     date: 2023-01-17
 
 ---
 
-# continue
+# Solidity continue
 
 上一节我们学习了 `break` 关键字的用法和使用时机。它让我们可以在条件合适的时候提前退出循环，减少无用开销。这一节我们来学习一下另一个与它经常一起提及的关键字 `continue` 。
 

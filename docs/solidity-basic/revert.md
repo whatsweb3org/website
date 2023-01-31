@@ -1,12 +1,12 @@
 ---
-title: revert
+title: Solidity revert
 last_update:
 
     date: 2023-01-21
 
 ---
 
-# revert
+# Solidity revert
 
 合约执行过程中往往会出现一些异常状况，比如输入参数不合法，算数运算时除以0，整型溢出等等。如果出现这些情况，我们就需要进行异常处理。Solidity 异常处理的统一原则是状态回滚（*state reverting*），也就是恢复执行前的状态，就好像什么都没有发生一样。目前 Solidity 提供了三个异常处理的函数：
 
@@ -85,3 +85,11 @@ if(condition1) {
     revert("condition2 not fulfilled");
 }
 ```
+
+## 参考资料
+
+https://www.evm.codes/?fork=merge
+https://www.ethervm.io/
+https://github.com/ethereum/solidity/issues/2586
+https://medium.com/blockchannel/the-use-of-revert-assert-and-require-in-solidity-and-the-new-revert-opcode-in-the-evm-1a3a7990e06e
+https://ethereum.stackexchange.com/questions/15166/difference-between-require-and-assert-and-the-difference-between-revert-and-thro

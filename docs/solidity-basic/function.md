@@ -1,12 +1,12 @@
 ---
-title: 函数 
+title: Solidity 函数 
 last_update:
 
     date: 2023-01-29
 
 ---
 
-# 函数
+# Solidity 函数
 
 函数是一组逻辑代码块，是构建合约的基本组成单位。 例如一个借贷合约可能包括几个操作：提供款项（supply），借款（borrow），还款（repay）等都可以实现为函数。
 

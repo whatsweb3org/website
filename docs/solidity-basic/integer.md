@@ -1,12 +1,12 @@
 ---
-title: 整型
+title: Solidity 整型
 last_update:
 
     date: 2023-01-28
 
 ---
 
-# 整型
+# Solidity 整型
 
 整型（*integer*）是不包含小数部分的数值型数据，正整数，负整数和0等都属于整型的范畴。比如账户余额，Gas，持有的Token数等都是用整型表示。Solidity的整型有两种：
 

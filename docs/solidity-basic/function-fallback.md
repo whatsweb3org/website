@@ -1,12 +1,12 @@
 ---
-title: fallback函数
+title: Solidity fallback函数
 last_update:
 
     date: 2023-01-28
 
 ---
 
-# fallback 函数
+# Solidity fallback 函数
 
 `fallback` 函数是 Solidity 中的一种特殊函数。当调用的函数匹配不到（不存在，没有定义）时自动使用 `fallback` 函数来兜底。顾名思义，`fallback` 在中文里有回退，兜底的意思。类比于当你没有带现金时，可以使用银行卡来付款一样。注意匹配不到，不存在，没有定义指的是同一个意思。
 

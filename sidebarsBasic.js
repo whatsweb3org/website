@@ -61,7 +61,7 @@ module.exports = {
         'constant',
         'immutable',
         'function',
-        'constructor',
+        'function-constructor',
         'modifier',
         'visibility',
         'state-mutability',

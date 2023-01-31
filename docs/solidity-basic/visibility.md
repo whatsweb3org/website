@@ -62,7 +62,7 @@ contract MainContract {
 
 ### 子合约
 
-子合约继承了主合约。继承的语法是 `Child is Parent` 。关于继承有关的详细介绍，我们会在 Solidity 进阶指南进行介绍。子合约允许访问主合约中可见性为 `internal` ， `public` 的函数。
+子合约继承了主合约。继承的语法是 `Child is Parent` 。关于继承有关的详细介绍，我们会在 「Solidity 进阶」进行介绍。子合约允许访问主合约中可见性为 `internal` ， `public` 的函数。
 
 ```solidity
 

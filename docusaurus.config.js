@@ -55,10 +55,10 @@ module.exports = {
         //   label: '课程列表',
         //   type: 'dropdown',
         //   items: [
-        //     { to: '/docs/solidity-advance/xxx', label: 'Solidity进阶指南' },
+        //     { to: '/docs/solidity-advance/xxx', label: 'Solidity进阶' },
         //   ],
         // },
-        { to: '/docs/solidity-basic/intro', label: 'Solidity入门指南' },
+        { to: '/docs/solidity-basic/intro', label: 'Solidity快速入门' },
         // { to: '/blog', label: 'Blog' },
         {
           href: 'https://github.com/whatsweb3org/website',

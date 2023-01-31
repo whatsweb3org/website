@@ -8,7 +8,7 @@ last_update:
 
 # Solidity do while循环
 
-如果我们要计算 `1+2+3` 的和，这很简单：
+想象一下，如果我们要计算 `1+2+3` 的和，这很简单：
 
 ```solidity
 uint256 sum = 1+2+3;
@@ -16,15 +16,15 @@ uint256 sum = 1+2+3;
 
 但是如果我们要计算 `1+2+3+…+100000` 呢。直接在合约里面写出这个表达式是不可能的。为了避免重复劳动，我们就可以用到循环。Solidity提供了三种循环：
 
-* **`for`循环**
-* **`while`循环**
-* **`do while`循环**
+- [「for 循环」](for)
+- [「while 循环」](while)
+- [「do-while 循环」](do-while)
 
 本节我们将会介绍 `do while` 循环。
 
 ## do while循环语法
 
-Solidity的 `do while` 循环语法规则也与C语言基本相同，其语法如下：
+Solidity的 `do while` 循环语法规则也与C语言，Javascript基本相同，其语法如下：
 
 ```solidity
 do {

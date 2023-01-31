@@ -20,7 +20,7 @@ last_update:
 
 `revert` 函数通常有下面几种用途：
 
-1. 在 fallback function 拒绝接收 Ether (我们在fallback function章节再展开介绍)
+1. 在 `fallback function` 拒绝接收 Ether (我们在[「fallback function」](function-fallback)章节再展开介绍)
 2. 代替 `require`，在某些复杂的情景下停止执行并抛出异常
 
 ## revert 语法

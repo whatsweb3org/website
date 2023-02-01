@@ -8,7 +8,7 @@ last_update:
 
 # Solidity 多维数组
 
-前面的章节我们学习了数组，知道了数组是同类型元素的集合。我们目前看到过的都是一维数组。想象一下，假设你的合约不仅仅是管理一种NFT了， 而是管理多种NFT。比如说你同时持有多个Crypto Punk和多个Bored Ape。
+前面的章节我们学习了[数组](array)，知道了数组是同类型元素的集合。我们目前看到过的都是一维数组。想象一下，假设你的合约不仅仅是管理一种NFT了， 而是管理多种NFT。比如说你同时持有多个Crypto Punk和多个Bored Ape。
 
 ![](./assets/array-multi-dimension/5db2a3f85c994d20ae85cdef38c9baaa.png)
 
@@ -39,8 +39,8 @@ uint[3][3][3] memory arr;
 
 多维数组也有静态和动态之分：
 
-* 静态多维数组 (_static multi-dimensional array_)
-* 动态多维数组 (_dynamic multi-dimensional array_))
+- **静态多维数组** (_static multi-dimensional array_)
+- **动态多维数组** (_dynamic multi-dimensional array_))
 
 ### 静态多维数组的声明
 
@@ -56,7 +56,7 @@ T[col][row] DataLocation arrName;
 
 所以我们现在知道了Solidity的多维数组声明要**从右往左**看, 例如 `uint[2][3][4]` 包含了4个 `uint[2][3]` 静态数组。进一步拆解, 其中每个 `uint[2][3]` 代表的是: 包含了3个 `uint[2]` 的静态数组, 以此类推。
 
-:::caution
+:::caution 注意
 Solidity在声明多维数组的时候「行」和「列」跟C语言, Javascript等是相反的
 :::
 
@@ -75,7 +75,7 @@ uint[3][5] storage arrStorage;
 
 ```solidity
 uint size = 2;
-uint[size][size] memory arr; // 非法
+uint[size][size] memory arr; // 非法，size 是变量，其值无法再编译期确定
 ```
 
 :::
@@ -88,7 +88,7 @@ uint[size][size] memory arr; // 非法
 T[][] DataLocation arrName;
 ```
 
-其中 `DataLocation` 是数据位置，而 `arrName` 是你为这个数组起的任意名字。虽然动态多维数组没有指定行和列，但是它的行为跟静态多维数组是一样的。也就是说它的行和列跟其他语言相比也是反的。
+其中 `DataLocation` 是数据位置，而 `arrName` 是你为这个数组起的任意名字。虽然动态多维数组没有指定行和列，但是它的行为跟静态多维数组是一样的。也就是说它的行和列跟其他语言相比也是反的。我们同样需要**从右往左**去阅读动态多维数组的声明。
 
 :::tip 声明动态多维数组
 
@@ -108,7 +108,7 @@ uint[][] storage arrStorage; // 行列数任意的动态多维数组
 
 #### 零值初始化
 
-如果你只声明静态多维数组，不手动初始化，那么它的所有元素都会被零值初始化（_zero value initialized_)。
+如果你只声明静态多维数组，不手动初始化，那么它的所有元素都会被零值初始化（_zero value initialized_)。也就是说，所有元素都会被赋予默认值。
 
 :::tip 零值初始化静态多维数组
 
@@ -158,7 +158,7 @@ uint[3][2] memory arr = [[uint(1), 2, 3], [uint(4)]]; //编译错误
 
 ### 动态多维数组初始化
 
-动态多维数组初始化需要使用到 `new` 关键字。其所有元素值被初始化为零值（_zero-value_)。如下所示，初始化了一个整型动态多维数组：
+动态多维数组初始化需要使用到 `new` 关键字。其所有元素值被「零值初始化」。也就是所有元素都会被赋值为默认值。如下所示，初始化了一个整型动态多维数组：
 
 :::tip 动态多维数组初始化
 初始化了一个2*3的动态多维数组，元素值被初始化为零值
@@ -176,7 +176,7 @@ function initArray() public {
 
 :::
 
-不要忘记静态数组的长度是不可以改变的，所以不会有 `push` , `pop` 函数。假设你定义了一个数组 `uint[][3] arr` ，它里面包含了3个 `uint[]` 动态数组。其中3是固定的，所以你不能执行 `arr.push(new uint[](k))` 。像下面这样是非法的：
+不要忘记静态数组的长度是不可以改变的，所以不会有 `push` , `pop` 函数。假设你定义了一个数组 `uint[][3] storageArr` ，它里面包含了3个 `uint[]` 动态数组。其中3是固定的，所以你不能执行 `storageArr.push(new uint[](k))` 。像下面这样是非法的：
 
 :::tip 静态数组长度不可改变，不可 `push` , `pop`
 
@@ -190,7 +190,7 @@ function invalidPush() public {
 
 :::
 
-但是因为 `arr[0]` 是一个 `uint[]` 动态数组，所以你是可以对其使用 `push` 的，如下所示：
+但是因为 `storageArr[0]` 是一个 `uint[]` 动态数组，所以你是可以对其使用 `push` 的，如下所示：
 
 :::tip 动态数组可以 `push` , `pop`
 

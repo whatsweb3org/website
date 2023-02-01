@@ -8,7 +8,7 @@ last_update:
 
 # Solidity break
 
-在前几节我们学了三种循环 `for` , `while` , `do-while` 。有时候我们会发现我们并不需要循环那么多次，当某些条件满足后就可以直接退出就好了。比如说判断字符串是否包含空格，只要找到一个空格我们就可以直接下结论了，不需要遍历完整一个字符串。这个时候我们就可以用到 `break` 关键字。
+在前几节我们学了三种循环 [for](for) , [while](while) , [do-while](do-while)。有时候我们会发现我们并不需要循环那么多次，当某些条件满足后就可以直接退出就好了。比如说判断字符串是否包含空格，只要找到一个空格我们就可以直接下结论了，不需要遍历完整一个字符串。这个时候我们就可以用到 `break` 关键字。
 
 在 Solidity 中，break 关键字用于**提前退出循环**。使用它可以提高你的程序的执行效率, 减少无用开销. 你可以在 `for` , `while` , `do-while` 循环使用 `break` 关键字. 我们通过一个例子来了解它的具体作用.
 
@@ -19,9 +19,9 @@ last_update:
 function hasSpace(string memory input) public view returns (bool) {
     bool result;
     for (uint i = 0; i < bytes(input).length; i++) {
-        if (bytes(input)[i] == " ") {
+        if (bytes(input)[i] == " ") { // 检查当前字符是否是空格
             result = true;
-            break; // 跳出循环
+            break; // 如果当前字符是空格，跳出循环
         }
     }
     // do something

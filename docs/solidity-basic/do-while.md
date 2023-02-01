@@ -34,8 +34,8 @@ do {
 
 我们可以看到 `do while` 循环和 `while` 循环非常类似，里面都有两个两个表达式，只不过这两个表达式的上下位置交换了：
 
-* test-statement
 * 循环体
+* test-statement
 
 `do while` 循环区别于 `while` 循环的地方是，它的循环体**至少会执行一遍**。然后才会执行 `test-statement` 判断是否为 `true` 。如果是则把循环体再执行一遍。如果 `test-statement` 为 `false` ，那么退出循环并继续执行余下的代码。
 
@@ -49,7 +49,7 @@ function sumToN(uint16 n) public pure returns(uint16) {
     do {
         sum += i;
         i++; // 修改循环变量的值
-    } while(i <= n);
+    } while(i <= n); // 检查是否还满足循环条件
     
     return sum;
 }

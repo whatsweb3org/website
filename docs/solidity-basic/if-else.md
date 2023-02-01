@@ -17,12 +17,12 @@ last_update:
 其语法规则如下所示：
 
 ```solidity
-if (条件 1) {
-    条件 1 为 true 时执行的代码块
-} else if (条件 2) {
-    条件 1 为 false 而条件 2 为 true 时执行的代码块
+if (contition1) {
+    // condition1=true 时执行的代码块
+} else if (condition2) {
+    // condition1=false 且 contition2=true 时执行的代码块
 } else {
-    条件 1 和条件 2 同时为 false 时执行的代码块
+    // condition1 和 condition2 同时为 false 时执行的代码块
 }
 ```
 

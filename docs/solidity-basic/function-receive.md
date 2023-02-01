@@ -6,7 +6,7 @@ last_update:
 
 ---
 
-`receive` 函数是 Solidity 中的一种特殊函数，它主要被用来接收 Ether 转账。另外还有一个 `fallback` 函数也可以用来接收 Ether 转账，下一节我们会介绍。
+`receive` 函数是 Solidity 中的一种特殊函数，它主要被用来接收 Ether 转账。另外还有一个 [fallback](function-fallback.md) 函数也可以用来接收 Ether 转账，下一节我们会介绍。
 
 :::caution 要注意 Ether 转账和 ERC20 代币转账的区别
 

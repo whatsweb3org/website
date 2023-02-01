@@ -56,10 +56,10 @@ function extracFourBytes(string calldata payload) public view {
 
 ```solidity
 uint[5] memory arr1 = [uint(0), 1, 2, 3, 4];
-uint[3] memory arrSlice1 = arr[1:4]; // 编译错误
+uint[3] memory arrSlice1 = arr[1:4]; // 编译错误，不能对 memory 位置的数组进行切片
 
 uint[5] storage arr2 = [uint(0), 1, 2, 3, 4];
-uint[3] storage arrSlice2 = arr[1:4]; // 编译错误
+uint[3] storage arrSlice2 = arr[1:4]; // 编译错误，不能对 storage 位置的数组进行切片
 ```
 
 :::

@@ -51,7 +51,7 @@ function sumToN(uint16 n) public pure returns(uint16) {
     uint16 i = 1; 
     for(; i <= n; ) { // 循环控制语句只剩下test-statement: i <= n
         sum += i;
-        i++; 
+        i++; // 修改循环变量的值
     }
     return sum;
 }

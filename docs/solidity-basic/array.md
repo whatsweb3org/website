@@ -8,9 +8,7 @@ last_update:
 
 # Solidity 数组
 
-假设你有一个合约专门用来的管理你所持有的NFT，然后可能需要记录你都持有哪些NFT，它们的ID是什么。于是你会想到像下面的示例一样，定义多个 `uint` 变量来记录每个NFT ID:
-
-![](./assets/array/8b7903fe53a24dfda50d162865c4bbbd.png)
+假设你有一个合约专门用来的管理你所持有的 NFT，然后可能需要记录你都持有哪些 NFT，它们的 ID 是什么。于是你会想到像下面的示例一样，定义多个 `uint` 变量来记录每个NFT ID:
 
 :::tip 定义多个 `uint` 变量来记录持有的NFT ID
 
@@ -24,10 +22,12 @@ uint nftID4 = 1004;
 
 :::
 
-上面的示例中我们定义了4个 `uint` ，记录了4个NFT ID。但是假设你是NFT持有大户，手上有上万个NFT的时候怎么办？如果按照上面的方法我们需要定义上万个 `uint` 变量来记录每个NFT ID。显然这是不太现实的。这样做主要存在两个问题：
+![](./assets/array/8b7903fe53a24dfda50d162865c4bbbd.png)
+
+上面的示例中我们定义了4个 `uint` ，记录了4个NFT ID。但是假设你是 NFT 持有大户，手上有上万个 NFT 的时候怎么办？如果按照上面的方法我们需要定义上万个 `uint` 变量来记录每个 NFT ID。显然这是不太现实的。这样做主要存在两个问题：
 
 * 定义太多变量了，很麻烦，难以维护
-* 能记录的NFT ID数量是固定的，不可变的，一旦合约部署了，就不能增加新的NFT了
+* 能记录的 NFT ID 数量是固定的，不可变的，一旦合约部署了，就不能增加新的 NFT 了
 
 遇到这种情况，数组（_array_）就派上用场了。
 
@@ -67,7 +67,7 @@ uint[3] storage nftStorage;
 
 ```solidity
 uint size = 2;
-uint[size][size] memory array; // 非法
+uint[size][size] memory array; // 非法，size 是变量，不能用来指定数组大小
 ```
 
 :::
@@ -93,13 +93,13 @@ uint[] storage nftStorage;
 
 ## 数组的初始化
 
-静态数组的初始化和动态数组的初始化不大相同，我们分开来讨论。
+静态数组的初始化和动态数组的初始化不太一样，我们分开来讨论。
 
 ### 静态数组的初始化
 
 #### 零值初始化
 
-如果你只声明静态数组，不手动进行初始化，那么它的所有元素都会被零值初始化（_zero value initialized_)。
+如果你只声明静态数组，不手动进行初始化，那么它的所有元素都会被零值初始化（_zero value initialized_)。也就是说所有元素都会被赋予默认值。
 
 :::tip 零值初始化整型数组
 
@@ -142,14 +142,14 @@ uint[3] memory nftArr = [1000, 1001, 1002];
 数组定义的长度为3，但是数组字面值的长度为2
 
 ```solidity
-uint[3] memory nftArr = [uint(1000), 1001];  //编译错误
+uint[3] memory nftArr = [uint(1000), 1001];  //编译错误，长度不匹配
 ```
 
 :::
 
 ### 动态数组初始化
 
-动态数组初始化需要使用到 `new` 关键字。其所有元素值被初始化为零值（_zero-value_)。如下所示，初始化了一个整型动态数组：
+动态数组初始化需要使用到 `new` 关键字。其所有元素值被「零值初始化」，也就是会被赋予默认值。如下所示，初始化了一个整型动态数组：
 
 :::tip 动态数组初始化
 初始化了一个有三个元素的动态数组，元素值被初始化为零值
@@ -161,7 +161,7 @@ uint[] memory nftArr = new uint[](n);
 
 :::
 
-使用 `new` 关键字可以适用于所有动态数组。如果你的动态数组是在 `storage` ，那么你还可以使用数组字面值来初始化：
+使用 `new` 关键字可以适用于在任何[数据位置](data-location)的动态数组。如果你的动态数组是在 `storage` ，那么你还可以使用数组字面值来初始化：
 
 :::tip 在 `storage` 的动态数组可以用数组字面值初始化
 
@@ -180,14 +180,14 @@ uint[] storageArr = [uint(1), 2]; // 动态数组只有在storage位置才能用
 
 ```solidity
 uint[2] memory staticArr = [uint(1), 2];
-uint[] memory dynamicArr = staticArr; // 编译错误
+uint[] memory dynamicArr = staticArr; // 编译错误，静态数组和动态数组是不同的类型
 ```
 
 也不能把动态数组赋值给静态数组：
 
 ```solidity
 uint[] memory dynamicArr = new uint[](2); 
-uint[2] memory staticArr = dynamicArr; // 编译错误
+uint[2] memory staticArr = dynamicArr; // 编译错误，静态数组和动态数组是不同的类型
 ```
 
 :::

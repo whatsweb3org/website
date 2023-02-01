@@ -22,7 +22,7 @@ uint256 sum = 1+2+3;
 
 本节我们将会介绍 `for` 循环。
 
-:::note
+:::info 权衡
 当达到同一目的有多个不同可选方案时，往往意味着需要权衡取舍
 :::
 
@@ -51,21 +51,20 @@ for(uint16 i = 1; i <= 10; i++) {
 }
 ```
 
-比如上面的例子中， `init-statement` 定义并初始化了循环变量 `i=1` 。然后 `test-statement` 则判断循环变量 `i` 是否还是小于等于10，如果是就继续执行，如果不是就退出循环。 `iteration-statement` 则是在每轮循环给循环变量 `i` 加1。
+上面的例子中， `init-statement` 定义并初始化了循环变量 `i=1` 。然后 `test-statement` 则判断循环变量 `i` 是否还是小于等于10，如果是就继续执行，如果不是就退出循环。 `iteration-statement` 则是在每轮循环给循环变量 `i` 加1。
 
 ## for循环示例
 
 下面5个示例的逻辑都是一样的：**计算从1加到n的总和**。这些示例展示了你可以使用的for循环的不同形式来实现一样的功能。
 
 :::tip 一个典型的for循环
-下面是一个典型的for循环，计算从1加到n的总和。
+下面是一个典型的 `for` 循环，计算从1加到n的总和。
 
 ```solidity
 function sumToN(uint16 n) public pure returns(uint16) {
     uint16 sum = 0;
     uint16 i;
-    for(i = 1; i <= n; i++) {
-        // init-statement是 i=1 ; test-statement是 i<=n ; iteration-statement是 i++
+    for(i = 1; i <= n; i++) { // init-statement是 i=1 ; test-statement是 i<=n ; iteration-statement是 i++
         sum += i;
     }
     return sum;
@@ -88,13 +87,13 @@ function sumToN(uint16 n) public pure returns(uint16) {
 
 :::
 
-:::tip `init-statement` 可以移动到for循环之前
+:::tip `init-statement` 可以移动到 `for` 循环之前
 
 ```solidity
 function sumToN(uint16 n) public pure returns(uint16) {
     uint16 sum = 0;
     uint16 i = 1; //init-statement被移动到这里了
-    for(; i <= n; i++) { //你可以将init-statement移到for循环之前
+    for(; i <= n; i++) {
         sum += i;
     }
     return sum;
@@ -103,13 +102,13 @@ function sumToN(uint16 n) public pure returns(uint16) {
 
 :::
 
-:::tip `iteration-statement` 可以移动到for循环内部
+:::tip `iteration-statement` 可以移动到 `for` 循环内部
 
 ```solidity
 function sumToN(uint16 n) public pure returns(uint16) {
     uint16 sum = 0;
     uint16 i = 1; //init-statement被移动到这里了
-    for(; i <= n; ) { //你可以不写init-statement， 也不写iteration-statement
+    for(; i <= n; ) {
         sum += i;
         i++; // iteration-statement的i++被移到这里了
     }
@@ -119,13 +118,13 @@ function sumToN(uint16 n) public pure returns(uint16) {
 
 :::
 
-:::tip 所有逻辑都可以在for循环的循环体里实现
+:::tip 所有逻辑都可以在 `for` 循环的循环体里实现
 
 ```solidity
 function sumToN(uint16 n) public pure returns(uint16) {
     uint16 sum = 0;
     uint16 i = 1; //init-statement被移动到这里了
-    for(;;) { //你可以init-statement, test-statement，iteration-statement都不写，全部逻辑实现在循环体里面
+    for(;;) { 
         if(i > n){ // 这个条件语句实现了test-statement的功能
             break;
         }

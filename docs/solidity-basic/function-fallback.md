@@ -12,7 +12,7 @@ last_update:
 
 `fallback` 函数可以兜底两类函数不存在的情况：
 
-- `receive` 函数不存在（因为没有定义）
+- [receive](function-receive) 函数不存在（因为没有定义）
 - 普通函数不存在（因为没有定义）
 
 简单来讲就是：

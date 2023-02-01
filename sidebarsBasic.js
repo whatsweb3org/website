@@ -54,7 +54,7 @@ module.exports = {
     },
     {
       type: 'category',
-      label: '合约及其结构',
+      label: '合约及其组成结构',
       collapsible: false,
       items: [
         'contract',

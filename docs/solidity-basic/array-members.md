@@ -8,7 +8,7 @@ last_update:
 
 # Solidity 数组成员
 
-前一节我们介绍了数组的基本概念，声明和定义，以及下标访问等主题。本节我们会介绍数组的几个成员函数和成员变量。
+数组作为一种组合数据类型。它内部还包含一些成员变量和成员函数。本节我们将展开介绍这些成员变量和成员函数。
 
 ## 成员变量
 
@@ -33,8 +33,11 @@ uint arr2Len = arr2.length; // 3
 * `push(x)` 将元素x添加到数组末尾；数组长度加一
 * `pop()` 从数组末尾弹出一个元素； 数组长度减一
 
-:::caution
-只有动态数组，并且其数据位置为 `storage` 的时候才有成员函数 `push()` , `push(x)` , `pop()`
+:::caution 注意
+
+只有动态数组，并且其数据位置为 `storage` 的时候才有成员函数 `push()` , `push(x)` , `pop()`。
+
+注意这三个成员函数会改变数组的长度
 
 :::
 
@@ -59,7 +62,8 @@ function pushPop() public {
 
 ```solidity
 uint[3] memory arr;
-arr.push(1); //编译错误
+arr.push(1); //编译错误，只有 storage 上的动态数组才能调用 push 函数
+arr.pop(); // 编译错误，只有 storage 上的动态数组才能调用 pop 函数
 ```
 
 :::
@@ -68,7 +72,8 @@ arr.push(1); //编译错误
 
 ```solidity
 uint[] memory arr = new uint[](3);
-arr.push(1); //编译错误
+arr.push(1); //编译错误，只有 storage 上的动态数组才能调用 push 函数
+arr.pop(); // 编译错误，只有 storage 上的动态数组才能调用 pop 函数
 ```
 
 :::

@@ -55,6 +55,8 @@ function sumToN(uint16 n) public pure returns(uint16) {
 }
 ```
 
+<tryit fileName={ 'SumToN.sol' } />
+
 :::
 
 ## for, while, do while应该选哪个

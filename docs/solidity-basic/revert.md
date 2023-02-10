@@ -28,6 +28,8 @@ last_update:
 
 `revert` 的语法如下所示：
 
+:::tip `revert` 使用方式
+
 ```solidity
 // 使用方式一
 revert CustomError(arg1, arg2);
@@ -35,6 +37,10 @@ revert CustomError(arg1, arg2);
 // 使用方式二
 revert("My Error string");
 ```
+
+<tryit fileName={ 'UseRevert.sol' } />
+
+:::
 
 其中 `CustomError` 是自定义的 Error
 
@@ -51,6 +57,8 @@ function splitEther(address payable addr1, address payable addr2) public payable
     addr2.transfer(msg.value / 2);
 }
 ```
+
+<tryit fileName={ 'SplitEther.sol' } />
 
 :::
 
@@ -72,6 +80,8 @@ if (msg.value % 2 == 0) {
     revert("Even value revertd.");
 }
 ```
+
+<tryit fileName={ 'RevertVsRequire.sol' } />
 
 :::
 

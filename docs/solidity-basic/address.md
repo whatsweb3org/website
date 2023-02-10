@@ -28,6 +28,8 @@ address addr = 0x690B9A9E9aa1C9dB991C7721a92d351Db4FaC990;
 address payable addr_pay = payable(0x8306300ffd616049FD7e4b0354a64Da835c1A81C);
 ```
 
+<tryit fileName={ 'DefineAddrVar.sol' } />
+
 :::
 
 上面我们定义了两个地址类型变量：`addr` 和 `addr_pay`。并且直接将它们初始化为一个地址常量（也称地址字面值）。在 Solidity 中使用「地址字面值」初始化「地址类型变量」的时候不需要加 `""` 或者 `’’` 。
@@ -62,6 +64,8 @@ address payable addr_pay = payable(0x8306300ffd616049FD7e4b0354a64Da835c1A81C);
 address addr = addr_pay; // **隐式类型转换**
 ```
 
+<tryit fileName={ 'ImplicitConversion.sol' } />
+
 :::
 
 :::tip 显式类型转换(`address` to `address payable`)
@@ -70,6 +74,8 @@ address addr = addr_pay; // **隐式类型转换**
 address addr = 0x690B9A9E9aa1C9dB991C7721a92d351Db4FaC990;
 address payable addr_pay = payable(addr); // **显式类型转换**
 ```
+
+<tryit fileName={ 'ExplicitConversion.sol' } />
 
 :::
 
@@ -97,6 +103,8 @@ function get_codehash() public view returns(bytes32) {
     return address(this).codehash; //获取合约代码的hash值
 }
 ```
+
+<tryit fileName={ 'GetAddressMembers.sol' } />
 
 :::
 

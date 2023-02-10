@@ -28,6 +28,8 @@ function add(uint lhs, uint rhs) public pure returns(uint) {
 
 ```
 
+<tryit fileName={ 'PureAdd.sol' } />
+
 :::
 
 被标记为 `pure` 的函数，如果你在函数体查询或者修改合约状态，编译器都会直接报错。

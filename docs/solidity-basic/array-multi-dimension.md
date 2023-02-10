@@ -67,6 +67,8 @@ uint[3][5] memory arrMem;
 uint[3][5] storage arrStorage;
 ```
 
+<tryit fileName={ 'DeclareStaticMArray.sol' } />
+
 :::
 
 要注意在 Solidity 中静态多维数组的大小必须在编译时确定。这意味着你不能使用变量来指定多维数组的大小。例如，下面的代码是不合法的：
@@ -77,6 +79,8 @@ uint[3][5] storage arrStorage;
 uint size = 2;
 uint[size][size] memory arr; // 非法，size 是变量，其值无法再编译期确定
 ```
+
+<tryit fileName={ 'StaticMArraySizeMustDefinite.sol' } />
 
 :::
 
@@ -98,6 +102,8 @@ uint[][3] memory arrMem2; // 行为3，列任意的动态多维数组
 uint[][] storage arrStorage; // 行列数任意的动态多维数组
 ```
 
+<tryit fileName={ 'DeclareDynamicMArray.sol' } />
+
 :::
 
 ## 多维数组的初始化
@@ -116,6 +122,8 @@ uint[][] storage arrStorage; // 行列数任意的动态多维数组
 uint[2][3] memory arr; //所有元素都是0
 ```
 
+<tryit fileName={ 'ZeroInitializeStaticMArray.sol' } />
+
 :::
 
 #### 多维数组字面值初始化
@@ -128,6 +136,8 @@ uint[2][3] memory arr; //所有元素都是0
 //必须使用uint(1)和uint(4)显式地将「数组字面值」第一个元素的类型转换成uint
 uint[3][2] memory arr = [[uint(1), 2, 3], [uint(4), 5, 6]]; 
 ```
+
+<tryit fileName={ 'MArrayLiteralInitStaticMArray.sol' } />
 
 :::
 
@@ -143,6 +153,8 @@ uint[3][2] memory arr = [[uint(1), 2, 3], [uint(4), 5, 6]];
 uint[3][2] memory arr = [[1, 2, 3], [uint(4), 5, 6]]; 
 ```
 
+<tryit fileName={ 'MArrayLiteralBaseTypeMustMatchMArrayBaseType.sol' } />
+
 :::
 
 另外要注意的一点是定义的「多维数组」的维度必须跟「多维数组字面值」的维度是一样的，否则也会编译报错。如下面例子所示：
@@ -153,6 +165,8 @@ uint[3][2] memory arr = [[1, 2, 3], [uint(4), 5, 6]];
 ```solidity
 uint[3][2] memory arr = [[uint(1), 2, 3], [uint(4)]]; //编译错误 
 ```
+
+<tryit fileName={ 'MArrayLiteralMustMatchMArrayDim.sol' } />
 
 :::
 
@@ -174,6 +188,8 @@ function initArray() public {
 }
 ```
 
+<tryit fileName={ 'DynamicMArrayInit.sol' } />
+
 :::
 
 不要忘记静态数组的长度是不可以改变的，所以不会有 `push` , `pop` 函数。假设你定义了一个数组 `uint[][3] storageArr` ，它里面包含了3个 `uint[]` 动态数组。其中3是固定的，所以你不能执行 `storageArr.push(new uint[](k))` 。像下面这样是非法的：
@@ -188,6 +204,8 @@ function invalidPush() public {
 }
 ```
 
+<tryit fileName={ 'StaticArrayLenImmutable.sol' } />
+
 :::
 
 但是因为 `storageArr[0]` 是一个 `uint[]` 动态数组，所以你是可以对其使用 `push` 的，如下所示：
@@ -201,6 +219,8 @@ function validPush() public {
 }
 ```
 
+<tryit fileName={ 'DynamicStorageArrayPushPop.sol' } />
+
 :::
 
 如果动态多维数组是定义在 `storage` ，那么也可以用字面值来初始化：
@@ -210,6 +230,8 @@ function validPush() public {
 ```solidity
 uint[][] storageArr = [[uint(1), 2], [uint(3), 4]]; // 动态数组只有在storage位置才能用数组字面值初始化
 ```
+
+<tryit fileName={ 'DynamicMArrayInStorageInitWithLiteral.sol' } />
 
 :::
 
@@ -222,8 +244,10 @@ uint[][] storageArr = [[uint(1), 2], [uint(3), 4]]; // 动态数组只有在stor
 ```solidity
 uint[3][2] memory arr = [[uint(1), 2, 3], [uint(4), 5, 6]];
 arr[0][0] = 1;
-arr[2][1] = 2;
+arr[1][1] = 2;
 ```
+
+<tryit fileName={ 'AccessMArray.sol' } />
 
 :::
 

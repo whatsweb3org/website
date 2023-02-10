@@ -57,6 +57,8 @@ function GetCount() public view returns(uint) {
 
 ```
 
+<tryit fileName={ 'ViewFunction.sol' } />
+
 :::
 
 关于 `view` 函数的更详细介绍，可以参见[「view 函数」](function-view)一节。
@@ -75,6 +77,8 @@ function add(uint lhs, uint rhs) public pure returns(uint) {
 
 ```
 
+<tryit fileName={ 'PureFunction.sol' } />
+
 :::
 
 关于 `pure` 函数的更详细介绍，可以参见[「pure 函数」](function-pure)一节。
@@ -92,5 +96,7 @@ function deposit() external payable {
 }
 
 ```
+
+<tryit fileName={ 'PayableFunction.sol' } />
 
 :::

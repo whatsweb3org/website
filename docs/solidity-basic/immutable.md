@@ -27,6 +27,8 @@ Solidity 中的 `immutable` 和 `constant` 类似，都是用来定义不能二�
 uint immutable n = 5;
 ```
 
+<tryit fileName={ 'InitImmutableAtDeclaration.sol' } />
+
 :::
 
 :::tip 在构建函数初始化
@@ -38,6 +40,8 @@ constructor () {
     n = 5;
 }
 ```
+
+<tryit fileName={ 'InitAtConstructor.sol' } />
 
 :::
 
@@ -53,6 +57,8 @@ constructor () {
 }
 ```
 
+<tryit fileName={ 'CannotInitTwice.sol' } />
+
 :::
 
 注意**不能在函数中初始化**：
@@ -67,6 +73,8 @@ function f() public {
 }
 ```
 
+<tryit fileName={ 'CannotInitAtFunc.sol' } />
+
 :::
 
 ## immutable 变量不能更改
@@ -80,5 +88,7 @@ function f() public {
     n = 5; // 不合法，immutable 变量不能更改
 }
 ```
+
+<tryit fileName={ 'CannotChangeValue.sol' } />
 
 :::

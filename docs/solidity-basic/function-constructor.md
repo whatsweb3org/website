@@ -24,6 +24,8 @@ contract ExampleContract {
 
 ```
 
+<tryit fileName={ 'InitWithDefaultValue.sol' } />
+
 :::
 
 ## 使用构建函数初始化
@@ -47,6 +49,8 @@ contract ExampleContract {
 }
 
 ```
+
+<tryit fileName={ 'InitWithConstructor.sol' } />
 
 :::
 

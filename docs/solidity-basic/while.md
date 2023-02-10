@@ -75,6 +75,8 @@ function sumToN(uint16 n) public pure returns(uint16) {
 }
 ```
 
+<tryit fileName={ 'ClasicWhileLoop.sol' } />
+
 :::
 
 至于什么时候应该使用 `for` 循环，什么时候使用 `while` 循环，其实没有硬性规定。更多的是取决于你觉得哪种循环会让代码看起来更整洁。不同的场景可能有不同的选择。

@@ -27,6 +27,8 @@ last_update:
 address addr = 0x690B9A9E9aa1C9dB991C7721a92d351Db4FaC990;
 ```
 
+<tryit fileName={ 'AddrLiteral.sol' } />
+
 :::
 
 ## 有理数和整数字面值
@@ -48,6 +50,8 @@ int256 s1 = 2e10;     // s1=20000000000
 int256 s2 = -2e10;    // s2=-20000000000
 ```
 
+<tryit fileName={ 'RationalLiterals.sol' } />
+
 :::
 
 注意在Solidity中是不支持8进制字面值的，所以不要使用8进制的字面值表示方式。
@@ -64,6 +68,8 @@ int256 s2 = -2e10;    // s2=-20000000000
 uint256 p = (2**800 + 1) - 2**800;
 ```
 
+<tryit fileName={ 'RationalCanBeArbitrayPrecision.sol' } />
+
 :::
 
 但是要注意一个规则：只要字面值和非字面值进行了运算，那么字面值就会被尝试转换成非字面值的类型。例如下面这个表达式， `2.5` 与 `a` 进行了运算，所以编译器会尝试将 `2.5` 转换成 `uint128` 类型。不过因为类型不匹配，编译器会报错。
@@ -74,6 +80,8 @@ uint256 p = (2**800 + 1) - 2**800;
 uint128 a = 1;
 uint128 b = 2.5 + a + 0.5; //编译报错
 ```
+
+<tryit fileName={ 'RationalOperationTypeConversion1.sol' } />
 
 :::
 
@@ -86,6 +94,8 @@ uint128 a = 1;
 uint128 b = 2.5 + 0.5 + a;
 ```
 
+<tryit fileName={ 'RationalOperationTypeConversion2.sol' } />
+
 :::
 
 再调换一下 `a` 的位置，编译器也会报错，这是因为 `a` 和 `2.5` 先结合运算，所以需要将 `2.5` 转换成 `uint128` ，因为类型不匹配，所以报错。
@@ -96,6 +106,8 @@ uint128 b = 2.5 + 0.5 + a;
 uint128 a = 1;
 uint128 b = a + 2.5 + 0.5 ; //编译报错
 ```
+
+<tryit fileName={ 'RationalOperationTypeConversion3.sol' } />
 
 :::
 
@@ -111,6 +123,8 @@ uint128 b = a + 2.5 + 0.5 ; //编译报错
 string memory s1 = "This is a string"; // 双引号
 string memory s2 = 'This is a string'; // 单引号
 ```
+
+<tryit fileName={ 'StringLiteral.sol' } />
 
 :::
 
@@ -129,6 +143,8 @@ bytes3 b3 = "b3";
 bytes32 b32 = "b32";
 string memory str = "string";
 ```
+
+<tryit fileName={ 'StringLiteralImplictConversion.sol' } />
 
 :::
 
@@ -157,6 +173,8 @@ Unicode字面值和字符串字面值差不多，只需要在前面加上 `unico
 ```solidity
 string memory a = unicode"Hello \u0041 😃";
 ```
+
+<tryit fileName={ 'UnicodeLiteral.sol' } />
 
 :::
 

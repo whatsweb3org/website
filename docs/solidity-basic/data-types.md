@@ -68,6 +68,8 @@ console.log("bts1: %s", string(bts1)); // bts1: etc
 console.log("bts2: %s", string(bts2)); // bts2: etc
 ```
 
+<tryit fileName={ 'ReferenceTypePassByReference.sol' } />
+
 :::
 
 下面的图示更形象地解析了出现这种效果的原因：

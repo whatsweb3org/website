@@ -46,17 +46,25 @@ bytes和string类型之间可以相互转换。需要用到：
 ![Untitled](assets/dynamic-byte-array/Untitled1.png)
 
 :::tip `bytes` 转 `string` 
+
 ```solidity
 bytes memory bstr = new bytes(10);
 string memory message = string(bstr); // 使用string()函数转换
 ```
+
+<tryit fileName={ 'BytesToString.sol' } />
+
 :::
 
 :::tip `string` 转 `bytes` 
+
 ```solidity
 string memory message = "hello world";
 bytes memory bstr = bytes(message); //使用bytes()函数转换
 ```
+
+<tryit fileName={ 'StringToBytes.sol' } />
+
 :::
 
 ## string 不能进行下标访问，也不能获取长度
@@ -64,18 +72,27 @@ bytes memory bstr = bytes(message); //使用bytes()函数转换
 虽然 `string` 也是数组但是目前还不支持它的下标访问和长度的获取。
 
 :::tip `string` 不能进行下标访问，也不能获取长度
+
 ```solidity
-string memory str = "hello world";
+string str = "hello world";
 uint len = str.length; // 不合法，不能获取长度
 bytes1 b = str[0]; // 不合法，不能进行下标访问
 ```
+
+<tryit fileName={ 'StringCannotAccessElement.sol' } />
+
 :::
 
 你可以将 `string` 转换成 `bytes` 后再进行下标访问和获取长度
 
 :::tip 将 `string` 转换成 `bytes` 后再进行下标访问和获取长度
+
 ```solidity
+string str = "hello world";
 uint len = bytes(str).length; // 合法
 bytes1 b = bytes(str)[0]; // 合法
 ```
+
+<tryit fileName={ 'StringToBytesAccess.sol' } />
+
 :::

@@ -32,6 +32,8 @@ a == b // false
 a != b // true
 ```
 
+<tryit fileName={ 'UndefiBoolOperationned.sol' } />
+
 :::
 
 ## 短路规则
@@ -65,6 +67,8 @@ contract BoolShortCircuit {
     }
 }
 ```
+
+<tryit fileName={ 'ShortCircuit.sol' } />
 
 :::
 

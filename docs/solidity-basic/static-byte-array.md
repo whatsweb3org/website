@@ -42,6 +42,8 @@ a>=b : false
 a>b  : false
 ```
 
+<tryit fileName={ 'Operator.sol' } />
+
 :::
 
 ### 位运算符
@@ -64,6 +66,8 @@ a^b : 0x03
 ~a  : 0x9e
 ```
 
+<tryit fileName={ 'Operator.sol' } />
+
 :::
 
 ### 下标访问
@@ -76,6 +80,8 @@ a^b : 0x03
 bytes3 s = 'abc';
 bytes1 ch = s[1]; // ch的值为0x62，也就是'b'的ascii值
 ```
+
+<tryit fileName={ 'ElementAccess.sol' } />
 
 :::
 

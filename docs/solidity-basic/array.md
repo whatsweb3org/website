@@ -59,6 +59,8 @@ uint[3] memory nftMem;
 uint[3] storage nftStorage;
 ```
 
+<tryit fileName={ 'DeclareStaticArray.sol' } />
+
 :::
 
 要注意在 Solidity 中静态数组的大小必须在编译时确定。这意味着你不能使用变量来指定数组的大小。例如，下面的代码是不合法的：
@@ -69,6 +71,8 @@ uint[3] storage nftStorage;
 uint size = 2;
 uint[size][size] memory array; // 非法，size 是变量，不能用来指定数组大小
 ```
+
+<tryit fileName={ 'StaticaArraySizeMustDefinite.sol' } />
 
 :::
 
@@ -89,6 +93,8 @@ uint[] memory nftMem;
 uint[] storage nftStorage;
 ```
 
+<tryit fileName={ 'DeclareDynamicArray.sol' } />
+
 :::
 
 ## 数组的初始化
@@ -107,6 +113,8 @@ uint[] storage nftStorage;
 uint[3] memory nftArr; //所有元素都是0
 ```
 
+<tryit fileName={ 'ZeroInitialization.sol' } />
+
 :::
 
 #### 数组字面值初始化
@@ -119,6 +127,8 @@ uint[3] memory nftArr; //所有元素都是0
 //必须使用uint(1000)显式地将「数组字面值」第一个元素的类型转换成uint
 uint[3] memory nftArr = [uint(1000), 1001, 1002]; 
 ```
+
+<tryit fileName={ 'StaticArrayInitializeWithLiteral.sol' } />
 
 :::
 
@@ -134,6 +144,8 @@ uint[3] memory nftArr = [uint(1000), 1001, 1002];
 uint[3] memory nftArr = [1000, 1001, 1002]; 
 ```
 
+<tryit fileName={ 'ArrayLiteralBaseTypeMustMatchArrayBaseType.sol' } />
+
 :::
 
 另外要注意的一点是定义的数组长度必须跟数组字面值的长度是一样的，否则也会编译报错。如下面例子所示：
@@ -144,6 +156,8 @@ uint[3] memory nftArr = [1000, 1001, 1002];
 ```solidity
 uint[3] memory nftArr = [uint(1000), 1001];  //编译错误，长度不匹配
 ```
+
+<tryit fileName={ 'ArrayLenShouldEqualLiteralLen.sol' } />
 
 :::
 
@@ -159,6 +173,8 @@ uint n = 3;
 uint[] memory nftArr = new uint[](n);
 ```
 
+<tryit fileName={ 'InitDynamicArray.sol' } />
+
 :::
 
 使用 `new` 关键字可以适用于在任何[数据位置](data-location)的动态数组。如果你的动态数组是在 `storage` ，那么你还可以使用数组字面值来初始化：
@@ -168,6 +184,8 @@ uint[] memory nftArr = new uint[](n);
 ```solidity
 uint[] storageArr = [uint(1), 2]; // 动态数组只有在storage位置才能用数组字面值初始化
 ```
+
+<tryit fileName={ 'InitStorageDynamicArrayWithLiteral.sol' } />
 
 :::
 
@@ -189,6 +207,8 @@ uint[] memory dynamicArr = staticArr; // 编译错误，静态数组和动态数
 uint[] memory dynamicArr = new uint[](2); 
 uint[2] memory staticArr = dynamicArr; // 编译错误，静态数组和动态数组是不同的类型
 ```
+
+<tryit fileName={ 'StaticaAndDynamicArrayAreDifferentTypes.sol' } />
 
 :::
 
@@ -214,5 +234,7 @@ nftArr2[0] = 1000;
 nftArr2[1] = 1001;
 nftArr2[2] = 1002;
 ```
+
+<tryit fileName={ 'AccessArray.sol' } />
 
 :::

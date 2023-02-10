@@ -30,6 +30,8 @@ struct Book {
 }
 ```
 
+<tryit fileName={ 'DefineStruct.sol' } />
+
 :::
 
 ## 结构体的声明
@@ -67,6 +69,8 @@ Book memory book1 = Book(
 );
 ```
 
+<tryit fileName={ 'InitWithKeyValue.sol' } />
+
 :::
 
 注意你必须为每一个成员赋初始值，不能省略任何一个成员。
@@ -78,6 +82,8 @@ Book memory book1 = Book(
 ```solidity
 Book memory book2 = Book("my book title", 25);
 ```
+
+<tryit fileName={ 'InitInSequence.sol' } />
 
 :::
 
@@ -97,6 +103,8 @@ book3.price = 25; // 给结构体成员赋值
 console.log("title: %s", book3.title); // 获取结构体成员值
 ```
 
+<tryit fileName={ 'AccessStructMember.sol' } />
+
 :::
 
 ## 结构体可以和数组，映射类型互相嵌套
@@ -112,6 +120,8 @@ function addNewBook(Book memory book) public {
 }
 ```
 
+<tryit fileName={ 'StructArray.sol' } />
+
 :::
 
 此外，结构体里面也可以有数组：
@@ -126,6 +136,8 @@ struct Book {
     string[] author; // 作者
 }
 ```
+
+<tryit fileName={ 'WrapStructWithArray.sol' } />
 
 :::
 

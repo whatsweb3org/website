@@ -21,6 +21,8 @@ struct AirDrop {
 AirDrop[] airDrop;
 ```
 
+<tryit fileName={ 'AirDropArray.sol' } />
+
 :::
 
 然后如果用户来查询自己有没有空投，我们就直接遍历整个数组，看看有没有地址和他的地址是相等的。如下面所示：
@@ -38,6 +40,8 @@ function getAirDropAmount(address addr) public view returns(uint) {
     return 0;
 }
 ```
+
+<tryit fileName={ 'CheckAirDropArrayAllocation.sol' } />
 
 :::
 
@@ -131,6 +135,8 @@ function validDeclaration(mapping(address => uint) storage myMap) private {}
 function validDeclaration(mapping(address => uint) storage myMap) internal {} 
 ```
 
+<tryit fileName={ 'MappingAsParamAndReturnValueVisibilityMustBePrivateOrInternal.sol' } />
+
 :::
 
 ## 映射类型可以与数组，结构体互相嵌套
@@ -148,6 +154,8 @@ struct Book {
 
 mapping(uint => Book) lib; // 从 ISBN 到 Book 的映射关系
 ```
+
+<tryit fileName={ 'WrapMappingWithStruct.sol' } />
 
 :::
 

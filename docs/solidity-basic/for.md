@@ -57,7 +57,8 @@ for(uint16 i = 1; i <= 10; i++) {
 
 下面5个示例的逻辑都是一样的：**计算从1加到n的总和**。这些示例展示了你可以使用的for循环的不同形式来实现一样的功能。
 
-:::tip 一个典型的for循环
+:::tip 一个典型的 `for` 循环
+
 下面是一个典型的 `for` 循环，计算从1加到n的总和。
 
 ```solidity
@@ -70,6 +71,8 @@ function sumToN(uint16 n) public pure returns(uint16) {
     return sum;
 }
 ```
+
+<tryit fileName={ 'ATypicalForLoop.sol' } />
 
 :::
 
@@ -84,6 +87,8 @@ function sumToN(uint16 n) public pure returns(uint16) {
     return sum;
 }
 ```
+
+<tryit fileName={ 'InitVarAtInitStatement.sol' } />
 
 :::
 
@@ -100,6 +105,8 @@ function sumToN(uint16 n) public pure returns(uint16) {
 }
 ```
 
+<tryit fileName={ 'MoveInitStatementBeforeForLoop.sol' } />
+
 :::
 
 :::tip `iteration-statement` 可以移动到 `for` 循环内部
@@ -115,6 +122,8 @@ function sumToN(uint16 n) public pure returns(uint16) {
     return sum;
 }
 ```
+
+<tryit fileName={ 'MoveIterStatementInsideForLoop.sol' } />
 
 :::
 
@@ -134,5 +143,7 @@ function sumToN(uint16 n) public pure returns(uint16) {
     return sum;
 }
 ```
+
+<tryit fileName={ 'ImplementAllLogicInsideLoopBody.sol' } />
 
 :::

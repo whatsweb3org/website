@@ -38,6 +38,8 @@ if (age < 18) {
 }
 ```
 
+<tryit fileName={ 'OnlyIf.sol' } />
+
 :::
 
 ## else if语句
@@ -53,6 +55,8 @@ if (age < 18) {
 	ageStage = "adult";
 }
 ```
+
+<tryit fileName={ 'IfElse.sol' } />
 
 :::
 
@@ -71,5 +75,7 @@ if (age < 18) {
 	ageStage = "elderly";
 }
 ```
+
+<tryit fileName={ 'IfElseIfElse.sol' } />
 
 :::

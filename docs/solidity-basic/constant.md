@@ -29,6 +29,8 @@ uint constant ratio = a; // 不合法，不能用普通变量给 `constant` 赋�
 uint constant b; // 不合法，必须在声明时就赋值
 ```
 
+<tryit fileName={ 'ConstantMustInitAtCompileTime.sol' } />
+
 :::
 
 ## constant 不能更改
@@ -48,5 +50,7 @@ function f() public {
     ratio = 0; // 不合法
 }
 ```
+
+<tryit fileName={ 'ConstantCannotChange.sol' } />
 
 :::

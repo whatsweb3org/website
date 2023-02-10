@@ -27,6 +27,8 @@ enum ActionChoices {
 }
 ```
 
+<tryit fileName={ 'DefineEnum.sol' } />
+
 :::
 
 ## 为什么使用枚举类型
@@ -59,9 +61,11 @@ ActionChoices choice = ActionChoices.GoLeft;
 :::tip 获取枚举类型的最大最小值
 
 ```solidity
-type(ActionChoices).max // ActionChoices.GoDown ，也就是3
-type(ActionChoices).min // ActionChoices.GoLeft ， 也就是0
+type(ActionChoices).max; // ActionChoices.GoDown ，也就是3
+type(ActionChoices).min; // ActionChoices.GoLeft ， 也就是0
 ```
+
+<tryit fileName={ 'GetMaxMinEnumValue.sol' } />
 
 :::
 
@@ -85,6 +89,8 @@ function uintToEnum(uint i) public pure returns(ActionChoices) {
     return ActionChoices(i);
 }
 ```
+
+<tryit fileName={ 'EnumAndIntegerConversion.sol' } />
 
 :::
 
@@ -117,6 +123,8 @@ contract Enum {
     }
 }
 ```
+
+<tryit fileName={ 'EnumAsParamAndReturnValue.sol' } />
 
 :::
 

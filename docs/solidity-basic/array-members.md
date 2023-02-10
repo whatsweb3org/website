@@ -23,6 +23,8 @@ uint arr1Len = arr1.length; // 3
 uint arr2Len = arr2.length; // 3
 ```
 
+<tryit fileName={ 'GetArrayLength.sol' } />
+
 :::
 
 ## 动态数组成员函数
@@ -54,6 +56,8 @@ function pushPop() public {
 }
 ```
 
+<tryit fileName={ 'PushAndPop.sol' } />
+
 :::
 
 如果我们尝试在「静态数组」或者「数据位置」不是 `storage` 的「动态数组」执行上面的成员函数，编译器会报错：
@@ -66,6 +70,8 @@ arr.push(1); //编译错误，只有 storage 上的动态数组才能调用 push
 arr.pop(); // 编译错误，只有 storage 上的动态数组才能调用 pop 函数
 ```
 
+<tryit fileName={ 'StaticArrayHasNoPushPop.sol' } />
+
 :::
 
 :::tip 编译错误：数据位置不在 `storage` 的动态数组使用 `push` ， `pop` 成员函数 
@@ -75,5 +81,7 @@ uint[] memory arr = new uint[](3);
 arr.push(1); //编译错误，只有 storage 上的动态数组才能调用 push 函数
 arr.pop(); // 编译错误，只有 storage 上的动态数组才能调用 pop 函数
 ```
+
+<tryit fileName={ 'DynamicArrayNotInStorageHasNoPushPop.sol' } />
 
 :::

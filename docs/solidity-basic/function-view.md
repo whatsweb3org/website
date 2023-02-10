@@ -21,6 +21,8 @@ function GetCount() public view returns(uint) {
 
 ```
 
+<tryit fileName={ 'GetCount.sol' } />
+
 :::
 
 ## 怎样才算修改合约状态

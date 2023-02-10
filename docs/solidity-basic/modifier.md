@@ -21,7 +21,7 @@ pragma solidity ^0.8.17;
 contract ExampleContract {
     address private owner;
 
-    constructor() public {
+    constructor() {
         owner = msg.sender;
     }
 
@@ -43,6 +43,8 @@ contract ExampleContract {
 
 ```
 
+<tryit fileName={ 'AuthCheckWithRequire.sol' } />
+
 :::
 
 在这种情况下，我们可以把权限检查的代码抽出来，变成一个修饰器。如果有函数需要权限检查时就可以添加这个修饰器去修饰函数行为。如下面所示：
@@ -56,7 +58,7 @@ pragma solidity ^0.8.17;
 contract ExampleContract {
     address private owner;
 
-    constructor() public {
+    constructor() {
         owner = msg.sender;
     }
 
@@ -86,6 +88,8 @@ contract ExampleContract {
 }
 
 ```
+
+<tryit fileName={ 'AuthCheckWithModifier.sol' } />
 
 :::
 
@@ -131,6 +135,7 @@ function foo() public modifier1 {
 
 function foo() public modifier1, modifier2, modifier3 {
     // function body
+}
 
 ```
 

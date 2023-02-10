@@ -69,6 +69,8 @@ contract Caller {
 
 ```
 
+<tryit fileName={ 'CalleeWithoutRecieveFallback.sol' } />
+
 :::
 
 要注意我们上面提到的 Ether 转账指的是纯转账（*msg.data = empty*）。Ether 转账不进行函数调用，只是把 Ether 转到目标地址。Solidity 中有三种方法进行 Ether 转账：
@@ -119,5 +121,7 @@ contract Example {
 
 
 ```
+
+<tryit fileName={ 'ReceiveConsumeTooMuchGas.sol' } />
 
 :::

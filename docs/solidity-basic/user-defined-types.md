@@ -21,6 +21,8 @@ type Weight is uint128;
 type Price  is uint128;
 ```
 
+<tryit fileName={ 'DefineUserDefinedValueType.sol' } />
+
 :::
 
 原生类型指的是 Solidity 本身定义的，比如：int, uint, bytes32等等。不能是由原生类型衍生出来的类型。
@@ -39,6 +41,8 @@ Price  p = Price.wrap(5);
 Weight wp = w+p; //编译错误
 Price  pw = p+w; //编译错误
 ```
+
+<tryit fileName={ 'ImproveTypeSafety.sol' } />
 
 :::
 
@@ -62,6 +66,8 @@ Weight w = Weight.wrap(100);
 uint128 u = Weight.unwrap(w);
 ```
 
+<tryit fileName={ 'TypeConversionBetweenOriginalType.sol' } />
+
 :::
 
 ## 「自定义值类型」不继承操作符
@@ -76,6 +82,8 @@ Weight w2 = Weight.wrap(20);
 Weight sum = w1+w2; // 编译器报错
 ```
 
+<tryit fileName={ 'UserDefinedValueTypeDoNotInheriteOriginalOperators.sol' } />
+
 :::
 
 如果你确实需要对 `Weight` 实现加法运算，那么你必须自己定义一个新的函数，例如：
@@ -87,6 +95,8 @@ function add(Weight lhs, Weight rhs) public pure returns(Weight) {
   return Weight.wrap(Weight.unwrap(lhs) + Weight.unwrap(rhs));
 }
 ```
+
+<tryit fileName={ 'UserDefinedValueTypeCustomOperator.sol' } />
 
 :::
 

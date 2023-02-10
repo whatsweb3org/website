@@ -26,6 +26,8 @@ function printOddNumbers() public {
 }
 ```
 
+<tryit fileName={ 'PrintOddNumbers.sol' } />
+
 :::
 
 下图更形象展示了 `continue` 的行为。当执行到 `continue` 的时候，它就不再执行蓝色和绿色框的内容了，而是直接跳回到黄色框里面，然后执行 `iteration-statement` 也就是 `i++` （因为 `iteration-statement` 是在循环体结束之后再执行的）。接着就是再次进入到循环体里面开始新一轮循环。

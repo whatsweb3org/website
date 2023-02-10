@@ -48,4 +48,6 @@ function splitEther(address payable addr1, address payable addr2) public payable
 }
 ```
 
+<tryit fileName={ 'SplitEther.sol' } />
+
 :::

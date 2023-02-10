@@ -86,6 +86,8 @@ function f6(uint a, uint b, uint c) public pure returns(uint, uint, uint) {}
 function f7(uint a) external onlyOwner {} // onlyOwner 修饰器需要事先定义
 ```
 
+<tryit fileName={ 'FunctionDeclaration.sol' } />
+
 :::
 
 ## 参数列表
@@ -94,13 +96,13 @@ function f7(uint a) external onlyOwner {} // onlyOwner 修饰器需要事先定�
 
 ```solidity
 // 提供0个参数
-foo() public ;
+function foo() public {};
 
 // 提供1个参数
-foo(uint a) public;
+function foo(uint a) public {};
 
 // 提供多个参数
-foo(uint a, uint b, uint c) public;
+function foo(uint a, uint b, uint c) public {};
 ```
 
 ## 返回值列表
@@ -109,13 +111,13 @@ foo(uint a, uint b, uint c) public;
 
 ```solidity
 // 提供0个返回值
-foo() public ;
+function foo() public {};
 
 // 提供1个返回值
-foo() public returns(uint);
+function foo() public returns(uint) {};
 
 // 提供多个返回值
-foo() public returns(uint, uint, uint);
+function foo() public returns(uint, uint, uint) {};
 ```
 
 ## 函数可见性

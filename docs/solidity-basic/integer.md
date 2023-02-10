@@ -45,6 +45,8 @@ a<<b : 20
 a>>b : 1
 ```
 
+<tryit fileName={ 'Operators.sol' } />
+
 :::
 
 ### 比较运算符
@@ -71,6 +73,8 @@ a>=b : true
 a>b  : true
 ```
 
+<tryit fileName={ 'Operators.sol' } />
+
 :::
 
 ### 位运算符
@@ -92,6 +96,8 @@ a|b : 7
 a^b : 7
 ~a  : 250
 ```
+
+<tryit fileName={ 'Operators.sol' } />
 
 :::
 
@@ -116,6 +122,8 @@ contract Integer {
 	}
 }
 ```
+
+<tryit fileName={ 'Overflow.sol' } />
 
 :::
 

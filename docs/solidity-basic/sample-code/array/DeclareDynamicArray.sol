@@ -3,7 +3,7 @@
 pragma solidity ^0.8.17;
 
 contract ExampleContract {
-    function foo() public {
+    function foo() public pure {
         uint[] memory nftMem;
         uint[] storage nftStorage;
     }

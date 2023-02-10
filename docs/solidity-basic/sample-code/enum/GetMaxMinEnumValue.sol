@@ -10,8 +10,8 @@ contract ExampleContract {
         GoDown      // 底层表示为 3
     }
 
-    function foo() public {
-        type(ActionChoices).max; // ActionChoices.GoDown ，也就是3
-        type(ActionChoices).min; // ActionChoices.GoLeft ， 也就是0
+    function foo() public pure {
+        ActionChoices maxAction = type(ActionChoices).max; // ActionChoices.GoDown ，也就是3
+        ActionChoices minAction = type(ActionChoices).min; // ActionChoices.GoLeft ， 也就是0
     }
 }

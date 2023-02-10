@@ -9,17 +9,17 @@ contract ExampleContract {
         owner = msg.sender;
     }
 
-    function mint() external {
+    function mint() external view {
         require(msg.sender == owner, "Only the owner can call this function.");
         // Function code goes here
     }
 
-    function changeOwner() external {
+    function changeOwner() external view {
         require(msg.sender == owner, "Only the owner can call this function.");
         // Function code goes here
     }
 
-    function pause() external {
+    function pause() external view {
         require(msg.sender == owner, "Only the owner can call this function.");
         // Function code goes here
     }

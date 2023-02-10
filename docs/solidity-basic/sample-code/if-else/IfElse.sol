@@ -9,5 +9,6 @@ contract ExampleContract {
         } else if (age < 65) {
             return "adult";
         } 
-        return "unknown"
+        return "unknown";
+    }
 }

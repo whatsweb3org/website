@@ -194,7 +194,7 @@ delegatecall(bytes memory) returns (bool, bytes memory)
 05. 可以使用 payable() 函数将地址字面值显式转换为可收款地址类型
 06. `balance`：可以获取地址余额
 07. `transfer()`：可以向指定地址转账
-08. `send()`：与 `transfer()` 函数类似，但是如果转账失败会抛出异常
+08. `send()`：与 `transfer()` 函数类似，但是如果转账失败不会抛出异常，会返回false
 09. `call()`：可以调用其他合约中的函数
 10. `delegatecall()`：与 `call()` 函数类似，但是使用当前合约的上下文来调用其他合约中的函数
 11. `staticcall()`: 与 `call()` 函数类似，但是不会允许有改变状态变量的操作

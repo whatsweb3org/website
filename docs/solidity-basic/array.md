@@ -182,7 +182,7 @@ uint[] memory nftArr = new uint[](n);
 :::tip 在 `storage` 的动态数组可以用数组字面值初始化
 
 ```solidity
-uint[] storageArr = [uint(1), 2]; // 动态数组只有在storage位置才能用数组字面值初始化
+uint[] storage Arr = [uint(1), 2]; // 动态数组只有在storage位置才能用数组字面值初始化
 ```
 
 <tryit fileName={ 'InitStorageDynamicArrayWithLiteral.sol' } />
